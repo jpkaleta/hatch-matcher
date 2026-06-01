@@ -18,15 +18,10 @@
   header span{font-size:11px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;}
   .container{padding:16px 16px 40px;max-width:700px;margin:0 auto;}
   .section-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
-
-  /* STOCKING BANNER */
   .stocking-banner{display:none;padding:9px 12px;background:var(--warnbg);border:1px solid var(--amber);border-radius:6px;margin-bottom:14px;font-size:11px;color:var(--amber2);line-height:1.6;}
   .stocking-banner.visible{display:block;}
-
-  /* DRY DROPPER TIP */
   .dd-tip{display:none;padding:8px 12px;background:var(--okbg);border-left:2px solid var(--ok);border-radius:4px;margin-bottom:14px;font-size:11px;color:var(--ok);line-height:1.6;}
   .dd-tip.visible{display:block;}
-
   .cond-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;padding:12px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;}
   .cond-group{display:flex;flex-direction:column;gap:5px;}
   .cond-group .clabel{font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;}
@@ -35,21 +30,21 @@
   .pill:hover{border-color:var(--green);color:var(--green3);}
   .pill.active{background:var(--green);border-color:var(--green);color:#fff;}
   .pill.active-amber{background:var(--amber);border-color:var(--amber);color:#fff;}
-
   .throw-btn{width:100%;padding:12px;margin-bottom:20px;background:var(--green);border:none;border-radius:6px;color:#fff;font-family:'Georgia',serif;font-size:14px;letter-spacing:.06em;cursor:pointer;transition:background .15s;}
   .throw-btn:hover{background:var(--green2);}
-
   .rec-panel{margin-bottom:20px;border:1px solid var(--green);border-radius:6px;background:var(--bg3);padding:14px;}
   .rec-panel h3{font-size:13px;font-weight:normal;color:var(--green3);letter-spacing:.06em;margin-bottom:12px;}
-  .rec-item{padding:8px 0;border-bottom:1px solid var(--border);}
+  .rec-item{padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;}
   .rec-item:last-child{border-bottom:none;}
+  .rec-img{width:64px;height:48px;object-fit:cover;border-radius:4px;border:1px solid var(--border2);flex-shrink:0;background:var(--bg2);}
+  .rec-img-ph{width:64px;height:48px;border-radius:4px;border:1px dashed var(--border2);flex-shrink:0;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--text3);text-align:center;}
+  .rec-info{flex:1;}
   .rec-fly{font-size:13px;color:var(--text);}
   .rec-hatch{font-size:10px;color:var(--green2);margin-top:2px;letter-spacing:.05em;}
   .rec-why{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.4;}
   .rec-badge{display:inline-block;font-size:9px;padding:2px 6px;border-radius:10px;margin-left:5px;background:var(--green);color:#fff;}
   .rec-badge-amber{display:inline-block;font-size:9px;padding:2px 6px;border-radius:10px;margin-left:5px;background:var(--amber);color:#fff;}
   .rec-none{font-size:12px;color:var(--text3);font-style:italic;padding:8px 0;}
-
   .bug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;margin-bottom:16px;}
   .bug-card{padding:10px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:var(--card);transition:border-color .15s;}
   .bug-card:hover{border-color:var(--border2);}
@@ -59,7 +54,6 @@
   .bug-card.selected .bname{color:var(--green3);}
   .bug-card .bsub{font-size:10px;color:var(--text3);margin-top:2px;font-style:italic;}
   .bug-card .bnow{font-size:9px;color:var(--green2);margin-top:4px;letter-spacing:.08em;}
-
   .detail{border:1px solid var(--border2);border-radius:6px;padding:16px;background:var(--card);}
   .detail h2{font-size:16px;font-weight:normal;color:var(--green3);margin-bottom:2px;}
   .detail .latin{font-size:11px;color:var(--text3);font-style:italic;margin-bottom:12px;}
@@ -77,8 +71,11 @@
   .stage-btn{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border2);cursor:pointer;background:transparent;color:var(--text2);font-family:'Georgia',serif;transition:all .15s;}
   .stage-btn:hover{border-color:var(--green);color:var(--green3);}
   .stage-btn.active{background:var(--green);border-color:var(--green);color:#fff;}
-  .fly-item{padding:8px 0;border-bottom:1px solid var(--border);}
+  .fly-item{padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;}
   .fly-item:last-child{border-bottom:none;}
+  .fly-img{width:80px;height:60px;object-fit:cover;border-radius:4px;border:1px solid var(--border2);flex-shrink:0;}
+  .fly-img-ph{width:80px;height:60px;border-radius:4px;border:1px dashed var(--border2);flex-shrink:0;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--text3);text-align:center;line-height:1.4;}
+  .fly-info{flex:1;}
   .fly-header{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:3px;}
   .fly-name{font-size:13px;color:var(--text);}
   .fly-size{font-size:11px;color:var(--text3);}
@@ -100,7 +97,6 @@
   <span>Watauga · Ashe · Avery Counties</span>
 </header>
 <div class="container">
-
   <div class="section-label">Water conditions</div>
   <div class="cond-row">
     <div class="cond-group">
@@ -137,11 +133,10 @@
   </div>
 
   <div class="stocking-banner" id="stocking-banner">
-    &#9651; <strong>Reduced stocking 2026–2028:</strong> Setzer State Fish Hatchery is undergoing major renovation. Stocking on Delayed Harvest waters is reduced and may be intermittent — including gaps with no stocking at all. Check <strong>ncpaws.org</strong> for current stocking schedules before planning a DH trip.
+    &#9651; <strong>Reduced stocking 2026–2028:</strong> Setzer State Fish Hatchery is undergoing major renovation. Stocking on Delayed Harvest waters is reduced and may be intermittent. Check <strong>ncpaws.org</strong> before planning a DH trip.
   </div>
-
   <div class="dd-tip" id="dd-tip">
-    &#10003; <strong>Low water tip:</strong> Avoid large strike indicators in clear low flows — fish see them. Use a <strong>dry dropper rig</strong> instead: tie your nymph 12–18" off the bend of a buoyant dry fly (Elk Hair Caddis or Chubby Chernobyl work well). More stealthy, more effective, and you might get two takes at once.
+    &#10003; <strong>Low water tip:</strong> Avoid large strike indicators in clear low flows. Use a <strong>dry dropper rig</strong> instead — tie your nymph 12–18" off the bend of a buoyant dry fly. More stealthy, more effective.
   </div>
 
   <button class="throw-btn" onclick="showRecommendations()">&#9654; What should I throw right now?</button>
@@ -150,38 +145,31 @@
   <div class="divider">Or browse by hatch</div>
   <div class="bug-grid" id="bug-grid"></div>
   <div id="detail-panel"><div id="placeholder">Tap a hatch above to see fly patterns, life stages, and your local waters.</div></div>
-
 </div>
+
 <script>
 const MONTHS=['J','F','M','A','M','J','J','A','S','O','N','D'];
 const NOW=new Date().getMonth();
 const HOUR=new Date().getHours();
+const IMG='flies/';
 
-function timeOfDay(){
-  if(HOUR>=5&&HOUR<10)return'morning';
-  if(HOUR>=10&&HOUR<16)return'midday';
-  if(HOUR>=16&&HOUR<20)return'evening';
-  return'night';
-}
-
-// dh:true = particularly effective on pressured DH water
+// img: filename string = have it | null = placeholder needed
 const bugs=[
   {
     id:'midge',name:'Midge',latin:'Diptera spp.',
-    months:[0,1,2,3,9,10,11],
-    timeOfDay:['midday','evening'],
+    months:[0,1,2,3,9,10,11],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
-        {name:'Zebra Midge',size:'#20-24',note:'Black thread body, silver wire rib, bead head. Dead-drift deep in pools. Your most reliable cold-water nymph.',dh:true},
-        {name:'Mercury Midge',size:'#22-24',note:'Glass bead, olive or black body. Killer in slow clear water.',dh:true},
-        {name:'Frenchie',size:'#18-20',note:'Pheasant tail body with hot spot collar. Excellent on pressured fish that have seen standard midges.',dh:true}
+        {name:'Zebra Midge',size:'#20-24',note:'Black thread body, silver wire rib. Dead-drift deep in pools.',dh:true,img:'Bead Head Zebra Midge_Black.webp'},
+        {name:'Mercury Midge',size:'#22-24',note:'Glass bead, olive or black. Killer in slow clear water.',dh:true,img:null},
+        {name:'Frenchie',size:'#18-20',note:'Pheasant tail body with hot spot collar. Effective on pressured fish.',dh:true,img:null}
       ],
       Emerger:[
-        {name:'Midge Emerger',size:'#20-24',note:'Hang in the surface film on long 7X tippet.',dh:false},
-        {name:'WD40',size:'#20-22',note:'Sparse olive or gray body, CDC tail. One of the most effective emerger patterns in WNC.',dh:true}
+        {name:'Midge Emerger',size:'#20-24',note:'Hang in the surface film on long 7X tippet.',dh:false,img:null},
+        {name:'WD40',size:'#20-22',note:'Sparse olive or gray body, CDC tail. One of the most effective emerger patterns in WNC.',dh:true,img:'Bead Head WD40_Olive.webp'}
       ],
       Adult:[
-        {name:'Griffith\'s Gnat',size:'#18-22',note:'Peacock herl and grizzly hackle. Imitates midge cluster on the surface.',dh:false}
+        {name:'Griffith\'s Gnat',size:'#18-22',note:'Peacock herl and grizzly hackle. Imitates midge cluster on the surface.',dh:false,img:null}
       ]
     },
     peak:'Afternoon (Jan–Feb, Oct–Nov)',
@@ -189,29 +177,28 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cold','cool']},
     condNote:'Only reliable hatch in cold/winter conditions. Clear low water demands 7X tippet and a very slow drift.',
     tip:'Try black first, then red, then olive. If fish are rising but refusing, drop to a smaller size before switching patterns.',
-    recNote:'Best in winter afternoons. Dead-drift the Zebra Midge deep in pools on 7X tippet. On DH water try the Frenchie or WD40 for more selective fish.'
+    recNote:'Best in winter afternoons. Dead-drift the Zebra Midge deep in pools on 7X tippet. On DH water try the Frenchie or WD40 for selective fish.'
   },
   {
     id:'bwo',name:'Blue-Winged Olive',latin:'Baetis spp.',
-    months:[1,2,3,4,8,9,10],
-    timeOfDay:['midday','evening'],
+    months:[1,2,3,4,8,9,10],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
-        {name:'Pheasant Tail Nymph',size:'#16-20',note:'Standard WNC go-to. Dead-drift near bottom.',dh:false},
-        {name:'Hare\'s Ear Nymph',size:'#16-18',note:'Slightly buggier profile. Good in stained water.',dh:false},
-        {name:'Frenchie',size:'#16-18',note:'Hot spot collar — effective on pressured DH fish that have seen standard PT nymphs.',dh:true},
-        {name:'Duracell',size:'#16-18',note:'Tungsten bead, peacock body, red collar. Sinks fast and triggers strikes on selective trout.',dh:true}
+        {name:'Pheasant Tail Nymph',size:'#16-20',note:'Standard WNC go-to. Dead-drift near bottom.',dh:false,img:'Bead Head Pheasant Tail.webp'},
+        {name:'Hare\'s Ear Nymph',size:'#16-18',note:'Slightly buggier profile. Good in stained water.',dh:false,img:'Bead Head Hares Ear_Olive.webp'},
+        {name:'Frenchie',size:'#16-18',note:'Hot spot collar — effective on pressured DH fish.',dh:true,img:null},
+        {name:'Duracell',size:'#16-18',note:'Tungsten bead, peacock body, red collar. Sinks fast and triggers strikes on selective trout.',dh:true,img:null}
       ],
       Emerger:[
-        {name:'Sparkle Dun',size:'#18-22',note:'Zelon tail, no post. Fish in the surface film during the hatch.',dh:false},
-        {name:'RS2',size:'#20-22',note:'Deadly during BWO hatches. One of the best film flies in the region.',dh:true}
+        {name:'Sparkle Dun',size:'#18-22',note:'Zelon tail, no post. Fish in the surface film during the hatch.',dh:false,img:null},
+        {name:'RS2',size:'#20-22',note:'Deadly during BWO hatches. One of the best film flies in the region.',dh:true,img:null}
       ],
       Dun:[
-        {name:'Blue-Winged Olive Parachute',size:'#18-22',note:'Classic gray post, olive body.',dh:false},
-        {name:'Adams Parachute',size:'#18-22',note:'Universal dun imitation. Always carry it.',dh:false}
+        {name:'Blue-Winged Olive Parachute',size:'#18-22',note:'Classic gray post, olive body.',dh:false,img:null},
+        {name:'Adams Parachute',size:'#18-22',note:'Universal dun imitation. Always carry it.',dh:false,img:'Adams Parachute Hi-Viz Dry.webp'}
       ],
       Spinner:[
-        {name:'Rusty Spinner',size:'#18-20',note:'Spent wing. Dead-drift flat on the surface after the hatch.',dh:false}
+        {name:'Rusty Spinner',size:'#18-20',note:'Spent wing. Dead-drift flat on the surface after the hatch.',dh:false,img:null}
       ]
     },
     peak:'Early afternoon, overcast/rainy days',
@@ -219,18 +206,17 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cold','cool']},
     condNote:'Bad-weather hatch. Overcast, drizzly, cold — that\'s your signal. They shut down in bright sun and warm water.',
     tip:'If it starts raining and you were thinking of leaving — stay. That\'s the signal.',
-    recNote:'Overcast or rainy? This is your moment. RS2 or Sparkle Dun in the film, then switch to a Parachute Adams when fish start rising.'
+    recNote:'Overcast or rainy? This is your moment. RS2 or Sparkle Dun in the film, then switch to Adams Parachute when fish start rising.'
   },
   {
     id:'ebs',name:'Early Black Stone',latin:'Capnia/Allocapnia spp.',
-    months:[0,1,2],
-    timeOfDay:['morning','midday','evening'],
+    months:[0,1,2],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
-        {name:'Black Stonefly Nymph',size:'#18',note:'Fish along bottom near rocky substrate. Dead-drift.',dh:false}
+        {name:'Black Stonefly Nymph',size:'#18',note:'Fish along bottom near rocky substrate. Dead-drift.',dh:false,img:null}
       ],
       Adult:[
-        {name:'Black Adult Stonefly',size:'#18',note:'Small black dry. Fish seams and edges all day.',dh:false}
+        {name:'Black Adult Stonefly',size:'#18',note:'Small black dry. Fish seams and edges all day.',dh:false,img:null}
       ]
     },
     peak:'All day, January–March',
@@ -242,18 +228,17 @@ const bugs=[
   },
   {
     id:'bq',name:'Blue Quill',latin:'Paraleptophlebia adoptiva',
-    months:[1,2,3],
-    timeOfDay:['morning','midday'],
+    months:[1,2,3],timeOfDay:['morning','midday'],
     stages:{
       Nymph:[
-        {name:'Pheasant Tail Nymph',size:'#18',note:'Slim profile. Dead-drift near substrate.',dh:false}
+        {name:'Pheasant Tail Nymph',size:'#18',note:'Slim profile. Dead-drift near substrate.',dh:false,img:'Bead Head Pheasant Tail.webp'}
       ],
       Dun:[
-        {name:'Blue Quill',size:'#18',note:'Wet or dry. Gray wing, dark body. Late March mornings.',dh:false},
-        {name:'Adams Parachute',size:'#18',note:'Reliable stand-in.',dh:false}
+        {name:'Blue Quill',size:'#18',note:'Wet or dry. Gray wing, dark body. Late March mornings.',dh:false,img:null},
+        {name:'Adams Parachute',size:'#18',note:'Reliable stand-in.',dh:false,img:'Adams Parachute Hi-Viz Dry.webp'}
       ],
       Spinner:[
-        {name:'Blue Quill Spinner',size:'#18',note:'Dark rusty body, spent wings. Surface drift.',dh:false}
+        {name:'Blue Quill Spinner',size:'#18',note:'Dark rusty body, spent wings. Surface drift.',dh:false,img:null}
       ]
     },
     peak:'Late March mornings to early afternoon',
@@ -261,20 +246,19 @@ const bugs=[
     condMatch:{clarity:['clear'],flow:['low','normal'],temp:['cold','cool']},
     condNote:'Technical hatch — clear water and light flows. Light tippet (6X) and accurate presentation matter.',
     tip:'Often overlaps with Quill Gordons in late March. Watch the fish carefully to see which they\'re keying on.',
-    recNote:'Late March mornings on clear water. Start with the PT nymph, switch to Parachute Adams when fish start rising.'
+    recNote:'Late March mornings on clear water. Start with the PT nymph, switch to Adams Parachute when fish start rising.'
   },
   {
     id:'qg',name:'Quill Gordon',latin:'Epeorus pleuralis',
-    months:[2,3],
-    timeOfDay:['midday'],
+    months:[2,3],timeOfDay:['midday'],
     stages:{
       Nymph:[
-        {name:'Hare\'s Ear Nymph',size:'#12-14',note:'Dead-drift along bottom in runs before the hatch.',dh:false},
-        {name:'Quill Gordon Nymph',size:'#14',note:'Swim toward surface at hatch time.',dh:false}
+        {name:'Hare\'s Ear Nymph',size:'#12-14',note:'Dead-drift along bottom in runs before the hatch.',dh:false,img:'Bead Head Hares Ear Nymph Hot Head Tan.webp'},
+        {name:'Quill Gordon Nymph',size:'#14',note:'Swim toward surface at hatch time.',dh:false,img:null}
       ],
       Dun:[
-        {name:'Quill Gordon',size:'#12-14',note:'Wet or dry. First major dry fly hatch of the WNC season.',dh:false},
-        {name:'Adams Parachute',size:'#12-14',note:'Good substitute in faster water.',dh:false}
+        {name:'Quill Gordon',size:'#12-14',note:'Wet or dry. First major dry fly hatch of the WNC season.',dh:false,img:null},
+        {name:'Adams Parachute',size:'#12-14',note:'Good substitute in faster water.',dh:false,img:'Adams Parachute Hi-Viz Dry.webp'}
       ]
     },
     peak:'Late March–early April, early afternoons',
@@ -286,20 +270,20 @@ const bugs=[
   },
   {
     id:'caddis',name:'Caddis',latin:'Trichoptera spp.',
-    months:[3,4,5,6,7,8],
-    timeOfDay:['morning','midday','evening'],
+    months:[3,4,5,6,7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Larva:[
-        {name:'Caddis Larva (green)',size:'#14-16',note:'Dead-drift near bottom. Effective all season.',dh:false}
+        {name:'Caddis Larva (green)',size:'#14-16',note:'Dead-drift near bottom. Effective all season.',dh:false,img:null},
+        {name:'Killer Caddis (yellow)',size:'#14-16',note:'Yellow/olive bead head variant. Good attractor larva pattern.',dh:false,img:'Bead Head Killer Caddis_Yellow.webp'}
       ],
       Pupa:[
-        {name:'Soft Hackle Wet Fly',size:'#14-18',note:'Swing through current at various depths.',dh:false},
-        {name:'X-Caddis',size:'#14-16',note:'Trailing shuck — fish in the film during emergence.',dh:false}
+        {name:'Soft Hackle Wet Fly',size:'#14-18',note:'Swing through current at various depths.',dh:false,img:'Bead Head Pheasant Tail Soft Hackle.webp'},
+        {name:'X-Caddis',size:'#14-16',note:'Trailing shuck — fish in the film during emergence.',dh:false,img:null}
       ],
       Adult:[
-        {name:'Elk Hair Caddis',size:'#14-16',note:'Brown or gray. Standard WNC summer dry fly.',dh:false},
-        {name:'Black Elk Hair Caddis',size:'#14-16',note:'For dark/black caddis mid-April mornings.',dh:false},
-        {name:'Chubby Chernobyl',size:'#12-14',note:'Foam body, rubber legs. Highly visible — excellent dry dropper anchor fly. Also draws aggressive takes on its own.',dh:false}
+        {name:'Elk Hair Caddis (tan)',size:'#14-16',note:'Standard WNC summer dry fly.',dh:false,img:'Elk Hair Caddis Dry_Tan with Sighter.webp'},
+        {name:'Elk Hair Caddis (olive)',size:'#14-16',note:'For dark/black caddis mid-April mornings.',dh:false,img:'Elk Hair Caddis_Olive.webp'},
+        {name:'Chubby Chernobyl',size:'#12-14',note:'Foam body, rubber legs. Highly visible — excellent dry dropper anchor fly.',dh:false,img:'Chubby Chernobyl_Purple.webp'}
       ]
     },
     peak:'All day; dark caddis mid-April mornings; brown/gray May–June',
@@ -307,21 +291,21 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['low','normal','high'],temp:['cool','warm']},
     condNote:'Extremely adaptable — hatches across a wide range of conditions. High water: swing the soft hackle. Low clear water: go smaller and lighter.',
     tip:'When females are egg-laying (dipping on the surface), fish often go airborne. A skating or twitched dry fly triggers explosive takes.',
-    recNote:'Your most versatile hatch. High water: swing the Soft Hackle Wet. Low clear water: dead-drift the larva. Surface: Elk Hair Caddis or Chubby Chernobyl as a dry dropper anchor.'
+    recNote:'Your most versatile hatch. High water: swing the Soft Hackle. Low clear water: dead-drift the larva. Surface: Elk Hair Caddis or Chubby Chernobyl as dry dropper anchor.'
   },
   {
     id:'hendrickson',name:'Hendrickson',latin:'Ephemerella subvaria',
-    months:[4],
-    timeOfDay:['morning','midday','evening'],
+    months:[4],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
-        {name:'Hare\'s Ear Nymph',size:'#14',note:'Dead-drift near bottom before hatch time.',dh:false},
-        {name:'Hendrickson Nymph',size:'#14',note:'Swim toward surface as hatch time approaches.',dh:false}
+        {name:'Hare\'s Ear Nymph',size:'#14',note:'Dead-drift near bottom before hatch time.',dh:false,img:'Bead Head Hares Ear_Olive.webp'},
+        {name:'Hendrickson Nymph',size:'#14',note:'Swim toward surface as hatch time approaches.',dh:false,img:'Bead Head Hendrickson.webp'}
       ],
       Dun:[
-        {name:'Hendrickson',size:'#14',note:'All day. Female has yellow egg sac.',dh:false},
-        {name:'Red Quill',size:'#14',note:'Imitates male. Reddish-brown body.',dh:false},
-        {name:'Female Adams',size:'#14',note:'Yellow egg sac body.',dh:false}
+        {name:'Hendrickson',size:'#14',note:'All day. Female has yellow egg sac.',dh:false,img:null},
+        {name:'Red Quill',size:'#14',note:'Imitates male. Reddish-brown body.',dh:false,img:null},
+        {name:'Female Adams',size:'#14',note:'Yellow egg sac body.',dh:false,img:null},
+        {name:'Adams Parachute',size:'#14',note:'Universal stand-in.',dh:false,img:'Adams Parachute Hi-Viz Dry.webp'}
       ]
     },
     peak:'All day, May',
@@ -329,19 +313,19 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['normal'],temp:['cool']},
     condNote:'Male and female look different; trout can be selective. The female with the yellow egg sac is often what fish want.',
     tip:'Once you find a productive pool during Hendrickson season, mark it. The hatch returns to the same spots year after year.',
-    recNote:'All-day May hatch. Fish the nymph until you see surface activity. Watch whether fish key on the male or female dun pattern.'
+    recNote:'All-day May hatch. Fish the nymph until you see surface activity. Watch whether fish key on the male or female dun.'
   },
   {
     id:'marchbrown',name:'March Brown',latin:'Stenonema vicarium',
-    months:[4],
-    timeOfDay:['morning','midday','evening'],
+    months:[4],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
-        {name:'March Brown Nymph',size:'#12',note:'Large active nymph. Dead-drift or swing.',dh:false}
+        {name:'March Brown Nymph',size:'#12',note:'Large active nymph. Dead-drift or swing.',dh:false,img:null},
+        {name:'Hare\'s Ear Nymph',size:'#12',note:'Good stand-in. Large red bead variant for extra attraction.',dh:false,img:'Bead Head Hares Ear Nymph Hot Head Tan.webp'}
       ],
       Dun:[
-        {name:'March Brown',size:'#12',note:'Mid-May, sporadic all day. Big easy-to-see fly.',dh:false},
-        {name:'Adams Parachute',size:'#12',note:'Reliable stand-in in faster water.',dh:false}
+        {name:'March Brown',size:'#12',note:'Mid-May, sporadic all day. Big easy-to-see fly.',dh:false,img:null},
+        {name:'Adams Parachute',size:'#12',note:'Reliable stand-in in faster water.',dh:false,img:'Adams Parachute Hi-Viz Dry.webp'}
       ]
     },
     peak:'Mid-May, sporadic all day',
@@ -349,28 +333,27 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['normal'],temp:['cool']},
     condNote:'One of the largest mayflies in WNC. Sporadic but trout respond aggressively — a size 12 is a real meal.',
     tip:'Great confidence fly for beginners — easy to see on the water. If you see a large mayfly floating past, fish are probably eating it.',
-    recNote:'Big fly, aggressive takes. Size 12 Adams Parachute is a solid stand-in. If you see a large mayfly on the water, tie one on.'
+    recNote:'Big fly, aggressive takes. Adams Parachute #12 is a solid stand-in. If you see a large mayfly on the water, tie one on.'
   },
   {
     id:'sulphur',name:'Sulphur',latin:'Ephemerella dorothea',
-    months:[4,5],
-    timeOfDay:['evening'],
+    months:[4,5],timeOfDay:['evening'],
     stages:{
       Nymph:[
-        {name:'Sulphur Nymph',size:'#16-18',note:'Dead-drift near bottom in runs and riffles.',dh:false},
-        {name:'Frenchie',size:'#16-18',note:'Hot spot collar triggers strikes on selective trout. Particularly effective on pressured DH fish.',dh:true},
-        {name:'Duracell',size:'#16-18',note:'Tungsten bead, peacock body, red hot spot. Sinks fast — good in deeper evening runs.',dh:true}
+        {name:'Sulphur Nymph',size:'#16-18',note:'Dead-drift near bottom in runs and riffles.',dh:false,img:'Bead Head Hendrickson_Tan.webp'},
+        {name:'Frenchie',size:'#16-18',note:'Hot spot collar triggers strikes on selective trout.',dh:true,img:null},
+        {name:'Duracell',size:'#16-18',note:'Tungsten bead, peacock body, red hot spot. Sinks fast.',dh:true,img:null}
       ],
       Emerger:[
-        {name:'Sulphur Emerger',size:'#16-18',note:'Surface film. Very effective during hatch.',dh:false},
-        {name:'RS2',size:'#18-20',note:'Sparse CDC tail — fish flush in the film during emergence.',dh:true}
+        {name:'Sulphur Emerger',size:'#16-18',note:'Surface film. Very effective during hatch.',dh:false,img:null},
+        {name:'RS2',size:'#18-20',note:'Sparse CDC tail — fish flush in the film during emergence.',dh:true,img:null}
       ],
       Dun:[
-        {name:'Sulphur Dry',size:'#16-18',note:'Pale yellow body. Late afternoon/evening.',dh:false},
-        {name:'Light Cahill',size:'#16-18',note:'Close enough — a good stand-in.',dh:false}
+        {name:'Sulphur Dry',size:'#16-18',note:'Pale yellow body. Late afternoon/evening.',dh:false,img:null},
+        {name:'Light Cahill',size:'#16-18',note:'Close enough — a good stand-in.',dh:false,img:'Cahill Light Parachute Dry.webp'}
       ],
       Spinner:[
-        {name:'Sulphur Spinner',size:'#16-18',note:'Spent wing. Critical at dusk — often the best fishing of the evening.',dh:false}
+        {name:'Sulphur Spinner',size:'#16-18',note:'Spent wing. Critical at dusk.',dh:false,img:null}
       ]
     },
     peak:'Late afternoon through evening, May–June',
@@ -382,17 +365,16 @@ const bugs=[
   },
   {
     id:'lightcahill',name:'Light Cahill',latin:'Stenonema ithaca',
-    months:[4,5,6,7,8],
-    timeOfDay:['midday','evening'],
+    months:[4,5,6,7,8],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
-        {name:'Hare\'s Ear Nymph',size:'#16-18',note:'General nymph before hatch.',dh:false}
+        {name:'Hare\'s Ear Nymph',size:'#16-18',note:'General nymph before hatch.',dh:false,img:'Bead Head Hares Ear_Olive.webp'}
       ],
       Dun:[
-        {name:'Light Cahill',size:'#16-18',note:'Cream/tan body. Afternoon–evening May through September.',dh:false}
+        {name:'Light Cahill',size:'#16-18',note:'Cream/tan body. Afternoon–evening May through September.',dh:false,img:'Cahill Light Parachute Dry.webp'}
       ],
       Spinner:[
-        {name:'Light Cahill Spinner',size:'#16-18',note:'Spent wing at dusk, September especially.',dh:false}
+        {name:'Light Cahill Spinner',size:'#16-18',note:'Spent wing at dusk, September especially.',dh:false,img:null}
       ]
     },
     peak:'Afternoon–evening May–September; dusk in September',
@@ -404,15 +386,15 @@ const bugs=[
   },
   {
     id:'greendrakec',name:'Green Drake',latin:'Ephemera guttulata',
-    months:[4],
-    timeOfDay:['evening'],
+    months:[4],timeOfDay:['evening'],
     stages:{
       Nymph:[
-        {name:'Green Drake Nymph',size:'#10',note:'Large burrowing nymph. Effective before the hatch.',dh:false}
+        {name:'Green Drake Nymph',size:'#10',note:'Large burrowing nymph. Effective before the hatch.',dh:false,img:null}
       ],
       Dun:[
-        {name:'Paradrake',size:'#10',note:'Late May evenings. Big unmistakable fly.',dh:false},
-        {name:'White Wulff',size:'#8-10',note:'High-floating alternative.',dh:false}
+        {name:'Paradrake',size:'#10',note:'Late May evenings. Big unmistakable fly.',dh:false,img:null},
+        {name:'White Wulff',size:'#8-10',note:'High-floating alternative.',dh:false,img:null},
+        {name:'Stimulator',size:'#8-10',note:'Large attractor stand-in if you don\'t have a Paradrake.',dh:false,img:'Stimulator Dry_Yellow.webp'}
       ]
     },
     peak:'Late May evenings only',
@@ -424,15 +406,14 @@ const bugs=[
   },
   {
     id:'giantstonefly',name:'Giant Stonefly',latin:'Pteronarcys spp.',
-    months:[4,5,6],
-    timeOfDay:['morning'],
+    months:[4,5,6],timeOfDay:['morning'],
     stages:{
       Nymph:[
-        {name:'Kaufmann\'s Stone (brown)',size:'#4-6',note:'The standard. Fish early morning along the bottom near structure in high or off-color water.',dh:false},
-        {name:'Giant Stonefly Nymph',size:'#4-8',note:'Any large dark stonefly nymph pattern. Fish deep before sunrise.',dh:false}
+        {name:'Kaufmann\'s Stone (brown)',size:'#4-6',note:'The standard. Fish early morning along the bottom near structure.',dh:false,img:null},
+        {name:'Hare\'s Ear (large)',size:'#6-8',note:'Large red bead variant — reasonable stand-in in a pinch.',dh:false,img:'Bead Head Hares Ear Nymph Hot Head Tan.webp'}
       ],
       Adult:[
-        {name:'Stimulator',size:'#6-8',note:'June mornings. Large attractor dry.',dh:false}
+        {name:'Stimulator',size:'#6-8',note:'June mornings. Large attractor dry.',dh:false,img:'Stimulator Dry_Yellow.webp'}
       ]
     },
     peak:'Early morning May–June (nymph); adult June mornings',
@@ -444,37 +425,36 @@ const bugs=[
   },
   {
     id:'isonychia',name:'Isonychia',latin:'Isonychia bicolor',
-    months:[5,6,7,8],
-    timeOfDay:['morning','midday','evening'],
+    months:[5,6,7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
-        {name:'Iso Nymph / Zug Bug',size:'#12',note:'Fast water swimmer. Swing or dead-drift through runs.',dh:false}
+        {name:'Zug Bug',size:'#12',note:'Fast water swimmer. Swing or dead-drift through runs.',dh:false,img:null},
+        {name:'Prince Nymph',size:'#12',note:'Good Isonychia stand-in. Swing through fast water.',dh:false,img:'Bead Head Prince.webp'}
       ],
       Dun:[
-        {name:'Adams Parachute',size:'#12',note:'Sporadic all day June–September.',dh:false}
+        {name:'Adams Parachute',size:'#12',note:'Sporadic all day June–September.',dh:false,img:'Adams Parachute Hi-Viz Dry.webp'}
       ],
       Spinner:[
-        {name:'Mahogany Spinner',size:'#12',note:'Dark reddish-brown spent wing.',dh:false}
+        {name:'Mahogany Spinner',size:'#12',note:'Dark reddish-brown spent wing.',dh:false,img:null}
       ]
     },
     peak:'Sporadic all day, June–September',
     rivers:['South Fork New River','North Fork New River','Watauga River','Laurel Creek'],
     condMatch:{clarity:['clear','stained'],flow:['normal'],temp:['cool','warm']},
     condNote:'Isonychia nymphs are strong swimmers — swinging the wet version through a run is often more effective than dead-drifting.',
-    tip:'A size 12 Adams covers the dun. But don\'t overlook the swung nymph early in the day before adults appear.',
-    recNote:'Swing the Zug Bug through fast runs all day June–September. Adams Parachute when fish are rising.'
+    tip:'Don\'t overlook the swung nymph early in the day before adults appear.',
+    recNote:'Swing the Zug Bug or Prince through fast runs all day June–September. Adams Parachute when fish are rising.'
   },
   {
     id:'yellowsally',name:'Yellow Sally',latin:'Isoperla spp.',
-    months:[5,6,7],
-    timeOfDay:['evening'],
+    months:[5,6,7],timeOfDay:['evening'],
     stages:{
       Nymph:[
-        {name:'Yellow Stonefly Nymph',size:'#16',note:'Fish along rocky bottom in riffles.',dh:false}
+        {name:'Yellow Stonefly Nymph',size:'#16',note:'Fish along rocky bottom in riffles.',dh:false,img:null}
       ],
       Adult:[
-        {name:'Yellow Sally',size:'#16',note:'Late afternoons June–July.',dh:false},
-        {name:'Stimulator (yellow)',size:'#16',note:'Good attractor alternative.',dh:false}
+        {name:'Yellow Sally',size:'#16',note:'Late afternoons June–July.',dh:false,img:null},
+        {name:'Stimulator (yellow)',size:'#16',note:'Good attractor alternative.',dh:false,img:'Stimulator Dry_Yellow.webp'}
       ]
     },
     peak:'Late afternoons, June–July',
@@ -482,18 +462,18 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cool','warm']},
     condNote:'Often overlooked but productive in summer when fish have seen every caddis and cahill. A little yellow dry can wake up a pool.',
     tip:'Fish riffles and the tails of pools. Yellow Sallies crawl out of the water on rocks before flying off.',
-    recNote:'Late afternoon on riffles and pool tails. Yellow Sally #16 or yellow Stimulator. Often overlooked — worth trying when fish are ignoring everything else.'
+    recNote:'Late afternoon on riffles and pool tails. Yellow Sally #16 or yellow Stimulator. Often overlooked — worth trying when fish ignore everything else.'
   },
   {
     id:'goldenstone',name:'Golden Stonefly',latin:'Acroneuria spp.',
-    months:[6,7,8],
-    timeOfDay:['morning','evening'],
+    months:[6,7,8],timeOfDay:['morning','evening'],
     stages:{
       Nymph:[
-        {name:'Golden Stonefly Nymph',size:'#6-8',note:'Early morning and dusk. Fish deep near large boulders.',dh:false}
+        {name:'Golden Stonefly Nymph',size:'#6-8',note:'Early morning and dusk. Fish deep near large boulders.',dh:false,img:null},
+        {name:'Copper John (rubber leg)',size:'#6-8',note:'Heavy wire body — good stand-in for golden stone nymph.',dh:false,img:'Bead Head Copper John Rubber Leg_Copper.webp'}
       ],
       Adult:[
-        {name:'Stimulator (golden)',size:'#6-8',note:'Large attractor. Early morning and evening.',dh:false}
+        {name:'Stimulator (golden)',size:'#6-8',note:'Large attractor. Early morning and evening.',dh:false,img:'Stimulator Dry_Yellow.webp'}
       ]
     },
     peak:'Early morning and dusk, July–August',
@@ -505,18 +485,17 @@ const bugs=[
   },
   {
     id:'terrestrial',name:'Terrestrials',latin:'Ants, beetles, hoppers, inchworms',
-    months:[5,6,7,8,9],
-    timeOfDay:['morning','midday','evening'],
+    months:[5,6,7,8,9],timeOfDay:['morning','midday','evening'],
     stages:{
       Adult:[
-        {name:'Foam Ant (black)',size:'#14-18',note:'All-day producer June–September. Most versatile terrestrial in WNC.',dh:false},
-        {name:'Chubby Chernobyl',size:'#12-14',note:'Foam body, rubber legs. Excellent attractor and dry dropper anchor fly. Draws aggressive takes near shaded banks.',dh:false},
-        {name:'Beetle (foam/deer hair)',size:'#12-16',note:'July–August especially. Japanese beetles fall off trees into the water.',dh:false},
-        {name:'Inchworm (chartreuse foam)',size:'#12-14',note:'Fish tight to overhanging vegetation.',dh:false},
-        {name:'Dave\'s Hopper',size:'#8-12',note:'July–August afternoons near grassy banks.',dh:false},
-        {name:'Flying Ant (spent-wing)',size:'#20-24',note:'August–September. Black or brown. Dead-drift flat on the surface.',dh:false},
-        {name:'Squirmy Worm',size:'#12-14',note:'Rubber worm body — irresistible to stocked fish. Particularly effective on DH water after stocking.',dh:true},
-        {name:'San Juan Worm',size:'#12-14',note:'Red or pink chenille. Deadly after rain events when worms flush into the drift.',dh:false}
+        {name:'Foam Ant (black)',size:'#14-18',note:'All-day producer June–September. Most versatile terrestrial in WNC.',dh:false,img:null},
+        {name:'Chubby Chernobyl',size:'#12-14',note:'Foam body, rubber legs. Excellent attractor and dry dropper anchor fly.',dh:false,img:'Chubby Chernobyl_Purple.webp'},
+        {name:'Foam Beetle',size:'#12-16',note:'July–August especially. Japanese beetles fall off trees into the water.',dh:false,img:null},
+        {name:'Inchworm (chartreuse foam)',size:'#12-14',note:'Fish tight to overhanging vegetation.',dh:false,img:null},
+        {name:'Dave\'s Hopper',size:'#8-12',note:'July–August afternoons near grassy banks.',dh:false,img:null},
+        {name:'Squirmy Worm',size:'#12-14',note:'Rubber worm body — irresistible to stocked fish. Particularly effective on DH water.',dh:true,img:null},
+        {name:'San Juan Worm',size:'#12-14',note:'Red or pink chenille. Deadly after rain events when worms flush into the drift.',dh:false,img:'Bead Head San Juan Worm_Red.webp'},
+        {name:'Walt\'s Worm',size:'#12-14',note:'Natural worm imitation. Good complement to the San Juan in high or post-rain water.',dh:false,img:'Bead Head Walts Worm.webp'}
       ]
     },
     peak:'All summer; flying ants August–September',
@@ -524,16 +503,15 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['warm','cool']},
     condNote:'Dominant food source in WNC June through September. When it\'s hot and hatches are sparse, go terrestrial before you go home.',
     tip:'Fish tight to the bank under overhanging trees and brush. Ants and beetles fall off vegetation — fish know exactly where to look.',
-    recNote:'Hot summer day with no visible hatch? Go terrestrial. Foam Ant or Beetle tight to shaded banks. Chubby Chernobyl as a dry dropper anchor. San Juan Worm after rain.'
+    recNote:'Hot summer day with no visible hatch? Go terrestrial. Foam Ant or Beetle tight to shaded banks. Chubby Chernobyl as dry dropper anchor. San Juan Worm after rain.'
   },
   {
     id:'flyingant',name:'Flying Ant',latin:'Formicidae (winged)',
-    months:[7,8],
-    timeOfDay:['morning','midday','evening'],
+    months:[7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Adult:[
-        {name:'Spent-wing Black Ant',size:'#20-24',note:'Dead-drift flat on surface. Flush in film.',dh:false},
-        {name:'Spent-wing Brown Ant',size:'#20-24',note:'Brown version. Carry both colors.',dh:false}
+        {name:'Spent-wing Black Ant',size:'#20-24',note:'Dead-drift flat on surface. Flush in film.',dh:false,img:null},
+        {name:'Spent-wing Brown Ant',size:'#20-24',note:'Brown version. Carry both colors.',dh:false,img:null}
       ]
     },
     peak:'All day August–September',
@@ -548,36 +526,34 @@ const bugs=[
 const conds={watertype:null,clarity:null,flow:null,temp:null};
 let selectedBug=null,selectedStage=null;
 
+function timeOfDay(){
+  if(HOUR>=5&&HOUR<10)return'morning';
+  if(HOUR>=10&&HOUR<16)return'midday';
+  if(HOUR>=16&&HOUR<20)return'evening';
+  return'night';
+}
+
 function toggleCond(type,val){
   const el=document.getElementById('c-'+val);
   if(conds[type]===val){
     conds[type]=null;
-    el.classList.remove('active');
-    el.classList.remove('active-amber');
+    el.classList.remove('active','active-amber');
   } else {
-    // clear existing selection for this type
     if(conds[type]){
       const old=document.getElementById('c-'+conds[type]);
-      if(old){old.classList.remove('active');old.classList.remove('active-amber');}
+      if(old)old.classList.remove('active','active-amber');
     }
     conds[type]=val;
-    if(type==='watertype'&&val==='dh'){
-      el.classList.add('active-amber');
-    } else {
-      el.classList.add('active');
-    }
+    el.classList.add(type==='watertype'&&val==='dh'?'active-amber':'active');
   }
-  updateBanners();
-  renderGrid();
+  updateBanners();renderGrid();
   if(selectedBug)renderDetail();
   document.getElementById('rec-panel').innerHTML='';
 }
 
 function updateBanners(){
-  const isDH=conds.watertype==='dh';
-  const isLow=conds.flow==='low';
-  document.getElementById('stocking-banner').classList.toggle('visible',isDH);
-  document.getElementById('dd-tip').classList.toggle('visible',isLow);
+  document.getElementById('stocking-banner').classList.toggle('visible',conds.watertype==='dh');
+  document.getElementById('dd-tip').classList.toggle('visible',conds.flow==='low');
 }
 
 function bugMatches(bug){
@@ -600,53 +576,44 @@ function showRecommendations(){
     if(!bug.months.includes(NOW))return;
     const condOk=bugMatches(bug);
     const rightTime=bug.timeOfDay.includes(tod);
-
-    // collect best flies for this context
-    let bestFlies=[];
-    Object.entries(bug.stages).forEach(([stage,flies])=>{
-      flies.forEach(f=>{
-        // on DH water, prefer dh:true flies; on wild water, prefer dh:false
-        bestFlies.push({...f,stage,dhScore:f.dh?1:0});
-      });
+    let flies=[];
+    Object.entries(bug.stages).forEach(([stage,farr])=>{
+      farr.forEach(f=>flies.push({...f,stage}));
     });
-    if(isDH) bestFlies.sort((a,b)=>b.dhScore-a.dhScore);
-
+    if(isDH)flies.sort((a,b)=>(b.dh?1:0)-(a.dh?1:0));
     let score=0;
     if(condOk)score+=3;
     if(rightTime)score+=2;
-    if(isDH&&bestFlies.some(f=>f.dh))score+=1;
-
-    recs.push({bug,score,bestFlies,condOk,rightTime,isDH});
+    if(isDH&&flies.some(f=>f.dh))score+=1;
+    recs.push({bug,score,flies,condOk,isDH});
   });
 
   recs.sort((a,b)=>b.score-a.score);
   recs=recs.slice(0,5);
 
-  let html=`<div class="rec-panel"><h3>&#9654; Recommendations for ${monthName}, ${tod2}${isDH?' — Delayed Harvest':' — Wild / Freestone'}</h3>`;
+  const tod3={'morning':'this morning','midday':'midday','evening':'this evening','night':'tonight'}[tod];
+  let html=`<div class="rec-panel"><h3>&#9654; Recommendations for ${monthName}, ${tod3}${isDH?' — Delayed Harvest':' — Wild / Freestone'}</h3>`;
 
-  if(recs.length===0){
+  if(!recs.length){
     html+=`<div class="rec-none">No hatches found for current conditions. Try adjusting your filters.</div>`;
   } else {
-    recs.forEach(({bug,bestFlies,condOk,rightTime,isDH})=>{
-      const topFly=bestFlies[0]||null;
-      html+=`<div class="rec-item">
-        <div class="rec-fly">${bug.name}
-          ${condOk?'<span class="rec-badge">&#10003; conditions match</span>':''}
-          ${isDH&&topFly&&topFly.dh?'<span class="rec-badge-amber">DH pick</span>':''}
-        </div>
-        <div class="rec-hatch">${topFly?topFly.name+' &middot; '+topFly.size+' &middot; '+topFly.stage:''}</div>
+    recs.forEach(({bug,flies,condOk,isDH})=>{
+      const top=flies[0]||null;
+      const imgHtml=top&&top.img
+        ?`<img class="rec-img" src="${IMG}${top.img}" alt="${top.name}" onerror="this.outerHTML='<div class=\'rec-img-ph\'>no image<br>yet</div>'">`
+        :`<div class="rec-img-ph">no<br>image<br>yet</div>`;
+      html+=`<div class="rec-item">${imgHtml}<div class="rec-info">
+        <div class="rec-fly">${bug.name}${condOk?'<span class="rec-badge">&#10003; conditions</span>':''}${isDH&&top&&top.dh?'<span class="rec-badge-amber">DH pick</span>':''}</div>
+        <div class="rec-hatch">${top?top.name+' &middot; '+top.size+' &middot; '+top.stage:''}</div>
         <div class="rec-why">${bug.recNote}</div>
-      </div>`;
+      </div></div>`;
     });
   }
-
-  // DH-specific footer note
   if(isDH){
     html+=`<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--text3);line-height:1.6;">
-      <strong style="color:var(--amber2)">DH note:</strong> Stocked fish on pressured Delayed Harvest water often ignore standard patterns. Go smaller and more natural. Avoid large bobbers in low clear water — use a dry dropper rig instead. Check ncpaws.org for current stocking schedules.
+      <strong style="color:var(--amber2)">DH note:</strong> Stocked fish on pressured water often ignore standard patterns. Go smaller and more natural. Avoid large bobbers in low clear water — use a dry dropper rig instead. Check ncpaws.org for current stocking schedules.
     </div>`;
   }
-
   html+=`</div>`;
   document.getElementById('rec-panel').innerHTML=html;
   document.getElementById('rec-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
@@ -693,12 +660,17 @@ function renderDetail(){
   const flies=bug.stages[selectedStage]||[];
   const flyHtml=flies.map(f=>`
     <div class="fly-item">
-      <div class="fly-header">
-        <span class="fly-name">${f.name}</span>
-        <span class="fly-size">${f.size}</span>
-        ${f.dh&&isDH?'<span class="dh-badge">DH pick</span>':''}
+      ${f.img
+        ?`<img class="fly-img" src="${IMG}${f.img}" alt="${f.name}" onerror="this.outerHTML='<div class=\'fly-img-ph\'>no image<br>yet</div>'">`
+        :`<div class="fly-img-ph">no image<br>yet</div>`}
+      <div class="fly-info">
+        <div class="fly-header">
+          <span class="fly-name">${f.name}</span>
+          <span class="fly-size">${f.size}</span>
+          ${f.dh&&isDH?'<span class="dh-badge">DH pick</span>':''}
+        </div>
+        <div class="fly-note">${f.note}</div>
       </div>
-      <div class="fly-note">${f.note}</div>
     </div>`).join('');
 
   document.getElementById('detail-panel').innerHTML=`
