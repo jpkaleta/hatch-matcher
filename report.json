@@ -1,0 +1,67 @@
+{
+  "updated": "2026-06-02",
+  "source": "Due South Outfitters",
+  "source_url": "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/",
+  "conditions": {
+    "overall": "Low and clear across most Watauga and Ashe County streams. Stocking reduced due to Setzer Hatchery renovation — check ncpaws.org before planning around fresh stockings.",
+    "flow": "low",
+    "clarity": "clear",
+    "temp": "cool"
+  },
+  "top_flies": [
+    {
+      "name": "Sulphur Dry",
+      "size": "#16-18",
+      "img": "Sulphur-Dun.png",
+      "note": "Evening hatch kicking in on the Watauga DH and South Fork. Late afternoon into dusk."
+    },
+    {
+      "name": "Sparkle Dun (Sulphur)",
+      "size": "#16-18",
+      "img": "Sparkle-Dun-Sulphur.png",
+      "note": "Fish in the film before the duns are fully out. Very effective right now."
+    },
+    {
+      "name": "Yellow Sally",
+      "size": "#16",
+      "img": "Stimulator-Yellow.png",
+      "note": "DSO calls this the yellow bug transition. Dry dropper with yellow Stimulator as the dry."
+    },
+    {
+      "name": "Elk Hair Caddis (Tan)",
+      "size": "#14-16",
+      "img": "EHC-Tan.png",
+      "note": "Still producing on wild water. Transitioning out of peak caddis season."
+    },
+    {
+      "name": "Frenchie",
+      "size": "#16-18",
+      "img": "Frenchie.png",
+      "note": "Subsurface go-to on pressured DH water. Dead-drift near bottom."
+    }
+  ],
+  "tactics": [
+    "Low clear water — use 5–6X tippet across all water types",
+    "Dry dropper rig over any large indicator in current conditions",
+    "Size down your dry fly — fish are seeing everything right now",
+    "Best fishing on wild stretches, not DH, for natural hatches",
+    "Evening is the prime window — Sulphurs and Yellow Sallies late afternoon through dusk"
+  ],
+  "waters": [
+    {
+      "name": "Watauga River (Valle Crucis DH)",
+      "note": "Artificials only, catch-and-release until June 5. Evening Sulphur hatch producing. Harvest opens June 6 — verify at ncwrc.gov."
+    },
+    {
+      "name": "South Fork New River",
+      "note": "Low and clear. Wild stretches fishing better than stocked sections right now. Caddis and early Sulphurs."
+    },
+    {
+      "name": "Meat Camp Creek",
+      "note": "Hatchery supported. Go early on stocking week — pressure builds fast. Caddis and nymphs."
+    }
+  ],
+  "elevation_note": "High Country streams (Boone area, 3,300–4,000 ft) run 1–2 weeks behind lower-elevation WNC. Sulphur timing here is late May into June.",
+  "stocking_alert": true,
+  "stocking_note": "Setzer State Fish Hatchery under renovation through 2028. Stocking reduced and unpredictable. April 2026 saw no DH stocking at all. Check ncpaws.org daily before planning around fresh fish."
+}
