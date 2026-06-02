@@ -90,9 +90,19 @@
   .peak-row{font-size:11px;color:var(--text2);margin-bottom:10px;}
   .peak-row strong{color:var(--text3);}
   #placeholder{text-align:center;padding:32px 16px;color:var(--text3);font-size:13px;font-style:italic;}
+  nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:stretch;gap:0;}
+  .nav-brand{font-size:15px;font-weight:normal;color:var(--green3);letter-spacing:.06em;padding:14px 16px 14px 0;border-right:1px solid var(--border);margin-right:4px;display:flex;align-items:center;}
+  .nav-link{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-decoration:none;padding:14px 14px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s;}
+  .nav-link:hover{color:var(--green2);}
+  .nav-link.active{color:var(--green3);border-bottom-color:var(--green);}
 </style>
 </head>
 <body>
+<nav>
+  <span class="nav-brand">WNC Hatch Matcher</span>
+  <a class="nav-link active" href="index.html">Matcher</a>
+  <a class="nav-link" href="glossary.html">Fly Glossary</a>
+</nav>
 <header>
   <h1>WNC Hatch Matcher</h1>
   <span>Watauga · Ashe · Avery Counties</span>
