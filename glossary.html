@@ -13,52 +13,50 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;min-height:100vh;}
- 
-  /* NAV */
+
   nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:stretch;gap:0;}
   .nav-brand{font-size:15px;font-weight:normal;color:var(--green3);letter-spacing:.06em;padding:14px 16px 14px 0;border-right:1px solid var(--border);margin-right:4px;display:flex;align-items:center;}
   .nav-link{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-decoration:none;padding:14px 14px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s;}
   .nav-link:hover{color:var(--green2);}
   .nav-link.active{color:var(--green3);border-bottom-color:var(--green);}
- 
-  .container{padding:20px 16px 60px;max-width:800px;margin:0 auto;}
- 
+
+  .container{padding:20px 16px 60px;max-width:860px;margin:0 auto;}
   .page-title{font-size:13px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
   .page-sub{font-size:12px;color:var(--text3);font-style:italic;margin-bottom:28px;line-height:1.6;}
- 
-  /* CATEGORY */
-  .category{margin-bottom:36px;}
-  .cat-header{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);border-bottom:1px solid var(--border2);padding-bottom:8px;margin-bottom:16px;}
- 
-  /* HATCH GROUP */
+
+  .category{margin-bottom:40px;}
+  .cat-header{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);border-bottom:1px solid var(--border2);padding-bottom:8px;margin-bottom:6px;}
+  .cat-desc{font-size:11px;color:var(--text3);font-style:italic;margin-bottom:16px;line-height:1.5;}
+
   .hatch-group{margin-bottom:20px;}
   .group-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;padding-left:2px;}
- 
-  /* FLY GRID */
+
   .fly-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;}
   .fly-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:7px;}
   .fly-card img{width:100%;height:80px;object-fit:contain;border-radius:3px;background:var(--bg2);}
-  .fly-card .img-ph{width:100%;height:80px;border-radius:3px;background:var(--bg2);border:1px dashed var(--border2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--text3);}
-  .fly-card .fname{font-size:11px;color:var(--text);text-align:center;line-height:1.4;}
-  .fly-card .also{font-size:9px;color:var(--text3);font-style:italic;text-align:center;line-height:1.4;margin-top:2px;}
+  .img-ph{width:100%;height:80px;border-radius:3px;background:var(--bg2);border:1px dashed var(--border2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--text3);text-align:center;}
+  .fname{font-size:11px;color:var(--text);text-align:center;line-height:1.4;}
+  .also{font-size:9px;color:var(--text3);font-style:italic;text-align:center;line-height:1.4;margin-top:2px;}
+  .dso-badge{font-size:9px;color:var(--amber2);background:var(--warnbg);border:1px solid var(--amber);border-radius:10px;padding:1px 6px;margin-top:3px;text-align:center;}
 </style>
 </head>
 <body>
- 
+
 <nav>
   <span class="nav-brand">WNC Hatch Matcher</span>
   <a class="nav-link" href="index.html">Matcher</a>
   <a class="nav-link active" href="glossary.html">Fly Glossary</a>
 </nav>
- 
+
 <div class="container">
   <div class="page-title">Fly Glossary</div>
-  <div class="page-sub">Organized by category and hatch group. Use this at the fly shop counter to identify what you're looking at. Flies that appear in multiple hatch contexts are noted below their name.</div>
- 
-  <!-- ═══════════════════════════════════════ NYMPHS ═══ -->
+  <div class="page-sub">All 71 flies in the box, organized by category and hatch group. Use this at the fly shop counter to identify patterns. Flies that cover multiple hatches are noted. Flies marked <span style="color:var(--amber2)">DSO Pick</span> are recommended by Due South Outfitters guides for local waters.</div>
+
+  <!-- ═══ NYMPHS ═══ -->
   <div class="category">
     <div class="cat-header">Nymphs</div>
- 
+    <div class="cat-desc">Subsurface flies imitating the larval or pupal stage of aquatic insects. Fish spend most of their time feeding on nymphs — these are your bread-and-butter patterns.</div>
+
     <div class="hatch-group">
       <div class="group-label">Midges</div>
       <div class="fly-grid">
@@ -74,11 +72,11 @@
         <div class="fly-card">
           <img src="flies/Griffiths-Gnat.png" alt="Griffith's Gnat" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Griffith's Gnat</div>
-          <div class="also">Also used as: Midge Emerger</div>
+          <div class="also">Also used as: Midge Emerger, Midge Adult cluster</div>
         </div>
       </div>
     </div>
- 
+
     <div class="hatch-group">
       <div class="group-label">Mayflies</div>
       <div class="fly-grid">
@@ -88,6 +86,11 @@
           <div class="also">Also used for: BWO, Blue Quill</div>
         </div>
         <div class="fly-card">
+          <img src="flies/BH-Pheasant-Tail.png" alt="BH Pheasant Tail" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">BH Pheasant Tail</div>
+          <div class="also">Standard PT — used across most mayfly hatches</div>
+        </div>
+        <div class="fly-card">
           <img src="flies/BH-Hares-Ear-Tan.png" alt="BH Hare's Ear (Tan)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">BH Hare's Ear (Tan)</div>
           <div class="also">Also used for: Quill Gordon, Hendrickson, Light Cahill</div>
@@ -95,7 +98,7 @@
         <div class="fly-card">
           <img src="flies/BH-Hares-Ear-Olive.png" alt="BH Hare's Ear (Olive)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">BH Hare's Ear (Olive)</div>
-          <div class="also">Also used for: BWO</div>
+          <div class="also">Also used for: BWO nymph</div>
         </div>
         <div class="fly-card">
           <img src="flies/Soft-Hackle-PT-Bead.png" alt="Soft Hackle PT (Bead)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
@@ -106,6 +109,26 @@
           <img src="flies/Soft-Hackle-PT-No-Bead.png" alt="Soft Hackle PT (No Bead)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Soft Hackle PT (No Bead)</div>
           <div class="also">Also used for: Blue Quill nymph</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/RS2-Olive.png" alt="RS2 (Olive)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">RS2 (Olive)</div>
+          <div class="also">Also used as: BWO emerger</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/RS2-Grey.png" alt="RS2 (Grey)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">RS2 (Grey)</div>
+          <div class="also">Also used as: Midge/BWO emerger</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Sparkle-Wing-RS2.png" alt="Sparkle Wing RS2" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Sparkle Wing RS2</div>
+          <div class="also">RS2 variant with sparkle wing post</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/CDC-RS2.png" alt="CDC RS2" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">CDC RS2</div>
+          <div class="also">Also used for: Blue Quill dun</div>
         </div>
         <div class="fly-card">
           <img src="flies/Sulphur-Nymph.png" alt="Sulphur Nymph" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
@@ -126,7 +149,7 @@
         </div>
       </div>
     </div>
- 
+
     <div class="hatch-group">
       <div class="group-label">Caddis</div>
       <div class="fly-grid">
@@ -153,18 +176,18 @@
         <div class="fly-card">
           <img src="flies/Soft-Hackle-MO.png" alt="Soft Hackle Wet" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Soft Hackle Wet</div>
-          <div class="also">Used for: Caddis pupa swing</div>
+          <div class="also">Swing for caddis pupa; also works for Isonychia</div>
         </div>
       </div>
     </div>
- 
+
     <div class="hatch-group">
       <div class="group-label">Stoneflies</div>
       <div class="fly-grid">
         <div class="fly-card">
           <img src="flies/Black-Stonefly-Nymph.png" alt="Black Stonefly Nymph" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Black Stonefly Nymph</div>
-          <div class="also">Also used as: Early Black Stone nymph</div>
+          <div class="also">Early Black Stone nymph</div>
         </div>
         <div class="fly-card">
           <img src="flies/Stonefly-Nymph-Black.png" alt="Giant Stonefly Nymph" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
@@ -174,6 +197,7 @@
         <div class="fly-card">
           <img src="flies/Bead Head Copper John Rubber Leg_Copper.webp" alt="Golden Stonefly Nymph" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Golden Stonefly Nymph</div>
+          <div class="also">Rubber leg variant; early morning July–Aug</div>
         </div>
         <div class="fly-card">
           <img src="flies/Bead Head Killer Caddis_Yellow.webp" alt="Yellow Stonefly Nymph" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
@@ -183,22 +207,18 @@
       </div>
     </div>
   </div>
- 
-  <!-- ═══════════════════════════════════════ EMERGERS ═══ -->
+
+  <!-- ═══ EMERGERS ═══ -->
   <div class="category">
     <div class="cat-header">Emergers</div>
- 
+    <div class="cat-desc">Flies that imitate insects transitioning from nymph to adult — the most vulnerable moment in a bug's life, and often the most productive window to fish.</div>
+
     <div class="hatch-group">
       <div class="group-label">Mayflies</div>
       <div class="fly-grid">
         <div class="fly-card">
           <img src="flies/Sparkle-Dun-BWO.png" alt="Sparkle Dun (BWO)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Sparkle Dun (BWO)</div>
-        </div>
-        <div class="fly-card">
-          <img src="flies/RS2-Olive.png" alt="RS2 (Olive)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
-          <div class="fname">RS2 (Olive)</div>
-          <div class="also">Also used for: BWO emerger</div>
         </div>
         <div class="fly-card">
           <img src="flies/Snowshoe-Emerger-BWO.png" alt="Snowshoe Emerger (BWO)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
@@ -209,9 +229,9 @@
           <div class="fname">Split-Case BWO</div>
         </div>
         <div class="fly-card">
-          <img src="flies/CDC-RS2.png" alt="CDC RS2" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
-          <div class="fname">CDC RS2</div>
-          <div class="also">Also used for: Blue Quill dun</div>
+          <img src="flies/Zelon-Cripple-BWO.png" alt="Zelon Cripple (BWO)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Zelon Cripple (BWO)</div>
+          <div class="also">Imitates a stuck emerger — deadly on selective fish</div>
         </div>
         <div class="fly-card">
           <img src="flies/Sulphur-Emerger.png" alt="Sulphur Emerger" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
@@ -223,37 +243,46 @@
         </div>
       </div>
     </div>
- 
+
     <div class="hatch-group">
       <div class="group-label">Caddis</div>
       <div class="fly-grid">
         <div class="fly-card">
           <img src="flies/X-Caddis-Tan.png" alt="X-Caddis (Tan)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">X-Caddis (Tan)</div>
+          <div class="also">Trailing shuck — sits in the film</div>
         </div>
         <div class="fly-card">
-          <img src="flies/X-Caddis-Iron.png" alt="X-Caddis (Iron)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <img src="flies/X-Caddis-Iron.png" alt="X-Caddis (Iron / Baltz's)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">X-Caddis (Iron / Baltz's)</div>
+          <div class="also">Heavier version for faster runs</div>
         </div>
         <div class="fly-card">
           <img src="flies/X-Caddis-Brown.png" alt="X-Caddis (Brown)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">X-Caddis (Brown)</div>
+          <div class="also">Mid-season brown caddis</div>
         </div>
       </div>
     </div>
   </div>
- 
-  <!-- ═══════════════════════════════════════ DRY FLIES ═══ -->
+
+  <!-- ═══ DRY FLIES ═══ -->
   <div class="category">
     <div class="cat-header">Dry Flies</div>
- 
+    <div class="cat-desc">Surface flies imitating adult insects. Fish them when you see bugs on the water or fish rising. Treat with floatant to keep them riding high.</div>
+
     <div class="hatch-group">
       <div class="group-label">Mayflies</div>
       <div class="fly-grid">
         <div class="fly-card">
           <img src="flies/Adams.png" alt="Adams" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Adams</div>
-          <div class="also">Also used for: BWO, Blue Quill, Quill Gordon, Isonychia, Hendrickson</div>
+          <div class="also">Universal dry — BWO, Blue Quill, Quill Gordon, Isonychia, Hendrickson</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Parachute-Adams.png" alt="Parachute Adams" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Parachute Adams</div>
+          <div class="also">High-vis post version — easier to track on the water</div>
         </div>
         <div class="fly-card">
           <img src="flies/BWO-Parachute.png" alt="BWO Parachute" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
@@ -275,20 +304,21 @@
         <div class="fly-card">
           <img src="flies/Sulphur-Parachute.png" alt="Sulphur Parachute" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Sulphur Parachute</div>
+          <div class="also">High-vis post for low evening light</div>
         </div>
         <div class="fly-card">
           <img src="flies/Green-Drake-Wulff.png" alt="Green Drake / Paradrake" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Green Drake / Paradrake</div>
-          <div class="also">Also used as: White Wulff</div>
+          <div class="also">Also used as: White Wulff; late May evenings only</div>
         </div>
         <div class="fly-card">
           <img src="flies/Bead Head Hendrickson_Tan.webp" alt="Hendrickson (Tan)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Hendrickson (Tan)</div>
-          <div class="also">Also used as: Female Adams</div>
+          <div class="also">Also used as: Female Adams (yellow egg sac)</div>
         </div>
       </div>
     </div>
- 
+
     <div class="hatch-group">
       <div class="group-label">Caddis</div>
       <div class="fly-grid">
@@ -299,85 +329,182 @@
         <div class="fly-card">
           <img src="flies/EHC-Olive.png" alt="Elk Hair Caddis (Olive/Black)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Elk Hair Caddis (Olive/Black)</div>
-          <div class="also">Used for: dark/black caddis April–May</div>
+          <div class="also">Dark/black caddis April–May</div>
         </div>
       </div>
     </div>
- 
+
     <div class="hatch-group">
       <div class="group-label">Stoneflies</div>
       <div class="fly-grid">
         <div class="fly-card">
           <img src="flies/Stimulator-Orange.png" alt="Stimulator (Orange)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Stimulator (Orange)</div>
-          <div class="also">Also used for: Giant Stonefly, Golden Stonefly adult</div>
+          <div class="also">Giant Stonefly, Golden Stonefly adult; also dry-dropper anchor</div>
         </div>
         <div class="fly-card">
           <img src="flies/Stimulator-Yellow.png" alt="Stimulator (Yellow)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Stimulator (Yellow)</div>
-          <div class="also">Also used for: Yellow Sally adult</div>
+          <div class="also">Yellow Sally adult; also dry-dropper anchor</div>
         </div>
         <div class="fly-card">
           <img src="flies/Black-Adult-Stonefly.png" alt="Black Adult Stonefly" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Black Adult Stonefly</div>
-          <div class="also">Used for: Early Black Stone adult</div>
+          <div class="also">Early Black Stone adult — all day Jan–Mar</div>
         </div>
       </div>
     </div>
- 
+
     <div class="hatch-group">
       <div class="group-label">Terrestrials</div>
       <div class="fly-grid">
         <div class="fly-card">
           <img src="flies/Foam-Ant.png" alt="Foam Ant (Black)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Foam Ant (Black)</div>
+          <div class="also">All-day producer June–Sept; fish tight to banks</div>
         </div>
         <div class="fly-card">
           <img src="flies/Flying-Ant-Black.png" alt="Flying Ant (Black)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Flying Ant (Black)</div>
-          <div class="also">Spent-wing. Also used as: Terrestrial Flying Ant</div>
+          <div class="also">Spent-wing; flush in the film; Aug–Sept falls</div>
         </div>
         <div class="fly-card">
           <img src="flies/Flying-Ant-Brown.png" alt="Flying Ant (Brown)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Flying Ant (Brown)</div>
-          <div class="also">Spent-wing. Carry both black and brown.</div>
+          <div class="also">Carry both black and brown for ant falls</div>
         </div>
         <div class="fly-card">
           <img src="flies/Foam-Beetle.png" alt="Foam Beetle" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Foam Beetle</div>
+          <div class="also">July–Aug especially; Japanese beetles</div>
         </div>
         <div class="fly-card">
           <img src="flies/Hopper.png" alt="Dave's Hopper" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Dave's Hopper</div>
+          <div class="also">July–Aug afternoons near grassy banks</div>
         </div>
       </div>
     </div>
   </div>
- 
-  <!-- ═══════════════════════════════════════ SPINNERS ═══ -->
+
+  <!-- ═══ SPINNERS ═══ -->
   <div class="category">
     <div class="cat-header">Spinners</div>
+    <div class="cat-desc">Spent adult mayflies that have mated and fallen on the surface with wings flat. Often the most important and most overlooked stage — especially at dusk.</div>
+
     <div class="hatch-group">
       <div class="group-label">Mayflies</div>
       <div class="fly-grid">
         <div class="fly-card">
           <img src="flies/Rusty-Spinner.png" alt="Rusty Spinner" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Rusty Spinner</div>
-          <div class="also">Also used for: BWO spinner, Blue Quill spinner, Sulphur spinner</div>
+          <div class="also">BWO, Blue Quill, Sulphur spinner falls</div>
         </div>
         <div class="fly-card">
           <img src="flies/Mahogany-Spinner.png" alt="Mahogany Spinner" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
           <div class="fname">Mahogany Spinner</div>
-          <div class="also">Also used for: Isonychia spinner, Light Cahill spinner</div>
+          <div class="also">Isonychia, Light Cahill spinner falls</div>
         </div>
       </div>
     </div>
   </div>
- 
+
+  <!-- ═══ ATTRACTOR PATTERNS ═══ -->
+  <div class="category">
+    <div class="cat-header">Attractor Patterns</div>
+    <div class="cat-desc">These flies don't imitate a specific insect but trigger strikes through flash, color, movement, or a general buggy appearance. Many are local guide favorites — especially on stocked and Delayed Harvest water where fish respond to presentation and flash more than exact imitation. Due South Outfitters recommends several of these regularly in their fishing reports.</div>
+
+    <div class="hatch-group">
+      <div class="group-label">Nymph Attractors</div>
+      <div class="fly-grid">
+        <div class="fly-card">
+          <img src="flies/Copper-John.png" alt="Copper John" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Copper John</div>
+          <div class="also">Flash attractor nymph; works as stonefly or mayfly suggestion</div>
+          <div class="dso-badge">DSO Pick</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Copper-John-Red.png" alt="Copper John (Red)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Copper John (Red)</div>
+          <div class="also">Red variant — swap when copper isn't producing</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Prince-Nymph.png" alt="Prince Nymph" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Prince Nymph</div>
+          <div class="also">Peacock body, white biots; general attractor; works for stonefly suggestion</div>
+          <div class="dso-badge">DSO Pick</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Prince-Nymph-Bead.png" alt="Prince Nymph (Bead)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Prince Nymph (Bead)</div>
+          <div class="also">Bead head version — sinks faster</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/DB-Prince-Nymph.png" alt="Double Bead Prince Nymph" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Double Bead Prince</div>
+          <div class="also">Extra weight for deep fast runs</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Bead Head Psycho Prince Nymph_Orange.webp" alt="Psycho Prince (Orange)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Psycho Prince (Orange)</div>
+          <div class="also">Flashier Prince variant with hot orange accents</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Frenchie.png" alt="Frenchie" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Frenchie</div>
+          <div class="also">Pheasant tail body with hot spot collar; excellent on pressured fish</div>
+          <div class="dso-badge">DSO Pick</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Frenchie-PT.png" alt="Frenchie PT" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Frenchie PT</div>
+          <div class="also">Pheasant tail variant of the Frenchie</div>
+          <div class="dso-badge">DSO Pick</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Duracell.png" alt="Duracell" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Duracell</div>
+          <div class="also">Tungsten jig, peacock body, copper top bead; sinks fast, triggers selective fish</div>
+          <div class="dso-badge">DSO Pick</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hatch-group">
+      <div class="group-label">Worm Patterns</div>
+      <div class="fly-grid">
+        <div class="fly-card">
+          <img src="flies/Squirmy-Worm.png" alt="Squirmy Worm" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Squirmy Worm</div>
+          <div class="also">Rubber worm body; deadly in high or dirty water</div>
+          <div class="dso-badge">DSO Pick</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Walts-Worm.png" alt="Walt's Worm" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Walt's Worm</div>
+          <div class="also">Hare's ear worm; subtle, natural look</div>
+        </div>
+        <div class="fly-card">
+          <img src="flies/Bead Head San Juan Worm_Red.webp" alt="San Juan Worm (Red)" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">San Juan Worm (Red)</div>
+          <div class="also">Classic worm pattern; high water and post-rain conditions</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hatch-group">
+      <div class="group-label">Dry Attractors</div>
+      <div class="fly-grid">
+        <div class="fly-card">
+          <img src="flies/Chubby-Chernobyl-Golden-Stone.png" alt="Chubby Chernobyl" onerror="this.outerHTML='<div class=\'img-ph\'>no image</div>'">
+          <div class="fname">Chubby Chernobyl</div>
+          <div class="also">Foam attractor dry; excellent dry-dropper anchor; works as hopper or stonefly suggestion</div>
+          <div class="dso-badge">DSO Pick</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>
- 
-
-
-
