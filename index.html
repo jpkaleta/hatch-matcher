@@ -6,134 +6,90 @@
 <title>WNC Hatch Matcher</title>
 <style>
   :root {
-    --bg: #0f1a0f;
-    --bg2: #162016;
-    --bg3: #1c2a1c;
-    --card: #1a241a;
-    --border: #2a3d2a;
-    --border2: #3a5a3a;
-    --green: #4a9a5a;
-    --green2: #6ab87a;
-    --green3: #8dd49a;
-    --amber: #c8882a;
-    --amber2: #e8a84a;
-    --text: #d8e8d8;
-    --text2: #8aaa8a;
-    --text3: #5a7a5a;
-    --warn: #8a4a1a;
-    --warnbg: #2a1a0a;
-    --okbg: #0a2a0a;
-    --ok: #4a8a4a;
+    --bg:#0f1a0f;--bg2:#162016;--bg3:#1c2a1c;--card:#1a241a;
+    --border:#2a3d2a;--border2:#3a5a3a;--green:#4a9a5a;--green2:#6ab87a;
+    --green3:#8dd49a;--amber:#c8882a;--amber2:#e8a84a;--text:#d8e8d8;
+    --text2:#8aaa8a;--text3:#5a7a5a;--warnbg:#2a1a0a;--okbg:#0a2a0a;--ok:#4a8a4a;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Georgia', serif;
-    min-height: 100vh;
-  }
-  header {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 20px;
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  header h1 { font-size: 18px; font-weight: normal; letter-spacing: 0.08em; color: var(--green3); }
-  header span { font-size: 11px; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; }
-  .container { padding: 16px 16px 40px; max-width: 700px; margin: 0 auto; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;min-height:100vh;}
+  header{background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 20px;display:flex;align-items:baseline;gap:12px;}
+  header h1{font-size:18px;font-weight:normal;letter-spacing:.08em;color:var(--green3);}
+  header span{font-size:11px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;}
+  .container{padding:16px 16px 40px;max-width:700px;margin:0 auto;}
+  .section-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
 
-  .section-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3); margin-bottom: 8px; }
+  .cond-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;padding:12px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;}
+  .cond-group{display:flex;flex-direction:column;gap:5px;}
+  .cond-group .clabel{font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;}
+  .cond-pills{display:flex;gap:4px;flex-wrap:wrap;}
+  .pill{font-size:11px;padding:3px 9px;border-radius:20px;border:1px solid var(--border2);color:var(--text2);cursor:pointer;background:transparent;font-family:'Georgia',serif;transition:all .15s;}
+  .pill:hover{border-color:var(--green);color:var(--green3);}
+  .pill.active{background:var(--green);border-color:var(--green);color:#fff;}
 
-  .cond-row {
-    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
-    padding: 12px; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px;
-  }
-  .cond-group { display: flex; flex-direction: column; gap: 5px; }
-  .cond-group .clabel { font-size: 10px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
-  .cond-pills { display: flex; gap: 4px; flex-wrap: wrap; }
-  .pill {
-    font-size: 11px; padding: 3px 9px; border-radius: 20px; border: 1px solid var(--border2);
-    color: var(--text2); cursor: pointer; background: transparent; font-family: 'Georgia', serif; transition: all 0.15s;
-  }
-  .pill:hover { border-color: var(--green); color: var(--green3); }
-  .pill.active { background: var(--green); border-color: var(--green); color: #fff; }
+  .stocking-banner{display:none;background:var(--warnbg);border:1px solid var(--amber);border-radius:6px;padding:10px 12px;font-size:11px;color:var(--amber2);line-height:1.6;margin-bottom:10px;}
+  .dd-tip{display:none;background:var(--okbg);border:1px solid var(--ok);border-radius:6px;padding:10px 12px;font-size:11px;color:#6ab87a;line-height:1.6;margin-bottom:12px;}
 
-  .bug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 6px; margin-bottom: 16px; }
-  .bug-card {
-    padding: 10px; border: 1px solid var(--border); border-radius: 6px;
-    cursor: pointer; background: var(--card); transition: border-color 0.15s;
-  }
-  .bug-card:hover { border-color: var(--border2); }
-  .bug-card.selected { border-color: var(--green); background: var(--bg3); }
-  .bug-card.dimmed { opacity: 0.3; }
-  .bug-card .bname { font-size: 12px; color: var(--text); }
-  .bug-card.selected .bname { color: var(--green3); }
-  .bug-card .bsub { font-size: 10px; color: var(--text3); margin-top: 2px; font-style: italic; }
-  .bug-card .bnow { font-size: 9px; color: var(--green2); margin-top: 4px; letter-spacing: 0.08em; }
+  .throw-btn{width:100%;padding:12px;margin-bottom:20px;background:var(--green);border:none;border-radius:6px;color:#fff;font-family:'Georgia',serif;font-size:14px;letter-spacing:.06em;cursor:pointer;transition:background .15s;}
+  .throw-btn:hover{background:var(--green2);}
 
-  .detail { border: 1px solid var(--border2); border-radius: 6px; padding: 16px; background: var(--card); }
-  .detail h2 { font-size: 16px; font-weight: normal; color: var(--green3); margin-bottom: 2px; }
-  .detail .latin { font-size: 11px; color: var(--text3); font-style: italic; margin-bottom: 12px; }
+  .rec-panel{margin-bottom:20px;border:1px solid var(--green);border-radius:6px;background:var(--bg3);padding:14px;}
+  .rec-panel h3{font-size:13px;font-weight:normal;color:var(--green3);letter-spacing:.06em;margin-bottom:12px;}
+  .rec-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);}
+  .rec-item:last-child{border-bottom:none;}
+  .rec-img{width:64px;height:48px;object-fit:contain;border-radius:4px;border:1px solid var(--border2);flex-shrink:0;background:var(--bg2);}
+  .rec-img-ph{width:64px;height:48px;flex-shrink:0;border-radius:4px;background:var(--bg2);border:1px dashed var(--border2);display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--text3);text-align:center;}
+  .rec-info{flex:1;}
+  .rec-fly{font-size:13px;color:var(--text);}
+  .rec-hatch{font-size:10px;color:var(--green2);margin-top:2px;letter-spacing:.05em;}
+  .rec-why{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.4;}
+  .rec-none{font-size:12px;color:var(--text3);font-style:italic;padding:8px 0;}
 
-  .month-bar { display: grid; grid-template-columns: repeat(12,1fr); gap: 2px; margin-bottom: 2px; }
-  .mc { height: 5px; border-radius: 1px; background: var(--border); }
-  .mc.on { background: var(--green); }
-  .mc.now { outline: 1px solid var(--green3); }
-  .month-labels { display: grid; grid-template-columns: repeat(12,1fr); gap: 2px; margin-bottom: 12px; }
-  .month-labels span { font-size: 8px; color: var(--text3); text-align: center; }
+  .divider{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;padding-top:4px;border-top:1px solid var(--border);padding-top:12px;}
 
-  .cond-note {
-    font-size: 12px; padding: 8px 10px; border-radius: 4px; margin-bottom: 12px; line-height: 1.5;
-  }
-  .cond-note.ok { background: var(--okbg); color: var(--ok); border-left: 2px solid var(--ok); }
-  .cond-note.warn { background: var(--warnbg); color: var(--amber2); border-left: 2px solid var(--amber); }
-  .cond-note.neutral { background: var(--bg2); color: var(--text2); border-left: 2px solid var(--border2); }
+  .bug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;margin-bottom:16px;}
+  .bug-card{padding:10px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:var(--card);transition:border-color .15s;}
+  .bug-card:hover{border-color:var(--border2);}
+  .bug-card.selected{border-color:var(--green);background:var(--bg3);}
+  .bug-card.dimmed{opacity:.3;}
+  .bug-card .bname{font-size:12px;color:var(--text);}
+  .bug-card.selected .bname{color:var(--green3);}
+  .bug-card .bsub{font-size:10px;color:var(--text3);margin-top:2px;font-style:italic;}
+  .bug-card .bnow{font-size:9px;color:var(--green2);margin-top:4px;letter-spacing:.08em;}
 
-  .stage-row { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
-  .stage-btn {
-    font-size: 11px; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--border2);
-    cursor: pointer; background: transparent; color: var(--text2); font-family: 'Georgia', serif; transition: all 0.15s;
-  }
-  .stage-btn:hover { border-color: var(--green); color: var(--green3); }
-  .stage-btn.active { background: var(--green); border-color: var(--green); color: #fff; }
-
-  .fly-item {
-    display: flex; gap: 12px; align-items: flex-start;
-    padding: 10px 0; border-bottom: 1px solid var(--border);
-  }
-  .fly-item:last-child { border-bottom: none; }
-  .fly-img {
-    width: 72px; height: 52px; object-fit: contain; flex-shrink: 0;
-    border-radius: 4px; background: var(--bg2); border: 1px solid var(--border);
-  }
-  .fly-img-ph {
-    width: 72px; height: 52px; flex-shrink: 0; border-radius: 4px;
-    background: var(--bg2); border: 1px dashed var(--border2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8px; color: var(--text3); text-align: center; line-height: 1.4;
-  }
-  .fly-info { flex: 1; }
-  .fly-header { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; }
-  .fly-name { font-size: 13px; color: var(--text); }
-  .fly-size { font-size: 11px; color: var(--text3); }
-  .fly-note { font-size: 11px; color: var(--text2); line-height: 1.5; }
-
-  .rivers-row {
-    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border);
-    font-size: 11px; color: var(--text3); line-height: 1.8;
-  }
-  .rivers-row strong { color: var(--text2); }
-  .tip-row {
-    margin-top: 10px; padding: 8px 10px; background: var(--bg2); border-radius: 4px;
-    font-size: 11px; color: var(--text2); line-height: 1.6; border-left: 2px solid var(--border2);
-  }
-  .tip-row strong { color: var(--green2); }
-  .peak-row { font-size: 11px; color: var(--text2); margin-bottom: 10px; }
-  .peak-row strong { color: var(--text3); }
-
-  #placeholder { text-align: center; padding: 32px 16px; color: var(--text3); font-size: 13px; font-style: italic; }
+  .detail{border:1px solid var(--border2);border-radius:6px;padding:16px;background:var(--card);}
+  .detail h2{font-size:16px;font-weight:normal;color:var(--green3);margin-bottom:2px;}
+  .detail .latin{font-size:11px;color:var(--text3);font-style:italic;margin-bottom:12px;}
+  .month-bar{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin-bottom:2px;}
+  .mc{height:5px;border-radius:1px;background:var(--border);}
+  .mc.on{background:var(--green);}
+  .mc.now{outline:1px solid var(--green3);}
+  .month-labels{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin-bottom:12px;}
+  .month-labels span{font-size:8px;color:var(--text3);text-align:center;}
+  .cond-note{font-size:12px;padding:8px 10px;border-radius:4px;margin-bottom:12px;line-height:1.5;}
+  .cond-note.ok{background:var(--okbg);color:var(--ok);border-left:2px solid var(--ok);}
+  .cond-note.warn{background:var(--warnbg);color:var(--amber2);border-left:2px solid var(--amber);}
+  .cond-note.neutral{background:var(--bg2);color:var(--text2);border-left:2px solid var(--border2);}
+  .stage-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+  .stage-btn{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border2);cursor:pointer;background:transparent;color:var(--text2);font-family:'Georgia',serif;transition:all .15s;}
+  .stage-btn:hover{border-color:var(--green);color:var(--green3);}
+  .stage-btn.active{background:var(--green);border-color:var(--green);color:#fff;}
+  .fly-item{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border);}
+  .fly-item:last-child{border-bottom:none;}
+  .fly-img{width:72px;height:52px;object-fit:contain;flex-shrink:0;border-radius:4px;background:var(--bg2);border:1px solid var(--border);}
+  .fly-img-ph{width:72px;height:52px;flex-shrink:0;border-radius:4px;background:var(--bg2);border:1px dashed var(--border2);display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--text3);text-align:center;line-height:1.4;}
+  .fly-info{flex:1;}
+  .fly-header{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:3px;}
+  .fly-name{font-size:13px;color:var(--text);}
+  .fly-size{font-size:11px;color:var(--text3);}
+  .fly-note{font-size:11px;color:var(--text2);line-height:1.5;}
+  .rivers-row{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);line-height:1.8;}
+  .rivers-row strong{color:var(--text2);}
+  .tip-row{margin-top:10px;padding:8px 10px;background:var(--bg2);border-radius:4px;font-size:11px;color:var(--text2);line-height:1.6;border-left:2px solid var(--border2);}
+  .tip-row strong{color:var(--green2);}
+  .peak-row{font-size:11px;color:var(--text2);margin-bottom:10px;}
+  .peak-row strong{color:var(--text3);}
+  #placeholder{text-align:center;padding:32px 16px;color:var(--text3);font-size:13px;font-style:italic;}
 </style>
 </head>
 <body>
@@ -142,6 +98,7 @@
   <span>Watauga · Ashe · Avery Counties</span>
 </header>
 <div class="container">
+
   <div class="section-label">Water conditions</div>
   <div class="cond-row">
     <div class="cond-group">
@@ -169,20 +126,39 @@
       </div>
     </div>
   </div>
-  <div class="section-label">Select a hatch</div>
+
+  <div class="stocking-banner" id="stocking-banner">
+    &#9651; <strong>Reduced stocking 2026–2028:</strong> Setzer State Fish Hatchery is under renovation. DH stocking is reduced and may have gaps — including no stocking at all some weeks. Check <strong>ncpaws.org</strong> before planning a trip around fresh stockings.
+  </div>
+  <div class="dd-tip" id="dd-tip">
+    &#10003; <strong>Low water tip:</strong> Avoid large strike indicators in clear low flows — fish see them. Use a <strong>dry dropper rig</strong> instead: tie your nymph 12–18" off the bend of a buoyant dry fly. More stealthy, more effective, and you might get two takes at once.
+  </div>
+
+  <button class="throw-btn" onclick="showRecommendations()">&#9654; What should I throw right now?</button>
+  <div id="rec-panel"></div>
+
+  <div class="divider">Or browse by hatch</div>
   <div class="bug-grid" id="bug-grid"></div>
   <div id="detail-panel"><div id="placeholder">Tap a hatch above to see fly patterns, life stages, and your local waters.</div></div>
+
 </div>
-
 <script>
-const MONTHS = ['J','F','M','A','M','J','J','A','S','O','N','D'];
-const NOW = new Date().getMonth();
-const IMG = 'flies/';
+const MONTHS=['J','F','M','A','M','J','J','A','S','O','N','D'];
+const NOW=new Date().getMonth();
+const HOUR=new Date().getHours();
+const IMG='flies/';
 
-const bugs = [
+function timeOfDay(){
+  if(HOUR>=5&&HOUR<10)return'morning';
+  if(HOUR>=10&&HOUR<16)return'midday';
+  if(HOUR>=16&&HOUR<20)return'evening';
+  return'night';
+}
+
+const bugs=[
   {
-    id:'midge', name:'Midge', latin:'Diptera spp.',
-    months:[0,1,2,3,9,10,11],
+    id:'midge',name:'Midge',latin:'Diptera spp.',
+    months:[0,1,2,3,9,10,11],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
         {name:'Zebra Midge',size:'#20-24',img:'Zebra-Midge-Black.png',note:'Bead head, black/red ribbing. Dead-drift deep in pools.'},
@@ -200,11 +176,12 @@ const bugs = [
     rivers:['Watauga River (Valle Crucis)','South Fork New River','North Fork New River','Meat Camp Creek'],
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cold','cool']},
     condNote:'Only reliable hatch in cold/winter conditions. Clear low water demands 7X tippet and a very slow drift.',
-    tip:'BWOs often hatch at the same time. If fish refuse your midge, drop to a smaller size before switching patterns.'
+    tip:'BWOs often hatch at the same time. If fish refuse your midge, drop to a smaller size before switching patterns.',
+    recNote:'Dead-drift the Zebra Midge deep in pools on 7X tippet. Afternoon is prime. Try black first, then red.'
   },
   {
-    id:'bwo', name:'Blue-Winged Olive', latin:'Baetis spp.',
-    months:[1,2,3,4,8,9,10],
+    id:'bwo',name:'Blue-Winged Olive',latin:'Baetis spp.',
+    months:[1,2,3,4,8,9,10],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
         {name:'Pheasant Tail Nymph',size:'#16-20',img:'Flashback-PT.png',note:'Standard WNC go-to. Dead-drift near bottom.'},
@@ -228,11 +205,12 @@ const bugs = [
     rivers:['Watauga River (Valle Crucis)','Meat Camp Creek','South Fork New River','North Toe River'],
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cold','cool']},
     condNote:'Bad-weather hatch. Overcast, drizzly, cold — that\'s your signal. They shut down in bright sun and warm water.',
-    tip:'If it starts raining and you were thinking of leaving — stay. That\'s the signal.'
+    tip:'If it starts raining and you were thinking of leaving — stay. That\'s the signal.',
+    recNote:'Look for fish rising in slower water. Start with the Sparkle Dun or RS2 in the film, transition to a dry if they\'re taking adults.'
   },
   {
-    id:'ebs', name:'Early Black Stone', latin:'Capnia/Allocapnia spp.',
-    months:[0,1,2],
+    id:'ebs',name:'Early Black Stone',latin:'Capnia/Allocapnia spp.',
+    months:[0,1,2],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
         {name:'Black Stonefly Nymph',size:'#18',img:'Black-Stonefly-Nymph.png',note:'Fish along bottom near rocky substrate. Dead-drift.'}
@@ -245,11 +223,12 @@ const bugs = [
     rivers:['Meat Camp Creek','South Fork New River headwaters','North Fork New River'],
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cold','cool']},
     condNote:'One of the few hatches that goes all day in winter. Fish adults on the surface or swing a soft hackle nymph.',
-    tip:'Small and dark — easy to miss. If you see little black bugs on snow or rocks near the water in January, you\'ve found them.'
+    tip:'Small and dark — easy to miss. If you see little black bugs on snow or rocks near the water in January, you\'ve found them.',
+    recNote:'All-day hatch. Swing the soft hackle nymph through seams, or dead-drift a small black dry along the edges.'
   },
   {
-    id:'bq', name:'Blue Quill', latin:'Paraleptophlebia adoptiva',
-    months:[1,2,3],
+    id:'bq',name:'Blue Quill',latin:'Paraleptophlebia adoptiva',
+    months:[1,2,3],timeOfDay:['morning','midday'],
     stages:{
       Nymph:[
         {name:'Blue Quill Nymph',size:'#18',img:'Soft-Hackle-PT-No-Bead.png',note:'Slim, olive-brown. Dead-drift near substrate.'}
@@ -266,11 +245,12 @@ const bugs = [
     rivers:['South Fork New River','Meat Camp Creek','Laurel Creek'],
     condMatch:{clarity:['clear'],flow:['low','normal'],temp:['cold','cool']},
     condNote:'Technical hatch — clear water and light flows. Light tippet (6X) and accurate presentation matter.',
-    tip:'Often overlaps with Quill Gordons in late March. Watch the fish carefully to see which they\'re keying on.'
+    tip:'Often overlaps with Quill Gordons in late March. Watch the fish carefully to see which they\'re keying on.',
+    recNote:'Morning to early afternoon. Go light — 6X tippet, accurate casts. The Adams is a solid stand-in if you don\'t have a specific Blue Quill.'
   },
   {
-    id:'qg', name:'Quill Gordon', latin:'Epeorus pleuralis',
-    months:[2,3],
+    id:'qg',name:'Quill Gordon',latin:'Epeorus pleuralis',
+    months:[2,3],timeOfDay:['midday'],
     stages:{
       Nymph:[
         {name:'Hare\'s Ear Nymph',size:'#12-14',img:'BH-Hares-Ear-Tan.png',note:'Dead-drift along bottom in runs before the hatch.'},
@@ -285,11 +265,12 @@ const bugs = [
     rivers:['South Fork New River','Watauga River','Meat Camp Creek','North Toe River'],
     condMatch:{clarity:['clear','stained'],flow:['normal'],temp:['cold','cool']},
     condNote:'First big dry fly hatch of the season. Trout key on them hard — one of the first real surface-feeding opportunities.',
-    tip:'Fish hold in slower water behind rocks where duns collect. Faster water needs more drag-free precision.'
+    tip:'Fish hold in slower water behind rocks where duns collect. Faster water needs more drag-free precision.',
+    recNote:'Early afternoon. Fish the Hare\'s Ear nymph before the hatch, then switch to the Adams when you see duns on the water.'
   },
   {
-    id:'caddis', name:'Caddis', latin:'Trichoptera spp.',
-    months:[3,4,5,6,7,8],
+    id:'caddis',name:'Caddis',latin:'Trichoptera spp.',
+    months:[3,4,5,6,7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Larva:[
         {name:'Caddis Larva (green)',size:'#14-16',img:'Caddis-Larva-Green.png',note:'Dead-drift near bottom. Effective all season.'},
@@ -313,11 +294,12 @@ const bugs = [
     rivers:['Meat Camp Creek','South Fork New River','North Fork New River','Beech Creek','Laurel Creek','Linville River'],
     condMatch:{clarity:['clear','stained'],flow:['low','normal','high'],temp:['cool','warm']},
     condNote:'Extremely adaptable — hatches across a wide range of conditions. High water: swing the soft hackle. Low clear water: go smaller and lighter.',
-    tip:'When females are egg-laying (dipping), fish often go airborne. A skating or twitched dry fly triggers explosive takes.'
+    tip:'When females are egg-laying (dipping), fish often go airborne. A skating or twitched dry fly triggers explosive takes.',
+    recNote:'High water: swing the Soft Hackle Wet through seams. Normal: dead-drift the caddis larva or X-Caddis. Evening: skate the EHC dry.'
   },
   {
-    id:'hendrickson', name:'Hendrickson', latin:'Ephemerella subvaria',
-    months:[4],
+    id:'hendrickson',name:'Hendrickson',latin:'Ephemerella subvaria',
+    months:[4],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
         {name:'Hare\'s Ear Nymph',size:'#14',img:'BH-Hares-Ear-Tan.png',note:'Dead-drift near bottom before hatch time.'},
@@ -333,11 +315,12 @@ const bugs = [
     rivers:['South Fork New River','Watauga River (Valle Crucis)','North Toe River'],
     condMatch:{clarity:['clear','stained'],flow:['normal'],temp:['cool']},
     condNote:'Male and female look different; trout can be selective. The female with the yellow egg sac is often what fish want.',
-    tip:'Once you find a productive pool during Hendrickson season, mark it. The hatch returns to the same spots year after year.'
+    tip:'Once you find a productive pool during Hendrickson season, mark it. The hatch returns to the same spots year after year.',
+    recNote:'All-day hatch. Fish the Hare\'s Ear nymph in the morning, switch to the dun once you see fish rising mid-day.'
   },
   {
-    id:'marchbrown', name:'March Brown', latin:'Stenonema vicarium',
-    months:[4],
+    id:'marchbrown',name:'March Brown',latin:'Stenonema vicarium',
+    months:[4],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
         {name:'March Brown Nymph',size:'#12',img:'March-Brown-Nymph.png',note:'Large active nymph. Dead-drift or swing.'}
@@ -350,11 +333,12 @@ const bugs = [
     rivers:['South Fork New River','North Fork New River','Meat Camp Creek'],
     condMatch:{clarity:['clear','stained'],flow:['normal'],temp:['cool']},
     condNote:'One of the largest mayflies in WNC. Sporadic but trout respond aggressively — a size 12 is a real meal.',
-    tip:'Great confidence fly for beginners — easy to see on the water. If you see it floating past, fish are probably eating it.'
+    tip:'Great confidence fly for beginners — easy to see on the water. If you see it floating past, fish are probably eating it.',
+    recNote:'Sporadic all day. A big size 12 dry — if you see one floating past, the fish see it too. Easy to track on the water.'
   },
   {
-    id:'sulphur', name:'Sulphur', latin:'Ephemerella dorothea',
-    months:[4,5],
+    id:'sulphur',name:'Sulphur',latin:'Ephemerella dorothea',
+    months:[4,5],timeOfDay:['evening'],
     stages:{
       Nymph:[
         {name:'Sulphur Nymph',size:'#16-18',img:'Sulphur-Nymph.png',note:'Dead-drift near bottom in runs and riffles.'}
@@ -376,11 +360,12 @@ const bugs = [
     rivers:['Watauga River (Valle Crucis)','South Fork New River','Laurel Creek','North Toe River'],
     condMatch:{clarity:['clear'],flow:['low','normal'],temp:['cool','warm']},
     condNote:'Evening hatch — often kicks off as light fades. Clear water and fine tippet (6X). Spinner falls at dusk can be the best fishing of the day.',
-    tip:'Start with the emerger early, transition to the dun, finish with a spinner after the sun is off the water.'
+    tip:'Start with the emerger early, transition to the dun, finish with a spinner after the sun is off the water.',
+    recNote:'Evening only. Start with the Sulphur Emerger in the film, move to the Parachute Dun, finish with the Rusty Spinner at dusk. 6X tippet.'
   },
   {
-    id:'lightcahill', name:'Light Cahill', latin:'Stenonema ithaca',
-    months:[4,5,6,7,8],
+    id:'lightcahill',name:'Light Cahill',latin:'Stenonema ithaca',
+    months:[4,5,6,7,8],timeOfDay:['evening'],
     stages:{
       Nymph:[
         {name:'Hare\'s Ear Nymph',size:'#16-18',img:'BH-Hares-Ear-Tan.png',note:'General nymph before hatch.'}
@@ -396,11 +381,12 @@ const bugs = [
     rivers:['Meat Camp Creek','South Fork New River','Beech Creek','North Fork New River','Linville River','Elk River'],
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cool','warm']},
     condNote:'The workhorse summer mayfly in WNC. Reliable across a long season. When in doubt in summer, start with a Light Cahill.',
-    tip:'In July–August when temps climb, fish the evening Light Cahill hatch — move to terrestrials once the sun is fully up.'
+    tip:'In July–August when temps climb, fish the evening Light Cahill hatch — move to terrestrials once the sun is fully up.',
+    recNote:'Afternoon into evening. The most reliable summer mayfly in WNC — if you\'re not sure what to throw, start here.'
   },
   {
-    id:'greendrakec', name:'Green Drake', latin:'Ephemera guttulata',
-    months:[4],
+    id:'greendrakec',name:'Green Drake',latin:'Ephemera guttulata',
+    months:[4],timeOfDay:['evening'],
     stages:{
       Nymph:[
         {name:'Green Drake Nymph',size:'#10',img:null,note:'Large burrowing nymph. Effective before the hatch.'}
@@ -414,11 +400,12 @@ const bugs = [
     rivers:['South Fork New River','Watauga River','North Toe River'],
     condMatch:{clarity:['clear'],flow:['normal'],temp:['cool']},
     condNote:'Short window — late May evenings only. But when it\'s on, fish abandon all caution. Biggest dry fly event of the WNC season.',
-    tip:'Find the right pool and be there at last light. Green Drake fish are not subtle — you\'ll know when it\'s happening.'
+    tip:'Find the right pool and be there at last light. Green Drake fish are not subtle — you\'ll know when it\'s happening.',
+    recNote:'Evening ONLY — last light in late May. Get to your pool early and wait. Size 10 Paradrake or White Wulff. Fish go berserk.'
   },
   {
-    id:'giantstonefly', name:'Giant Stonefly', latin:'Pteronarcys spp.',
-    months:[4,5,6],
+    id:'giantstonefly',name:'Giant Stonefly',latin:'Pteronarcys spp.',
+    months:[4,5,6],timeOfDay:['morning'],
     stages:{
       Nymph:[
         {name:'Giant Stonefly Nymph',size:'#4-8',img:'Stonefly-Nymph-Black.png',note:'Fish early morning along the bottom near structure.'},
@@ -432,11 +419,12 @@ const bugs = [
     rivers:['South Fork New River','North Fork New River','Meat Camp Creek','North Toe River'],
     condMatch:{clarity:['stained','turbid'],flow:['normal','high'],temp:['cool']},
     condNote:'Big nymph, early morning. Works especially well in slightly higher or off-color water where fish are less spooky.',
-    tip:'Roll a big stonefly nymph through the deepest slots and under undercut banks before sunrise.'
+    tip:'Roll a big stonefly nymph through the deepest slots and under undercut banks before sunrise.',
+    recNote:'Early morning only. Roll the big nymph through deep slots and undercut banks before the sun hits the water.'
   },
   {
-    id:'isonychia', name:'Isonychia', latin:'Isonychia bicolor',
-    months:[5,6,7,8],
+    id:'isonychia',name:'Isonychia',latin:'Isonychia bicolor',
+    months:[5,6,7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
         {name:'Iso Nymph / Zug Bug',size:'#12',img:'Zug-Bug.png',note:'Fast water swimmer. Swing or dead-drift.'}
@@ -452,11 +440,12 @@ const bugs = [
     rivers:['South Fork New River','North Fork New River','Watauga River','Laurel Creek'],
     condMatch:{clarity:['clear','stained'],flow:['normal'],temp:['cool','warm']},
     condNote:'Isonychia nymphs are strong swimmers — swinging the wet version through a run is often more effective than dead-drifting.',
-    tip:'A size 12 Adams covers the dun. But don\'t overlook the swung nymph early in the day before adults appear.'
+    tip:'A size 12 Adams covers the dun. But don\'t overlook the swung nymph early in the day before adults appear.',
+    recNote:'Swing the Zug Bug through fast runs early in the day. Switch to a size 12 Adams when you see them on the surface.'
   },
   {
-    id:'yellowsally', name:'Yellow Sally', latin:'Isoperla spp.',
-    months:[5,6,7],
+    id:'yellowsally',name:'Yellow Sally',latin:'Isoperla spp.',
+    months:[5,6,7],timeOfDay:['evening'],
     stages:{
       Nymph:[
         {name:'Yellow Stonefly Nymph',size:'#16',img:'Bead Head Killer Caddis_Yellow.webp',note:'Fish along rocky bottom in riffles.'}
@@ -470,11 +459,12 @@ const bugs = [
     rivers:['Meat Camp Creek','South Fork New River','Beech Creek','Linville River','Elk River'],
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cool','warm']},
     condNote:'Often overlooked but productive in summer when fish have seen every caddis and cahill. A little yellow dry can wake up a pool.',
-    tip:'Fish riffles and the tails of pools. Yellow Sallies crawl out of the water on rocks before flying off.'
+    tip:'Fish riffles and the tails of pools. Yellow Sallies crawl out of the water on rocks before flying off.',
+    recNote:'Late afternoon. Fish riffles and tail-outs with a yellow Stimulator or Yellow Sally dry. Often overlooked — to your advantage.'
   },
   {
-    id:'goldenstone', name:'Golden Stonefly', latin:'Acroneuria spp.',
-    months:[6,7,8],
+    id:'goldenstone',name:'Golden Stonefly',latin:'Acroneuria spp.',
+    months:[6,7,8],timeOfDay:['morning','evening'],
     stages:{
       Nymph:[
         {name:'Golden Stonefly Nymph',size:'#6-8',img:'Bead Head Copper John Rubber Leg_Copper.webp',note:'Early morning and dusk. Fish deep near large boulders.'}
@@ -487,11 +477,12 @@ const bugs = [
     rivers:['South Fork New River','North Fork New River','North Toe River','Linville River'],
     condMatch:{clarity:['stained'],flow:['normal','high'],temp:['warm']},
     condNote:'Prime time is the absolute edge of daylight morning and evening. Worth getting out early in July–August when midday heat shuts the fishing down.',
-    tip:'A size 6–8 Stimulator swung or skated at dusk during July can produce the biggest fish of the summer.'
+    tip:'A size 6–8 Stimulator swung or skated at dusk during July can produce the biggest fish of the summer.',
+    recNote:'Edge of daylight only — before sunrise or at dusk. Skate or swing a size 6–8 Stimulator. Best fish of summer come in this window.'
   },
   {
-    id:'terrestrial', name:'Terrestrials', latin:'Ants, beetles, hoppers, inchworms',
-    months:[5,6,7,8,9],
+    id:'terrestrial',name:'Terrestrials',latin:'Ants, beetles, hoppers, inchworms',
+    months:[5,6,7,8,9],timeOfDay:['morning','midday','evening'],
     stages:{
       Adult:[
         {name:'Foam Ant (black)',size:'#14-18',img:'Foam-Ant.png',note:'All-day producer June–September. Most versatile terrestrial.'},
@@ -505,11 +496,12 @@ const bugs = [
     rivers:['South Fork New River','Meat Camp Creek','Beech Creek','Laurel Creek','Elk River','North Fork New River'],
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['warm','cool']},
     condNote:'Dominant food source in WNC June through September. When it\'s hot and hatches are sparse, go terrestrial before you go home.',
-    tip:'Fish tight to the bank under overhanging trees and brush. Ants and beetles fall off vegetation — fish know exactly where to look.'
+    tip:'Fish tight to the bank under overhanging trees and brush. Ants and beetles fall off vegetation — fish know exactly where to look.',
+    recNote:'Fish tight to the bank under overhanging trees all day. Foam Ant is your most versatile option. Hopper near grassy banks in the afternoon.'
   },
   {
-    id:'flyingant', name:'Flying Ant', latin:'Formicidae (winged)',
-    months:[7,8],
+    id:'flyingant',name:'Flying Ant',latin:'Formicidae (winged)',
+    months:[7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Adult:[
         {name:'Spent-wing Black Ant',size:'#20-24',img:'Flying-Ant-Black.png',note:'Dead-drift flat on surface. Flush in film.'},
@@ -520,92 +512,141 @@ const bugs = [
     rivers:['South Fork New River','Watauga River','North Fork New River','Laurel Creek'],
     condMatch:{clarity:['clear'],flow:['low'],temp:['warm']},
     condNote:'When flying ant falls happen they\'re magic — fish go completely surface-focused. Challenge is matching the tiny size on long thin tippet.',
-    tip:'Use 7X tippet and a slack-line presentation. The ant must sit flush in the film, not on top of it. Any drag kills the fly.'
+    tip:'Use 7X tippet and a slack-line presentation. The ant must sit flush in the film, not on top of it. Any drag kills the fly.',
+    recNote:'When this fall happens, fish go all-in on the surface. 7X tippet, slack-line drift, fly flush in the film. Carry both black and brown.'
   }
 ];
 
-const conds = {clarity:null, flow:null, temp:null};
-let selectedBug = null;
-let selectedStage = null;
+const conds={clarity:null,flow:null,temp:null};
+let selectedBug=null,selectedStage=null;
 
-function toggleCond(type, val) {
-  const el = document.getElementById('c-'+val);
-  if (conds[type] === val) {
-    conds[type] = null;
-    el.classList.remove('active');
-  } else {
-    if (conds[type]) document.getElementById('c-'+conds[type]).classList.remove('active');
-    conds[type] = val;
-    el.classList.add('active');
+function toggleCond(type,val){
+  const el=document.getElementById('c-'+val);
+  if(conds[type]===val){conds[type]=null;el.classList.remove('active');}
+  else{
+    if(conds[type])document.getElementById('c-'+conds[type]).classList.remove('active');
+    conds[type]=val;el.classList.add('active');
   }
+  // Show/hide contextual banners
+  const lowClear=conds.flow==='low'&&conds.clarity==='clear';
+  document.getElementById('dd-tip').style.display=lowClear?'block':'none';
+  document.getElementById('stocking-banner').style.display=(conds.clarity||conds.flow||conds.temp)?'block':'none';
   renderGrid();
-  if (selectedBug) renderDetail();
+  if(selectedBug)renderDetail();
+  document.getElementById('rec-panel').innerHTML='';
 }
 
-function bugMatches(bug) {
-  if (!conds.clarity && !conds.flow && !conds.temp) return true;
-  let ok = true;
-  if (conds.clarity && !bug.condMatch.clarity.includes(conds.clarity)) ok = false;
-  if (conds.flow && !bug.condMatch.flow.includes(conds.flow)) ok = false;
-  if (conds.temp && !bug.condMatch.temp.includes(conds.temp)) ok = false;
+function bugMatches(bug){
+  if(!conds.clarity&&!conds.flow&&!conds.temp)return true;
+  let ok=true;
+  if(conds.clarity&&!bug.condMatch.clarity.includes(conds.clarity))ok=false;
+  if(conds.flow&&!bug.condMatch.flow.includes(conds.flow))ok=false;
+  if(conds.temp&&!bug.condMatch.temp.includes(conds.temp))ok=false;
   return ok;
 }
 
-function renderGrid() {
-  const hasConds = conds.clarity || conds.flow || conds.temp;
-  document.getElementById('bug-grid').innerHTML = bugs.map(bug => {
-    const active = bug.months.includes(NOW);
-    const matches = bugMatches(bug);
-    const sel = selectedBug && selectedBug.id === bug.id;
-    let cls = 'bug-card';
-    if (sel) cls += ' selected';
-    if (hasConds && !matches) cls += ' dimmed';
-    return `<div class="${cls}" onclick="selectBug('${bug.id}')">
+function showRecommendations(){
+  const tod=timeOfDay();
+  const monthName=['January','February','March','April','May','June','July','August','September','October','November','December'][NOW];
+  const tod2={morning:'this morning',midday:'midday',evening:'this evening',night:'tonight'}[tod];
+
+  let recs=[];
+  bugs.forEach(bug=>{
+    if(!bug.months.includes(NOW))return;
+    const condOk=bugMatches(bug);
+    const rightTime=bug.timeOfDay.includes(tod);
+
+    // Collect first fly with an image from any stage
+    let bestFly=null;
+    Object.values(bug.stages).forEach(flies=>{
+      flies.forEach(f=>{if(!bestFly&&f.img)bestFly=f;});
+    });
+
+    let score=0;
+    if(condOk)score+=3;
+    if(rightTime)score+=2;
+    if(bestFly)score+=1;
+
+    recs.push({bug,score,bestFly,condOk,rightTime});
+  });
+
+  recs.sort((a,b)=>b.score-a.score);
+  recs=recs.slice(0,5);
+
+  let html=`<div class="rec-panel"><h3>&#9654; Recommendations for ${monthName}, ${tod2}</h3>`;
+
+  if(recs.length===0){
+    html+=`<div class="rec-none">No hatches matched for current conditions. Try adjusting your filters.</div>`;
+  } else {
+    recs.forEach(({bug,bestFly,condOk,rightTime})=>{
+      const imgEl=bestFly
+        ?`<img class="rec-img" src="${IMG}${bestFly.img}" alt="${bestFly.name}" onerror="this.outerHTML='<div class=\\'rec-img-ph\\'>no image</div>'">`
+        :`<div class="rec-img-ph">no image</div>`;
+      const why=[];
+      if(condOk)why.push('matches your conditions');
+      if(rightTime)why.push('active '+tod2);
+      const whyStr=why.length?why.join(' · '):'in season';
+      const flyName=bestFly?bestFly.name:'See patterns';
+      html+=`<div class="rec-item">
+        ${imgEl}
+        <div class="rec-info">
+          <div class="rec-fly">${flyName} <span style="font-size:11px;color:var(--text3)">${bestFly?bestFly.size:''}</span></div>
+          <div class="rec-hatch">${bug.name.toUpperCase()}</div>
+          <div class="rec-why">${bug.recNote||bug.condNote}</div>
+        </div>
+      </div>`;
+    });
+  }
+
+  html+=`</div>`;
+  document.getElementById('rec-panel').innerHTML=html;
+  document.getElementById('rec-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function renderGrid(){
+  const hasConds=conds.clarity||conds.flow||conds.temp;
+  document.getElementById('bug-grid').innerHTML=bugs.map(bug=>{
+    const active=bug.months.includes(NOW);
+    const matches=bugMatches(bug);
+    const sel=selectedBug&&selectedBug.id===bug.id;
+    let cls='bug-card';
+    if(sel)cls+=' selected';
+    if(hasConds&&!matches)cls+=' dimmed';
+    return`<div class="${cls}" onclick="selectBug('${bug.id}')">
       <div class="bname">${bug.name}</div>
       <div class="bsub">${bug.latin.split(' ')[0]}</div>
-      ${active ? '<div class="bnow">&#9679; hatching now</div>' : ''}
+      ${active?'<div class="bnow">&#9679; hatching now</div>':''}
     </div>`;
   }).join('');
 }
 
-function selectBug(id) {
-  selectedBug = bugs.find(b => b.id === id);
-  selectedStage = Object.keys(selectedBug.stages)[0];
+function selectBug(id){
+  selectedBug=bugs.find(b=>b.id===id);
+  selectedStage=Object.keys(selectedBug.stages)[0];
   renderGrid();
   renderDetail();
 }
 
-function selectStage(s) {
-  selectedStage = s;
-  renderDetail();
-}
+function selectStage(s){selectedStage=s;renderDetail();}
 
-function renderDetail() {
-  if (!selectedBug) return;
-  const bug = selectedBug;
-  const hasConds = conds.clarity || conds.flow || conds.temp;
-  const matches = bugMatches(bug);
-
-  const monthBar = MONTHS.map((m,i) =>
-    `<div class="mc${bug.months.includes(i)?' on':''}${i===NOW?' now':''}"></div>`
-  ).join('');
-  const monthLabels = MONTHS.map(m=>`<span>${m}</span>`).join('');
-
-  let condCls = 'neutral';
-  if (hasConds) condCls = matches ? 'ok' : 'warn';
-  const condPrefix = hasConds ? (matches ? '&#10003; ' : '&#9651; ') : '';
-
-  const stages = Object.keys(bug.stages);
-  const stageBtns = stages.map(s =>
-    `<button class="stage-btn${s===selectedStage?' active':''}" onclick="selectStage('${s}')">${s}</button>`
-  ).join('');
-
-  const flies = bug.stages[selectedStage] || [];
-  const flyHtml = flies.map(f => {
-    const imgEl = f.img
-      ? `<img class="fly-img" src="${IMG}${f.img}" alt="${f.name}" onerror="this.outerHTML='<div class=\\'fly-img-ph\\'>no image<br>yet</div>'">`
-      : `<div class="fly-img-ph">no image<br>yet</div>`;
-    return `<div class="fly-item">
+function renderDetail(){
+  if(!selectedBug)return;
+  const bug=selectedBug;
+  const hasConds=conds.clarity||conds.flow||conds.temp;
+  const matches=bugMatches(bug);
+  const monthBar=MONTHS.map((m,i)=>`<div class="mc${bug.months.includes(i)?' on':''}${i===NOW?' now':''}"></div>`).join('');
+  const monthLabels=MONTHS.map(m=>`<span>${m}</span>`).join('');
+  let condCls='neutral';
+  if(hasConds)condCls=matches?'ok':'warn';
+  const condPrefix=hasConds?(matches?'&#10003; ':'&#9651; '):'';
+  const stages=Object.keys(bug.stages);
+  const stageBtns=stages.map(s=>`<button class="stage-btn${s===selectedStage?' active':''}" onclick="selectStage('${s}')">${s}</button>`).join('');
+  const flies=bug.stages[selectedStage]||[];
+  const flyHtml=flies.map(f=>{
+    const imgEl=f.img
+      ?`<img class="fly-img" src="${IMG}${f.img}" alt="${f.name}" onerror="this.outerHTML='<div class=\\'fly-img-ph\\'>no image<br>yet</div>'">`
+      :`<div class="fly-img-ph">no image<br>yet</div>`;
+    return`<div class="fly-item">
       ${imgEl}
       <div class="fly-info">
         <div class="fly-header">
@@ -617,7 +658,7 @@ function renderDetail() {
     </div>`;
   }).join('');
 
-  document.getElementById('detail-panel').innerHTML = `
+  document.getElementById('detail-panel').innerHTML=`
     <div class="detail">
       <h2>${bug.name}</h2>
       <div class="latin">${bug.latin}</div>
