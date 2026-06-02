@@ -89,34 +89,6 @@
   .peak-row{font-size:11px;color:var(--text2);margin-bottom:10px;}
   .peak-row strong{color:var(--text3);}
   #placeholder{text-align:center;padding:32px 16px;color:var(--text3);font-size:13px;font-style:italic;}
-  .report-panel{background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:14px;margin-bottom:16px;}
-  .report-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
-  .report-title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green2);}
-  .report-meta{font-size:10px;color:var(--text3);}
-  .report-conditions{font-size:11px;color:var(--text2);margin-bottom:10px;line-height:1.5;padding:7px 10px;background:var(--bg3);border-radius:4px;border-left:2px solid var(--border2);}
-  .report-flies{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;}
-  .report-fly{display:flex;gap:10px;align-items:flex-start;}
-  .report-fly img{width:52px;height:38px;object-fit:contain;border-radius:3px;background:var(--bg3);border:1px solid var(--border);flex-shrink:0;}
-  .report-fly-ph{width:52px;height:38px;border-radius:3px;background:var(--bg3);border:1px dashed var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--text3);}
-  .report-fly-info{flex:1;}
-  .report-fly-name{font-size:12px;color:var(--text);}
-  .report-fly-size{font-size:10px;color:var(--text3);margin-left:4px;}
-  .report-fly-note{font-size:11px;color:var(--text2);margin-top:2px;line-height:1.4;}
-  .report-tactics{margin-bottom:8px;}
-  .report-tactic{font-size:11px;color:var(--text2);padding:3px 0;border-bottom:1px solid var(--border);line-height:1.4;}
-  .report-tactic:last-child{border-bottom:none;}
-  .report-tactic::before{content:'→ ';color:var(--green2);}
-  .report-waters{display:flex;flex-direction:column;gap:5px;margin-bottom:8px;}
-  .report-water-name{font-size:11px;color:var(--green3);}
-  .report-water-note{font-size:11px;color:var(--text2);line-height:1.4;}
-  .report-elev{font-size:10px;color:var(--text3);font-style:italic;margin-top:6px;line-height:1.5;}
-  .report-source{font-size:10px;color:var(--text3);margin-top:8px;}
-  .report-source a{color:var(--green2);text-decoration:none;}
-  .report-toggle{font-size:10px;color:var(--green2);cursor:pointer;letter-spacing:.05em;background:none;border:none;font-family:'Georgia',serif;padding:0;}
-  .report-toggle:hover{color:var(--green3);}
-  .report-body{display:none;}
-  .report-body.open{display:block;}
-  .report-section-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin:10px 0 6px;}
 </style>
 </head>
 <body>
@@ -130,11 +102,11 @@
   </div>
   <div class="nav-dropdown" id="nav-dropdown">
     <a href="index.html" class="active">Matcher</a>
+    <a href="report.html">Report</a>
     <a href="glossary.html">Glossary</a>
   </div>
 </nav>
 <div class="container">
-  <div id="report-container"></div>
   <div class="section-label">Water conditions</div>
   <div class="cond-row">
     <div class="cond-group">
@@ -179,92 +151,6 @@ const MONTHS=['J','F','M','A','M','J','J','A','S','O','N','D'];
 const NOW=new Date().getMonth();
 const HOUR=new Date().getHours();
 const IMG='flies/';
-
-// ── LIVE REPORT ────────────────────────────────────────────────────────────
-async function loadReport(){
-  const container=document.getElementById('report-container');
-  try{
-    const res=await fetch('report.json?v='+Date.now());
-    if(!res.ok)throw new Error('not found');
-    const r=await res.json();
-
-    // Auto-set condition pills from report if user hasn't touched them
-    if(r.conditions.flow&&!conds.flow){
-      conds.flow=r.conditions.flow;
-      const el=document.getElementById('c-'+r.conditions.flow);
-      if(el)el.classList.add('active');
-    }
-    if(r.conditions.clarity&&!conds.clarity){
-      conds.clarity=r.conditions.clarity;
-      const el=document.getElementById('c-'+r.conditions.clarity);
-      if(el)el.classList.add('active');
-    }
-    if(r.conditions.temp&&!conds.temp){
-      conds.temp=r.conditions.temp;
-      const el=document.getElementById('c-'+r.conditions.temp);
-      if(el)el.classList.add('active');
-    }
-    renderGrid();
-
-    // Show stocking alert if flagged
-    if(r.stocking_alert){
-      const sb=document.getElementById('stocking-banner');
-      if(sb)sb.style.display='block';
-    }
-
-    // Build fly cards
-    const flyCards=(r.top_flies||[]).map(f=>{
-      const imgEl=f.img
-        ?`<img src="${IMG}${f.img}" alt="${f.name}" onerror="this.outerHTML='<div class=\\'report-fly-ph\\'>?</div>'">`
-        :`<div class="report-fly-ph">?</div>`;
-      return`<div class="report-fly">
-        ${imgEl}
-        <div class="report-fly-info">
-          <span class="report-fly-name">${f.name}</span><span class="report-fly-size">${f.size}</span>
-          <div class="report-fly-note">${f.note}</div>
-        </div>
-      </div>`;
-    }).join('');
-
-    // Build tactics
-    const tactics=(r.tactics||[]).map(t=>`<div class="report-tactic">${t}</div>`).join('');
-
-    // Build waters
-    const waters=(r.waters||[]).map(w=>`<div>
-      <div class="report-water-name">${w.name}</div>
-      <div class="report-water-note">${w.note}</div>
-    </div>`).join('');
-
-    container.innerHTML=`<div class="report-panel">
-      <div class="report-header">
-        <span class="report-title">&#9679; Current Conditions &amp; Fly Report</span>
-        <button class="report-toggle" onclick="toggleReport(this)">show details &#9660;</button>
-      </div>
-      <div class="report-conditions">${r.conditions.overall}</div>
-      <div class="report-body">
-        <div class="report-section-label">What's working now</div>
-        <div class="report-flies">${flyCards}</div>
-        <div class="report-section-label">Tactics</div>
-        <div class="report-tactics">${tactics}</div>
-        <div class="report-section-label">Waters</div>
-        <div class="report-waters">${waters}</div>
-        ${r.elevation_note?`<div class="report-elev">&#9651; Elevation note: ${r.elevation_note}</div>`:''}
-        <div class="report-source">Source: <a href="${r.source_url}" target="_blank">${r.source}</a> &middot; Updated ${r.updated}</div>
-      </div>
-    </div>`;
-  } catch(e){
-    // No report file — show nothing, fail silently
-    container.innerHTML='';
-  }
-}
-
-function toggleReport(btn){
-  const body=btn.closest('.report-panel').querySelector('.report-body');
-  body.classList.toggle('open');
-  btn.textContent=body.classList.contains('open')?'hide details &#9650;':'show details &#9660;';
-  btn.innerHTML=body.classList.contains('open')?'hide details &#9650;':'show details &#9660;';
-}
-
 
 
 function timeOfDay(){
@@ -840,7 +726,6 @@ function renderDetail(){
 }
 
 renderGrid();
-loadReport();
 
 function toggleMenu(){
   document.getElementById('nav-dropdown').classList.toggle('open');
