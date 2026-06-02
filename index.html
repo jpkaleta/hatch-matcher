@@ -8,14 +8,18 @@
   :root{--bg:#0f1a0f;--bg2:#162016;--bg3:#1c2a1c;--card:#1a241a;--border:#2a3d2a;--border2:#3a5a3a;--green:#4a9a5a;--green2:#6ab87a;--green3:#8dd49a;--amber:#c8882a;--amber2:#e8a84a;--text:#d8e8d8;--text2:#8aaa8a;--text3:#5a7a5a;--warnbg:#2a1a0a;--okbg:#0a2a0a;--ok:#4a8a4a;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;min-height:100vh;}
-  nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:stretch;gap:0;}
-  .nav-brand{font-size:15px;font-weight:normal;color:var(--green3);letter-spacing:.06em;padding:14px 16px 14px 0;border-right:1px solid var(--border);margin-right:4px;display:flex;align-items:center;}
-  .nav-link{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-decoration:none;padding:14px 14px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s;}
-  .nav-link:hover{color:var(--green2);}
-  .nav-link.active{color:var(--green3);border-bottom-color:var(--green);}
-  header{background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 20px;display:flex;align-items:baseline;gap:12px;}
-  header h1{font-size:18px;font-weight:normal;letter-spacing:.08em;color:var(--green3);}
-  header span{font-size:11px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;}
+  nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;gap:12px;position:relative;}
+  .hamburger{background:none;border:none;cursor:pointer;padding:14px 4px;display:flex;flex-direction:column;gap:5px;flex-shrink:0;}
+  .hamburger span{display:block;width:20px;height:2px;background:var(--green2);border-radius:1px;transition:background .15s;}
+  .hamburger:hover span{background:var(--green3);}
+  .nav-brand{font-size:15px;font-weight:normal;color:var(--green3);letter-spacing:.06em;display:flex;flex-direction:column;gap:1px;}
+  .nav-brand-sub{font-size:9px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;}
+  .nav-dropdown{display:none;position:absolute;top:100%;left:0;background:var(--bg2);border:1px solid var(--border2);border-top:none;border-radius:0 0 6px 6px;min-width:160px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.4);}
+  .nav-dropdown.open{display:block;}
+  .nav-dropdown a{display:block;padding:12px 16px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);text-decoration:none;border-bottom:1px solid var(--border);transition:all .15s;}
+  .nav-dropdown a:last-child{border-bottom:none;}
+  .nav-dropdown a:hover{color:var(--green3);background:var(--bg3);}
+  .nav-dropdown a.active{color:var(--green3);}
   .container{padding:16px 16px 40px;max-width:700px;margin:0 auto;}
   .section-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
   .cond-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;padding:12px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;}
@@ -117,14 +121,18 @@
 </head>
 <body>
 <nav>
-  <span class="nav-brand">WNC Hatch Matcher</span>
-  <a class="nav-link active" href="index.html">Matcher</a>
-  <a class="nav-link" href="glossary.html">Fly Glossary</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-brand">
+    WNC Hatch Matcher
+    <span class="nav-brand-sub">Watauga &middot; Ashe &middot; Avery</span>
+  </div>
+  <div class="nav-dropdown" id="nav-dropdown">
+    <a href="index.html" class="active">Matcher</a>
+    <a href="glossary.html">Glossary</a>
+  </div>
 </nav>
-<header>
-  <h1>WNC Hatch Matcher</h1>
-  <span>Watauga · Ashe · Avery Counties</span>
-</header>
 <div class="container">
   <div id="report-container"></div>
   <div class="section-label">Water conditions</div>
@@ -833,6 +841,13 @@ function renderDetail(){
 
 renderGrid();
 loadReport();
+
+function toggleMenu(){
+  document.getElementById('nav-dropdown').classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('nav'))document.getElementById('nav-dropdown').classList.remove('open');
+});
 </script>
 </body>
 </html>
