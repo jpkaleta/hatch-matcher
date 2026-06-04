@@ -1,18 +1,25 @@
 """
 update_report.py
 ----------------
-Runs on a daily GitHub Actions schedule.
+Runs on a weekly GitHub Actions schedule (Thursdays).
 
 SOURCE ARCHITECTURE:
-  Live report sources (change-detected, trigger Claude when updated):
+  Live report sources (change-detected — Claude only runs if something changed):
     - DSO: tries current month URL, previous month URL, then index fallback
     - FlyLifeOutdoors Blog: two-step fetch index -> latest article
     - FlyFishingNC: single fetch (JS-rendered, may be sparse)
 
-  Static context sources (always fetched when Claude runs):
+  Static context sources (fetched when Claude runs):
     - FlyLifeOutdoors Watauga, Ashe, Avery county pages
 
+IMAGE MATCHING:
+  No hardcoded dictionary. Script fetches the live /flies directory from GitHub,
+  then a second Claude call matches fly names to actual filenames using common
+  sense — handles variants, spelling differences, color suffixes automatically.
+  New images added to the repo are picked up on the next run with no code changes.
+
 Requires env var: ANTHROPIC_API_KEY
+Requires env var: GITHUB_REPOSITORY  (set automatically by GitHub Actions, e.g. "jpkaleta/hatch-matcher")
 """
 
 import os
@@ -30,55 +37,15 @@ REPO_ROOT   = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 HASH_FILE   = os.path.join(SCRIPT_DIR, "report_hashes.json")
 REPORT_FILE = os.path.join(REPO_ROOT, "report.json")
 
+# GitHub repo slug — auto-set by Actions, fallback for local testing
+GITHUB_REPO = os.environ.get("GITHUB_REPOSITORY", "jpkaleta/hatch-matcher")
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.5",
     "Accept-Encoding": "gzip, deflate, br",
     "Connection": "keep-alive",
-}
-
-# ── fly image map ─────────────────────────────────────────────────────────────
-FLY_IMAGE_MAP = {
-    "sulphur dry":                   "Sulphur-Dun.png",
-    "sulphur dun":                   "Sulphur-Dun.png",
-    "sulphur nymph":                 "Sulphur-Nymph.png",
-    "sulfur dry":                    "Sulphur-Dun.png",
-    "sulfur dun":                    "Sulphur-Dun.png",
-    "sulfur nymph":                  "Sulphur-Nymph.png",
-    "yellow sally":                  "Stimulator-Yellow.png",
-    "yellow rubber leg stimulator":  "Stimulator-Yellow.png",
-    "stimulator":                    "Stimulator-Yellow.png",
-    "frenchie":                      "Frenchie.png",
-    "zebra midge":                   "Zebra-Midge-Black.png",
-    "chubby chernobyl":              "Chubby-Chernobyl-Golden-Stone.png",
-    "elk hair caddis":               "Elk-Hair-Caddis-Olive.png",
-    "parachute adams":               "Parachute-Adams.png",
-    "adams":                         "Parachute-Adams.png",
-    "pheasant tail":                 "Pheasant-Tail-Nymph.png",
-    "hares ear":                     "Hares-Ear.png",
-    "san juan worm":                 "San-Juan-Worm-Red.png",
-    "squirmy worm":                  "Squirmy-Worm-Pink.png",
-    "egg pattern":                   "Egg-Oregon-Cheese.png",
-    "eggs":                          "Egg-Oregon-Cheese.png",
-    "bwo nymph":                     "BWO-Nymph.png",
-    "blue winged olive":             "BWO-Nymph.png",
-    "blue-winged olive":             "BWO-Nymph.png",
-    "soft hackle":                   "Soft-Hackle-Partridge-Orange.png",
-    "duracell":                      "Duracell.png",
-    "waltz worm":                    "Waltz-Worm.png",
-    "green drake":                   "Green-Drake.png",
-    "isonychia":                     "Isonychia.png",
-    "light cahill":                  "Light-Cahill.png",
-    "quill gordon":                  "Quill-Gordon.png",
-    "woolly bugger":                 "Woolly-Bugger-Olive.png",
-    "wooly bugger":                  "Woolly-Bugger-Olive.png",
-    "prince nymph":                  "Prince-Nymph.png",
-    "prince":                        "Prince-Nymph.png",
-    "copper john":                   "Copper-John.png",
-    "royal wulff":                   "Royal-Wulff.png",
-    "hendrickson":                   "Hendrickson.png",
-    "march brown":                   "March-Brown.png",
 }
 
 
@@ -127,6 +94,26 @@ def fetch_latest_article(index_url: str, link_pattern: str,
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# GITHUB IMAGE DISCOVERY
+# ─────────────────────────────────────────────────────────────────────────────
+
+def get_fly_image_filenames(repo: str) -> list[str]:
+    """
+    Fetch the current list of image filenames from the /flies directory
+    via the GitHub API. Works on public repos with no auth required.
+    Returns sorted list of .png filenames.
+    """
+    url = f"https://api.github.com/repos/{repo}/contents/flies"
+    r = requests.get(url, timeout=15, headers={"User-Agent": "WNCHatchMatcher/1.0"})
+    r.raise_for_status()
+    files = [f["name"] for f in r.json()
+             if isinstance(f, dict) and f.get("name", "").lower().endswith(".png")]
+    files.sort()
+    print(f"  Found {len(files)} fly images in repo")
+    return files
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # HASHING
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -147,34 +134,15 @@ def save_hashes(hashes: dict) -> None:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# IMAGE INJECTION
+# CLAUDE API CALLS
 # ─────────────────────────────────────────────────────────────────────────────
 
-def resolve_image(fly_name: str) -> str:
-    key = fly_name.lower().strip()
-    if key in FLY_IMAGE_MAP:
-        return FLY_IMAGE_MAP[key]
-    for map_key, filename in FLY_IMAGE_MAP.items():
-        if map_key in key or key in map_key:
-            return filename
-    return ""
-
-
-def inject_images(report: dict) -> dict:
-    for fly in report.get("top_flies", []):
-        if not fly.get("img"):
-            fly["img"] = resolve_image(fly.get("name", ""))
-    return report
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# CLAUDE API CALL
-# ─────────────────────────────────────────────────────────────────────────────
-
-def call_claude(report_text: str, context_text: str) -> dict:
+def call_claude_report(report_text: str, context_text: str, today: str) -> dict:
+    """
+    Call 1 of 2: synthesize fishing report sources into structured JSON.
+    Image fields are left empty — call_claude_images() fills them in.
+    """
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-
-    today = datetime.date.today().isoformat()
 
     schema = {
         "updated": today,
@@ -196,10 +164,11 @@ def call_claude(report_text: str, context_text: str) -> dict:
         "stocking_note": ""
     }
 
-    prompt = f"""You are synthesizing a weekly fly fishing report for Watauga, Ashe, and Avery Counties, NC High Country (~3,300-4,000 ft elevation).
+    prompt = f"""You are synthesizing a weekly fly fishing report for Watauga, Ashe, and Avery Counties,
+NC High Country (~3,300-4,000 ft elevation).
 
 Triangulate across all sources and return the single best recommendation set for a local angler.
-Where sources agree = high confidence. Favor DSO when sources conflict — it is most WNC-specific.
+Where sources agree = high confidence. Favor DSO when sources conflict — it is the most WNC-specific.
 
 YOU MUST RETURN ONLY A VALID JSON OBJECT. No explanation, no markdown fences, no preamble.
 Start your response with {{ and end with }}. Nothing else.
@@ -209,22 +178,22 @@ Use this exact schema:
 
 Rules:
 - flow: only "low", "normal", or "high"
-- clarity: only "clear", "stained", or "turbid"  
+- clarity: only "clear", "stained", or "turbid"
 - temp: only "cold", "cool", or "warm"
-- top_flies: ONLY flies explicitly named in source reports — do not invent patterns. 5-8 max.
-- img: always leave as "" (pipeline fills this)
+- top_flies: ONLY flies explicitly named in the source reports — do not invent patterns. 5-8 max.
+- img: always leave as "" — a second AI call will fill these in from your actual image library
 - tactics: ONLY tactics stated or directly implied by the reports — do not invent generic advice
-- waters: only waters explicitly named in the reports
-- stocking_alert: true only if stocking is current or imminent
+- waters: ONLY waters explicitly named in the reports — do not add from general knowledge
+- stocking_alert: true only if stocking is mentioned as current or imminent in the reports
 - updated: {today}
 - If source material is thin, produce a minimal honest report rather than padded generic output
 - If a field has no data from sources: use "" or [] — never fill gaps with general knowledge
 - Never omit a key from the schema
 
-━━━ LIVE REPORT SOURCES ━━━
+━━━ LIVE REPORT SOURCES (primary intel) ━━━
 {report_text}
 
-━━━ BACKGROUND CONTEXT (stocking numbers, stream types) ━━━
+━━━ BACKGROUND CONTEXT (stocking numbers, stream types, regulations) ━━━
 {context_text}"""
 
     response = client.messages.create(
@@ -234,9 +203,8 @@ Rules:
     )
 
     raw = response.content[0].text.strip()
-    print(f"  Claude raw response ({len(raw)} chars): {raw[:200]}...")
+    print(f"  Report response ({len(raw)} chars): {raw[:150]}...")
 
-    # strip markdown fences if present
     if raw.startswith("```"):
         parts = raw.split("```")
         raw = parts[1] if len(parts) > 1 else raw
@@ -245,9 +213,67 @@ Rules:
     raw = raw.strip()
 
     if not raw:
-        raise ValueError("Claude returned an empty response")
+        raise ValueError("Claude returned an empty response for the report")
 
     return json.loads(raw)
+
+
+def call_claude_images(flies: list[dict], filenames: list[str]) -> list[dict]:
+    """
+    Call 2 of 2: match each fly name to the closest image filename.
+    Uses common sense — handles color variants, spelling differences,
+    regional name variations, and partial matches automatically.
+    Returns the flies list with img fields populated.
+    """
+    if not filenames:
+        print("  No image filenames available — skipping image matching")
+        return flies
+
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+    fly_names = [f["name"] for f in flies]
+
+    prompt = f"""You are matching fly fishing pattern names to the closest available image files.
+
+Use common sense for matching:
+- Color variants are fine: "Elk Hair Caddis" matches "Elk-Hair-Caddis-Olive.png"
+- Spelling variations: "Sulfur" matches "Sulphur", "Wooly" matches "Woolly"  
+- Partial names: "Zebra Midge" matches "Zebra-Midge-Black.png"
+- Regional names: "Yellow Sally" matches "Stimulator-Yellow.png"
+- If multiple files could match, pick the most natural one
+- If truly nothing is close, use ""
+
+Fly patterns to match:
+{json.dumps(fly_names, indent=2)}
+
+Available image files:
+{json.dumps(filenames, indent=2)}
+
+Return ONLY a JSON array of strings — one filename (or "") per fly, in the exact same order as the input list.
+No explanation, no markdown, just the raw JSON array starting with [ and ending with ]."""
+
+    response = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=400,
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    raw = response.content[0].text.strip()
+    print(f"  Image match response: {raw}")
+
+    if raw.startswith("```"):
+        parts = raw.split("```")
+        raw = parts[1] if len(parts) > 1 else raw
+        if raw.startswith("json"):
+            raw = raw[4:]
+    raw = raw.strip()
+
+    matches = json.loads(raw)
+
+    for fly, img in zip(flies, matches):
+        fly["img"] = img if img else ""
+
+    return flies
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -257,18 +283,18 @@ Rules:
 def main():
     print("=== WNC Fishing Report Updater ===")
     today = datetime.date.today()
-    print(f"Date: {today.isoformat()}\n")
+    print(f"Date: {today.isoformat()}")
+    print(f"Repo: {GITHUB_REPO}\n")
 
-    old_hashes  = load_hashes()
-    new_hashes  = {}
-    live_sources = {}  # key -> (label, text, url)
+    old_hashes   = load_hashes()
+    new_hashes   = {}
+    live_sources = {}   # key -> (label, text, url)
 
     # ── 1. DSO ────────────────────────────────────────────────────────────────
-    # Try current month article, then previous month, then index page fallback.
     print("Fetching DSO...")
     try:
         month_name      = today.strftime("%B").lower()
-        prev_dt         = (today.replace(day=1) - datetime.timedelta(days=1))
+        prev_dt         = today.replace(day=1) - datetime.timedelta(days=1)
         prev_month_name = prev_dt.strftime("%B").lower()
         dso_base        = "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-"
         dso_index       = "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/"
@@ -281,7 +307,7 @@ def main():
                 t = fetch_text_simple(candidate, char_limit=5000)
                 if len(t) > 300:
                     dso_text, dso_url = t, candidate
-                    print(f"  DSO OK: {len(t)} chars from {candidate}")
+                    print(f"  DSO OK: {len(t)} chars")
                     break
             except Exception as e:
                 print(f"  {candidate} failed: {e}")
@@ -306,7 +332,7 @@ def main():
             print(f"  FLO article: {url} ({len(text)} chars)")
             live_sources["FLO"] = ("Fly Life Outdoors Blog", text, url)
         else:
-            print("  FLO: no article link found — using index text")
+            print("  FLO: no article found — using index")
             t = fetch_text_simple(flo_index, char_limit=3000)
             live_sources["FLO"] = ("Fly Life Outdoors Blog", t, flo_index)
     except Exception as e:
@@ -337,7 +363,7 @@ def main():
             print(f"  {key}: no change")
 
     if not changed_sources:
-        print("\nNo sources changed. Skipping Claude call.")
+        print("\nNo sources changed. Skipping Claude calls.")
         return
 
     # ── STATIC CONTEXT ────────────────────────────────────────────────────────
@@ -357,6 +383,14 @@ def main():
 
     context_text = "\n\n".join(context_parts) or "(no static context available)"
 
+    # ── FETCH FLY IMAGE LIST FROM GITHUB ─────────────────────────────────────
+    print("\nFetching fly image list from GitHub...")
+    try:
+        fly_filenames = get_fly_image_filenames(GITHUB_REPO)
+    except Exception as e:
+        print(f"  WARNING: could not fetch image list — {e}")
+        fly_filenames = []
+
     # ── BUILD REPORT TEXT ─────────────────────────────────────────────────────
     primary_url  = ""
     report_parts = []
@@ -366,7 +400,6 @@ def main():
         if key == "DSO":
             primary_url = url
 
-    # include unchanged sources as supporting context at reduced length
     for key, (label, text, url) in live_sources.items():
         if key not in changed_sources:
             report_parts.append(f"--- CONTEXT (unchanged): {label}\n\n{text[:2000]}")
@@ -374,22 +407,27 @@ def main():
     if not primary_url:
         primary_url = live_sources.get("DSO", ("", "", "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/"))[2]
 
-    report_text   = "\n\n".join(report_parts)
-    source_names  = " + ".join(label for label, _, _ in changed_sources.values())
+    report_text  = "\n\n".join(report_parts)
+    source_names = " + ".join(label for label, _, _ in changed_sources.values())
 
-    # ── CALL CLAUDE ───────────────────────────────────────────────────────────
-    print(f"\nCalling Claude API — sources: {source_names}")
-    report = call_claude(report_text, context_text)
+    # ── CALL 1: SYNTHESIZE REPORT ─────────────────────────────────────────────
+    print(f"\nCalling Claude (report synthesis) — sources: {source_names}")
+    report = call_claude_report(report_text, context_text, today.isoformat())
 
     if primary_url:
         report["source_url"] = primary_url
 
-    report = inject_images(report)
+    # ── CALL 2: MATCH FLY IMAGES ──────────────────────────────────────────────
+    if fly_filenames and report.get("top_flies"):
+        print(f"\nCalling Claude (image matching) — {len(report['top_flies'])} flies, {len(fly_filenames)} images")
+        report["top_flies"] = call_claude_images(report["top_flies"], fly_filenames)
+    else:
+        print("\nSkipping image matching (no flies or no filenames available)")
 
     # ── WRITE OUTPUT ──────────────────────────────────────────────────────────
     with open(REPORT_FILE, "w") as f:
         json.dump(report, f, indent=2)
-    print(f"  report.json written — updated: {report.get('updated')}")
+    print(f"\n  report.json written — updated: {report.get('updated')}")
     print(f"  flies: {len(report.get('top_flies', []))}, waters: {len(report.get('waters', []))}")
 
     save_hashes(new_hashes)
