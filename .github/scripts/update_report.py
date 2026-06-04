@@ -43,6 +43,9 @@ FLY_IMAGE_MAP = {
     "sulphur dry":                   "Sulphur-Dun.png",
     "sulphur dun":                   "Sulphur-Dun.png",
     "sulphur nymph":                 "Sulphur-Nymph.png",
+    "sulfur dry":                    "Sulphur-Dun.png",
+    "sulfur dun":                    "Sulphur-Dun.png",
+    "sulfur nymph":                  "Sulphur-Nymph.png",
     "yellow sally":                  "Stimulator-Yellow.png",
     "yellow rubber leg stimulator":  "Stimulator-Yellow.png",
     "stimulator":                    "Stimulator-Yellow.png",
@@ -208,13 +211,15 @@ Rules:
 - flow: only "low", "normal", or "high"
 - clarity: only "clear", "stained", or "turbid"  
 - temp: only "cold", "cool", or "warm"
-- top_flies: 5-8 flies mentioned in the reports, with hook sizes
+- top_flies: ONLY flies explicitly named in source reports — do not invent patterns. 5-8 max.
 - img: always leave as "" (pipeline fills this)
-- tactics: 4-7 short actionable bullets, WNC-specific
+- tactics: ONLY tactics stated or directly implied by the reports — do not invent generic advice
 - waters: only waters explicitly named in the reports
 - stocking_alert: true only if stocking is current or imminent
 - updated: {today}
-- If no data for a field: use "" or [] but never omit the key
+- If source material is thin, produce a minimal honest report rather than padded generic output
+- If a field has no data from sources: use "" or [] — never fill gaps with general knowledge
+- Never omit a key from the schema
 
 ━━━ LIVE REPORT SOURCES ━━━
 {report_text}
