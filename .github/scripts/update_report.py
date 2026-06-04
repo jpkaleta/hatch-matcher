@@ -269,7 +269,7 @@ presentation style. No filler.
 {context_text}"""
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-haiku-4-5-20251001",
         max_tokens=1800,
         messages=[{"role": "user", "content": prompt}]
     )
@@ -307,10 +307,10 @@ def main():
     print("Fetching DSO...")
     try:
         dso_index = "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/"
-        # DSO article URLs follow pattern: /western-north-carolina-east-tennessee-fly-fishing-report-*/
+        # DSO article URLs follow pattern: /western-north-carolina-east-tennessee-fly-fishing-report-<month>/
         article_url, text = fetch_latest_article(
             dso_index,
-            link_pattern=r"fly-fishing-report-(?!/$)[a-z]"
+            link_pattern=r"western-north-carolina-east-tennessee-fly-fishing-report-[a-z]"
         )
         if text:
             print(f"  DSO article: {article_url}")
