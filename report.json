@@ -1,93 +1,78 @@
 {
-  "updated": "2026-05-09",
-  "source": "Due South Outfitters",
+  "updated": "2026-06-04",
+  "source": "Due South Outfitters + Fly Life Outdoors",
   "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-may/",
   "conditions": {
-    "overall": "Low water across WNC streams but fishing is great. DH streams received final spring stocking — next stocking not until October. Wild creeks producing well. Sulphur hatches now daily, transitioning out of caddis. Tailwaters fishing very well around generation pulses.",
-    "flow": "low",
+    "overall": "High Country streams running cool with clear to slightly stained water. Late spring conditions favor subsurface patterns and emerging aquatic insects.",
+    "flow": "normal",
     "clarity": "clear",
     "temp": "cool"
   },
   "top_flies": [
     {
-      "name": "Sulphur Dry",
-      "size": "#16-18",
-      "img": "Sulphur-Dun.png",
-      "note": "Daily sulphur hatches now on wild water and tailwaters. Late afternoon into evening."
-    },
-    {
-      "name": "Yellow Sally",
+      "name": "Pheasant Tail Nymph",
       "size": "#14-16",
-      "img": "Stimulator-Yellow.png",
-      "note": "Entering yellow bug season. Fish riffles and pool tails late afternoon."
+      "img": "Pheasant-Tail-Nymph.png",
+      "note": "Dead-drift subsurface in pocket water; primary pattern for cooler, clear streams"
     },
     {
-      "name": "Yellow Rubber Leg Stimulator",
+      "name": "Elk Hair Caddis",
       "size": "#14-16",
-      "img": "Stimulator-Yellow.png",
-      "note": "DSO go-to for wild water on a dry dropper rig right now. Their top pick for yellow bug season."
+      "img": "Elk-Hair-Caddis-Olive.png",
+      "note": "Dry fly during afternoon emergences; fish fast water and riffles"
     },
     {
-      "name": "Frenchie",
+      "name": "Woolly Bugger",
+      "size": "#8-10",
+      "img": "Woolly-Bugger-Olive.png",
+      "note": "Streamer pattern for deeper pools and overhanging banks; strip or dead-drift"
+    },
+    {
+      "name": "Blue-Winged Olive",
       "size": "#16-18",
-      "img": "Frenchie.png",
-      "note": "Top subsurface pattern on both DH and wild water. Dead-drift near bottom."
+      "img": "BWO-Nymph.png",
+      "note": "Small nymph and dry; reliable in cool, high-elevation conditions"
     },
     {
-      "name": "Sulphur Nymph",
-      "size": "#16-18",
-      "img": "Sulphur-Nymph.png",
-      "note": "Effective on wild water and tailwaters as a dropper. Fish before the evening hatch."
-    },
-    {
-      "name": "Zebra Midge",
-      "size": "#18-20",
-      "img": "Zebra-Midge-Black.png",
-      "note": "Still producing on DH water and tailwaters. Black first."
-    },
-    {
-      "name": "Chubby Chernobyl",
+      "name": "Stimulator",
       "size": "#12-14",
-      "img": "Chubby-Chernobyl-Golden-Stone.png",
-      "note": "Dry dropper anchor on DH water. Egg or Frenchie as the dropper."
+      "img": "Stimulator-Yellow.png",
+      "note": "Attractor dry for pocket water; high visibility in clear conditions"
+    },
+    {
+      "name": "Sulfur Nymph",
+      "size": "#16-18",
+      "img": "",
+      "note": "Yellow-brown subsurface pattern for late-spring conditions"
     }
   ],
   "tactics": [
-    "Dry dropper rig over any indicator — low clear water demands stealth",
-    "5–6X tippet on wild water; avoid heavy tippet that spooks fish in low flows",
-    "Size down your dry fly — less commotion on the water on the cast",
-    "Tailwaters: fish after generation pulses as water is falling — fish are fired up",
-    "Watauga TN pulses: 7am–8am and 7pm–8pm; best fishing as water drops after pulse",
-    "South Holston pulses: typically 2am–3am, 10am–11am, 6pm–7pm — check TVA daily",
-    "DH water: final spring stocking done — fish are pressured, go smaller and more natural"
+    "Focus on dead-drift nymphing in pocket water and behind rocks; High Country elevation delays hatches 1-2 weeks vs. lower WNC",
+    "Fish early morning and late afternoon when water is coolest; avoid midday high sun",
+    "Target deeper pools and undercut banks where fish retreat in cooler water",
+    "Use light leaders (4-5x) and small nymphs (#14-18) in clear water; sight-fish when possible",
+    "Strip streamers slowly through deep holes and along woody cover; fish move less in cool conditions",
+    "Watch for afternoon caddis emergences on riffles; be ready with dry patterns by 2-4 PM"
   ],
   "waters": [
     {
-      "name": "Watauga River (Valle Crucis DH)",
-      "note": "Artificials only, catch-and-release through June 5. Harvest opens June 6 — verify at ncwrc.gov. Final spring stocking complete. Sulphur hatch producing in evenings."
+      "name": "North Fork New River (Ashe/Watauga)",
+      "note": "Primary High Country tailwater; steady flows, clear water, good holding structure in pocket water"
     },
     {
-      "name": "Helton Creek (Ashe County DH)",
-      "note": "Stocked this week per DSO report. Fishing well with fresh fish in. Chubby Chernobyl dry dropper and egg patterns near bottom."
+      "name": "South Fork New River",
+      "note": "Productive in spring; cooler than main stem, supports good nymph fishing"
     },
     {
-      "name": "Big Horse Creek / South Fork New River (DH)",
-      "note": "Final spring stocking completing next week per DSO. Good reports coming in."
+      "name": "Watauga River",
+      "note": "High-elevation tributary; clear water, cool temperatures favor subsurface presentations"
     },
     {
-      "name": "Wild Creeks (WNC freestone)",
-      "note": "Low but fishing well. Yellow Sally and Sulphur hatches picking up. 5–6X tippet, dry dropper, size down your dry."
-    },
-    {
-      "name": "Watauga River TN (tailwater)",
-      "note": "Fishing very well. Two one-hour pulses: 7am–8am and 7pm–8pm. Best fishing as water falls after morning pulse. Check TVA before heading out."
-    },
-    {
-      "name": "South Holston (tailwater)",
-      "note": "Three one-hour pulses: typically 2am–3am, 10am–11am, 6pm–7pm. Sulphur hatches building toward summer peak. Always check TVA generation schedule — changes without notice."
+      "name": "Wilson Creek (Avery)",
+      "note": "Fast, rocky stream with good pocket water; ideal for dry fly and nymph combinations"
     }
   ],
-  "elevation_note": "High Country streams (Boone area, 3,300–4,000 ft) run 1–2 weeks behind lower-elevation WNC. Sulphur timing here is late May into June — you're right in the middle of it now.",
-  "stocking_alert": true,
-  "stocking_note": "Final spring DH stocking complete for 2026. Next DH stockings: October and November. Setzer State Fish Hatchery still under renovation through 2028 — stocking volumes reduced. Check ncpaws.org for updates."
+  "elevation_note": "High Country streams (Boone, 3300-4000ft) run 1-2 weeks behind lower-elevation WNC. Spring mayfly and caddis emergences typically lag by 10-14 days. Water temps remain cold; fish subsurface patterns aggressively.",
+  "stocking_alert": false,
+  "stocking_note": ""
 }
