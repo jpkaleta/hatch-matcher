@@ -3,7 +3,7 @@
   "source": "Due South Outfitters + Fly Life Outdoors",
   "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-may/",
   "conditions": {
-    "overall": "Source data unreadable; unable to synthesize current conditions from provided reports.",
+    "overall": "Unable to extract conditions from provided reports due to data corruption.",
     "flow": "",
     "clarity": "",
     "temp": ""
