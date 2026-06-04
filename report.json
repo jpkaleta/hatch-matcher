@@ -1,9 +1,9 @@
 {
-  "updated": "2026-06-02",
+  "updated": "2026-05-09",
   "source": "Due South Outfitters",
-  "source_url": "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/",
+  "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-may/",
   "conditions": {
-    "overall": "Low and clear across most Watauga and Ashe County streams. Stocking reduced due to Setzer Hatchery renovation — check ncpaws.org before planning around fresh stockings.",
+    "overall": "Low water across WNC streams but fishing is great. DH streams received final spring stocking — next stocking not until October. Wild creeks producing well. Sulphur hatches now daily, transitioning out of caddis. Tailwaters fishing very well around generation pulses.",
     "flow": "low",
     "clarity": "clear",
     "temp": "cool"
@@ -13,55 +13,81 @@
       "name": "Sulphur Dry",
       "size": "#16-18",
       "img": "Sulphur-Dun.png",
-      "note": "Evening hatch kicking in on the Watauga DH and South Fork. Late afternoon into dusk."
-    },
-    {
-      "name": "Sparkle Dun (Sulphur)",
-      "size": "#16-18",
-      "img": "Sparkle-Dun-Sulphur.png",
-      "note": "Fish in the film before the duns are fully out. Very effective right now."
+      "note": "Daily sulphur hatches now on wild water and tailwaters. Late afternoon into evening."
     },
     {
       "name": "Yellow Sally",
-      "size": "#16",
+      "size": "#14-16",
       "img": "Stimulator-Yellow.png",
-      "note": "DSO calls this the yellow bug transition. Dry dropper with yellow Stimulator as the dry."
+      "note": "Entering yellow bug season. Fish riffles and pool tails late afternoon."
     },
     {
-      "name": "Elk Hair Caddis (Tan)",
+      "name": "Yellow Rubber Leg Stimulator",
       "size": "#14-16",
-      "img": "EHC-Tan.png",
-      "note": "Still producing on wild water. Transitioning out of peak caddis season."
+      "img": "Stimulator-Yellow.png",
+      "note": "DSO go-to for wild water on a dry dropper rig right now. Their top pick for yellow bug season."
     },
     {
       "name": "Frenchie",
       "size": "#16-18",
       "img": "Frenchie.png",
-      "note": "Subsurface go-to on pressured DH water. Dead-drift near bottom."
+      "note": "Top subsurface pattern on both DH and wild water. Dead-drift near bottom."
+    },
+    {
+      "name": "Sulphur Nymph",
+      "size": "#16-18",
+      "img": "Sulphur-Nymph.png",
+      "note": "Effective on wild water and tailwaters as a dropper. Fish before the evening hatch."
+    },
+    {
+      "name": "Zebra Midge",
+      "size": "#18-20",
+      "img": "Zebra-Midge-Black.png",
+      "note": "Still producing on DH water and tailwaters. Black first."
+    },
+    {
+      "name": "Chubby Chernobyl",
+      "size": "#12-14",
+      "img": "Chubby-Chernobyl-Golden-Stone.png",
+      "note": "Dry dropper anchor on DH water. Egg or Frenchie as the dropper."
     }
   ],
   "tactics": [
-    "Low clear water — use 5–6X tippet across all water types",
-    "Dry dropper rig over any large indicator in current conditions",
-    "Size down your dry fly — fish are seeing everything right now",
-    "Best fishing on wild stretches, not DH, for natural hatches",
-    "Evening is the prime window — Sulphurs and Yellow Sallies late afternoon through dusk"
+    "Dry dropper rig over any indicator — low clear water demands stealth",
+    "5–6X tippet on wild water; avoid heavy tippet that spooks fish in low flows",
+    "Size down your dry fly — less commotion on the water on the cast",
+    "Tailwaters: fish after generation pulses as water is falling — fish are fired up",
+    "Watauga TN pulses: 7am–8am and 7pm–8pm; best fishing as water drops after pulse",
+    "South Holston pulses: typically 2am–3am, 10am–11am, 6pm–7pm — check TVA daily",
+    "DH water: final spring stocking done — fish are pressured, go smaller and more natural"
   ],
   "waters": [
     {
       "name": "Watauga River (Valle Crucis DH)",
-      "note": "Artificials only, catch-and-release until June 5. Evening Sulphur hatch producing. Harvest opens June 6 — verify at ncwrc.gov."
+      "note": "Artificials only, catch-and-release through June 5. Harvest opens June 6 — verify at ncwrc.gov. Final spring stocking complete. Sulphur hatch producing in evenings."
     },
     {
-      "name": "South Fork New River",
-      "note": "Low and clear. Wild stretches fishing better than stocked sections right now. Caddis and early Sulphurs."
+      "name": "Helton Creek (Ashe County DH)",
+      "note": "Stocked this week per DSO report. Fishing well with fresh fish in. Chubby Chernobyl dry dropper and egg patterns near bottom."
     },
     {
-      "name": "Meat Camp Creek",
-      "note": "Hatchery supported. Go early on stocking week — pressure builds fast. Caddis and nymphs."
+      "name": "Big Horse Creek / South Fork New River (DH)",
+      "note": "Final spring stocking completing next week per DSO. Good reports coming in."
+    },
+    {
+      "name": "Wild Creeks (WNC freestone)",
+      "note": "Low but fishing well. Yellow Sally and Sulphur hatches picking up. 5–6X tippet, dry dropper, size down your dry."
+    },
+    {
+      "name": "Watauga River TN (tailwater)",
+      "note": "Fishing very well. Two one-hour pulses: 7am–8am and 7pm–8pm. Best fishing as water falls after morning pulse. Check TVA before heading out."
+    },
+    {
+      "name": "South Holston (tailwater)",
+      "note": "Three one-hour pulses: typically 2am–3am, 10am–11am, 6pm–7pm. Sulphur hatches building toward summer peak. Always check TVA generation schedule — changes without notice."
     }
   ],
-  "elevation_note": "High Country streams (Boone area, 3,300–4,000 ft) run 1–2 weeks behind lower-elevation WNC. Sulphur timing here is late May into June.",
+  "elevation_note": "High Country streams (Boone area, 3,300–4,000 ft) run 1–2 weeks behind lower-elevation WNC. Sulphur timing here is late May into June — you're right in the middle of it now.",
   "stocking_alert": true,
-  "stocking_note": "Setzer State Fish Hatchery under renovation through 2028. Stocking reduced and unpredictable. April 2026 saw no DH stocking at all. Check ncpaws.org daily before planning around fresh fish."
+  "stocking_note": "Final spring DH stocking complete for 2026. Next DH stockings: October and November. Setzer State Fish Hatchery still under renovation through 2028 — stocking volumes reduced. Check ncpaws.org for updates."
 }
