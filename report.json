@@ -3,76 +3,15 @@
   "source": "Due South Outfitters + Fly Life Outdoors",
   "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-may/",
   "conditions": {
-    "overall": "High Country streams running cool with clear to slightly stained water. Late spring conditions favor subsurface patterns and emerging aquatic insects.",
-    "flow": "normal",
-    "clarity": "clear",
-    "temp": "cool"
+    "overall": "Source data unavailable - unable to parse recent report feeds",
+    "flow": "",
+    "clarity": "",
+    "temp": ""
   },
-  "top_flies": [
-    {
-      "name": "Pheasant Tail Nymph",
-      "size": "#14-16",
-      "img": "Pheasant-Tail-Nymph.png",
-      "note": "Dead-drift subsurface in pocket water; primary pattern for cooler, clear streams"
-    },
-    {
-      "name": "Elk Hair Caddis",
-      "size": "#14-16",
-      "img": "Elk-Hair-Caddis-Olive.png",
-      "note": "Dry fly during afternoon emergences; fish fast water and riffles"
-    },
-    {
-      "name": "Woolly Bugger",
-      "size": "#8-10",
-      "img": "Woolly-Bugger-Olive.png",
-      "note": "Streamer pattern for deeper pools and overhanging banks; strip or dead-drift"
-    },
-    {
-      "name": "Blue-Winged Olive",
-      "size": "#16-18",
-      "img": "BWO-Nymph.png",
-      "note": "Small nymph and dry; reliable in cool, high-elevation conditions"
-    },
-    {
-      "name": "Stimulator",
-      "size": "#12-14",
-      "img": "Stimulator-Yellow.png",
-      "note": "Attractor dry for pocket water; high visibility in clear conditions"
-    },
-    {
-      "name": "Sulfur Nymph",
-      "size": "#16-18",
-      "img": "",
-      "note": "Yellow-brown subsurface pattern for late-spring conditions"
-    }
-  ],
-  "tactics": [
-    "Focus on dead-drift nymphing in pocket water and behind rocks; High Country elevation delays hatches 1-2 weeks vs. lower WNC",
-    "Fish early morning and late afternoon when water is coolest; avoid midday high sun",
-    "Target deeper pools and undercut banks where fish retreat in cooler water",
-    "Use light leaders (4-5x) and small nymphs (#14-18) in clear water; sight-fish when possible",
-    "Strip streamers slowly through deep holes and along woody cover; fish move less in cool conditions",
-    "Watch for afternoon caddis emergences on riffles; be ready with dry patterns by 2-4 PM"
-  ],
-  "waters": [
-    {
-      "name": "North Fork New River (Ashe/Watauga)",
-      "note": "Primary High Country tailwater; steady flows, clear water, good holding structure in pocket water"
-    },
-    {
-      "name": "South Fork New River",
-      "note": "Productive in spring; cooler than main stem, supports good nymph fishing"
-    },
-    {
-      "name": "Watauga River",
-      "note": "High-elevation tributary; clear water, cool temperatures favor subsurface presentations"
-    },
-    {
-      "name": "Wilson Creek (Avery)",
-      "note": "Fast, rocky stream with good pocket water; ideal for dry fly and nymph combinations"
-    }
-  ],
-  "elevation_note": "High Country streams (Boone, 3300-4000ft) run 1-2 weeks behind lower-elevation WNC. Spring mayfly and caddis emergences typically lag by 10-14 days. Water temps remain cold; fish subsurface patterns aggressively.",
+  "top_flies": [],
+  "tactics": [],
+  "waters": [],
+  "elevation_note": "High Country streams (Boone, 3300-4000ft) run 1-2 weeks behind lower-elevation WNC",
   "stocking_alert": false,
   "stocking_note": ""
 }
