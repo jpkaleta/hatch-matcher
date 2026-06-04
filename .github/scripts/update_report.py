@@ -38,7 +38,13 @@ REPO_ROOT   = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 HASH_FILE   = os.path.join(SCRIPT_DIR, "report_hashes.json")
 REPORT_FILE = os.path.join(REPO_ROOT, "report.json")
 
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; WNCFishingReportBot/1.0)"}
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+}
 
 # ── fly image map ─────────────────────────────────────────────────────────────
 # Maps lowercase fly name keywords → image filename in your /flies folder.
@@ -263,7 +269,7 @@ presentation style. No filler.
 {context_text}"""
 
     response = client.messages.create(
-        model="claude-opus-4-20250514",
+        model="claude-sonnet-4-20250514",
         max_tokens=1800,
         messages=[{"role": "user", "content": prompt}]
     )
