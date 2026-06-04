@@ -2,7 +2,8 @@ name: Update Fishing Report
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # runs at 11 PM ET (3 AM UTC) every night
+#    - cron: '0 3 * * *'   # runs at 11 PM ET (3 AM UTC) every night
+    - cron: '0 3 * * 4'   # every Thursday at 11 PM ET (3 AM UTC Friday)
   workflow_dispatch:        # lets you trigger it manually from GitHub UI anytime
 
 env:
