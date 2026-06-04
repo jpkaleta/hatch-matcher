@@ -1,2 +1,102 @@
 {
+  "updated": "2026-06-04",
+  "source": "Due South Outfitters + Fly Life Outdoors",
+  "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-may/",
+  "conditions": {
+    "overall": "Water levels are low across both wild and delayed harvest streams in Western NC. Bug activity is transitioning from caddis to sulphur and yellow sally hatches as the season moves deeper into May.",
+    "flow": "low",
+    "clarity": "clear",
+    "temp": "cool"
+  },
+  "top_flies": [
+    {
+      "name": "Yellow Sally",
+      "size": "#14-16",
+      "img": "Stimulator-Yellow.png",
+      "note": "Emerging as a top pattern for wild water near Boone as yellow bug season begins; fish as a dry or anchor in a dry-dropper rig"
+    },
+    {
+      "name": "Yellow Rubber Leg Stimulator",
+      "size": "#14-16",
+      "img": "Stimulator-Yellow.png",
+      "note": "Effective attractor dry for wild High Country streams during yellow sally season"
+    },
+    {
+      "name": "Sulphur Dry",
+      "size": "#16-18",
+      "img": "Sulphur-Dun.png",
+      "note": "Match the sulphur hatch now emerging on wild and tailwater streams; fish during evening rises"
+    },
+    {
+      "name": "Sulphur Nymph",
+      "size": "#16-20",
+      "img": "Sulphur-Nymph.png",
+      "note": "Productive sub-surface pattern on both wild water and tailwaters (Watauga, South Holston) during sulphur season"
+    },
+    {
+      "name": "Frenchie",
+      "size": "#16-20",
+      "img": "Frenchie.png",
+      "note": "Versatile nymph working well on delayed harvest, wild water, and tailwaters; drop beneath a dry or indicator"
+    },
+    {
+      "name": "Zebra Midge",
+      "size": "#18-20",
+      "img": "Zebra-Midge-Black.png",
+      "note": "Consistent producer on delayed harvest streams and tailwaters; effective fished deep in slower runs"
+    },
+    {
+      "name": "Chubby Chernobyl",
+      "size": "#12-14",
+      "img": "Chubby-Chernobyl-Golden-Stone.png",
+      "note": "Workhorse dry-dropper indicator fly for delayed harvest and wild water; buoyant enough to support a heavy dropper"
+    },
+    {
+      "name": "Soft Hackle",
+      "size": "#16-18",
+      "img": "Soft-Hackle-PT-No-Bead.png",
+      "note": "Swing through runs on tailwaters and wild water; deadly during sulphur hatches when fish are keying on emergers"
+    }
+  ],
+  "tactics": [
+    "Fish a dry-dropper setup on low delayed harvest streams \u2014 avoid large, splashy bobbers/indicators that spook fish in skinny water.",
+    "On wild water, use light 5-6X tippet and leader to get natural drifts; size down your dry fly to minimize surface disturbance on the cast.",
+    "On the Watauga tailwater, time your fishing to start after the generation pulse (7\u20138 a.m. or 7\u20138 p.m.) when water is slightly swollen but falling \u2014 fish are most active in this window.",
+    "On the South Holston, plan around the three daily one-hour pulses (approx. 2\u20133 a.m., 10\u201311 a.m., 6\u20137 p.m.); fish the edges of each pulse for best results.",
+    "Always check TVA generation schedules before fishing the Watauga or South Holston \u2014 dam releases can change without notice and affect both safety and fish activity.",
+    "Transition from caddis patterns to sulphur and yellow sally imitations as the main hatch shifts \u2014 both dry and nymph versions of these patterns are producing on wild streams near Boone."
+  ],
+  "waters": [
+    {
+      "name": "Watauga River (Delayed Harvest)",
+      "note": "Stocked this week as part of the final spring stocking; good reports coming in. Water is low \u2014 use dry-dropper rigs and avoid splashy indicators."
+    },
+    {
+      "name": "Helton Creek (Delayed Harvest)",
+      "note": "Stocked this week; part of the final spring delayed harvest stocking push. Good fishing reported on stocked sections."
+    },
+    {
+      "name": "Big Horse Creek (Delayed Harvest)",
+      "note": "Stocking finishing up next week \u2014 final spring stocking of the season. Note that Big Horse Creek has both DH and Hatchery Supported sections with different regulations; know the boundary before wading."
+    },
+    {
+      "name": "South Fork New River (Delayed Harvest)",
+      "note": "Stocking finishing up next week to complete the final spring stocking. Next stockings won't occur until October and November."
+    },
+    {
+      "name": "Wild Streams near Boone (High Country)",
+      "note": "Yellow bug season beginning \u2014 transitioning from caddis to sulphur and yellow sally hatches. Water is low; use 5-6X tippet, light leader, and size down dries. Wild fish feeding well despite low flows."
+    },
+    {
+      "name": "Watauga River Tailwater (East Tennessee)",
+      "note": "Two one-hour generation pulses daily (7\u20138 a.m. and 7\u20138 p.m.). Fish the slightly swollen, falling water after each pulse \u2014 most productive window of the day. Check TVA schedule before fishing."
+    },
+    {
+      "name": "South Holston River Tailwater (East Tennessee)",
+      "note": "Three one-hour generation pulses daily (approx. 2\u20133 a.m., 10\u201311 a.m., 6\u20137 p.m.). Fishing well around pulses; check TVA schedule before heading out \u2014 generation can change at any time."
+    }
+  ],
+  "elevation_note": "High Country streams near Boone (3,300-4,000 ft) run 1-2 weeks behind lower-elevation WNC \u2014 hatches and seasonal transitions lag the valley streams.",
+  "stocking_alert": true,
+  "stocking_note": "Final spring delayed harvest stocking is underway (week of May 9, 2026). Watauga River and Helton Creek stocked this week; Big Horse Creek and South Fork New River finishing next week. No further stockings until October\u2013November."
 }
