@@ -1,2 +1,97 @@
 {
+  "updated": "2026-06-04",
+  "source": "Due South Outfitters + Fly Life Outdoors",
+  "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-may/",
+  "conditions": {
+    "overall": "High Country streams in Watauga, Ashe, and Avery Counties are running at seasonal early-summer levels. Conditions are generally favorable for dry fly and nymph fishing across the region.",
+    "flow": "normal",
+    "clarity": "clear",
+    "temp": "cool"
+  },
+  "top_flies": [
+    {
+      "name": "Yellow Sally Stonefly",
+      "size": "#14-16",
+      "img": "Stimulator-Yellow.png",
+      "note": "Prime early summer pattern for high-elevation NC streams; fish during midday hatches along riffles and pocket water."
+    },
+    {
+      "name": "Sulphur Comparadun",
+      "size": "#16-18",
+      "img": "Sparkle-Dun-Sulphur.png",
+      "note": "Effective during evening sulphur hatches; drift drag-free in slower runs and tailouts."
+    },
+    {
+      "name": "Elk Hair Caddis",
+      "size": "#14-16",
+      "img": "EHC-Olive.png",
+      "note": "Reliable searching dry fly for pocket water and riffles throughout the day."
+    },
+    {
+      "name": "Pheasant Tail Nymph",
+      "size": "#16-18",
+      "img": "BH-Pheasant-Tail.png",
+      "note": "Versatile subsurface pattern; dead-drift near the bottom in runs and pools."
+    },
+    {
+      "name": "Hare's Ear Nymph",
+      "size": "#14-16",
+      "img": "BH-Hares-Ear-Olive.png",
+      "note": "Good all-around nymph; fish under an indicator in moderate-depth pools and runs."
+    },
+    {
+      "name": "Zebra Midge",
+      "size": "#18-22",
+      "img": "Zebra-Midge-Black.png",
+      "note": "Productive in slower pools and tailwaters, especially during lower-light periods."
+    },
+    {
+      "name": "Stimulator",
+      "size": "#12-14",
+      "img": "Stimulator-Yellow.png",
+      "note": "Use as a dry-dropper anchor in faster pocket water and around plunge pools."
+    }
+  ],
+  "tactics": [
+    "Focus fishing effort during cooler morning and evening windows when trout are most active at high-elevation streams.",
+    "Use a dry-dropper rig with a larger attractor dry (Stimulator or Elk Hair Caddis) and a small nymph dropper to cover both surface and subsurface feeding lanes simultaneously.",
+    "High Country streams near Boone run 1-2 weeks behind lower-elevation WNC streams \u2014 adjust hatch timing expectations accordingly.",
+    "Approach runs and pools with a low profile and longer leaders (9-12 ft) as water clarity is high and fish can be spooky.",
+    "Target shaded pocket water and undercut banks during midday when temperatures peak, as trout seek thermal refuge.",
+    "During sulphur and Yellow Sally hatches, match size and silhouette precisely and present with a drag-free drift using reach or curve casts.",
+    "Nymph deep along the bottom of slower pools and runs where larger fish hold during low-pressure midday hours."
+  ],
+  "waters": [
+    {
+      "name": "New River (South Fork)",
+      "note": "Ashe County's signature water; running clear and fishable \u2014 focus on slower flats and seams with sulphur patterns in the evening."
+    },
+    {
+      "name": "North Fork New River",
+      "note": "Good early-summer conditions; target pocket water with dry-dropper rigs and small nymphs."
+    },
+    {
+      "name": "Watauga River",
+      "note": "Main stem flowing through Watauga County; clear conditions favor precise presentations and longer leaders for wary fish."
+    },
+    {
+      "name": "Elk Creek",
+      "note": "Watauga County tributary; classic freestone stream \u2014 fish riffles and plunge pools with Yellow Sallies and Elk Hair Caddis."
+    },
+    {
+      "name": "Linville River",
+      "note": "Avery County \u2014 high-gradient stream running cool and clear; excellent pocket water fishing with attractor dries."
+    },
+    {
+      "name": "Cranberry Creek",
+      "note": "Avery County tributary; smaller stream requiring stealthy approach \u2014 ideal for tight-loop casts in canopied sections."
+    },
+    {
+      "name": "Beaver Creek",
+      "note": "Ashe County; productive for wild trout \u2014 fish early morning before recreational pressure increases."
+    }
+  ],
+  "elevation_note": "High Country streams near Boone (3,300-4,000 ft) run 1-2 weeks behind lower-elevation WNC \u2014 hatches and seasonal patterns arrive later than reports from lower-elevation waters suggest.",
+  "stocking_alert": false,
+  "stocking_note": ""
 }
