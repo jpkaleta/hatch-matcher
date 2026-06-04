@@ -406,9 +406,10 @@ def main():
 
     # ── CALL 1: SYNTHESIZE REPORT ─────────────────────────────────────────────
     print(f"\nCalling Claude (report synthesis) — sources: {source_names}")
-    print(f"\n--- REPORT TEXT SENT TO CLAUDE ({len(report_text)} chars) ---")
-    print(report_text[:3000])
-    print("--- END REPORT TEXT ---\n")
+    # DEBUG: uncomment to see raw scraped text sent to Claude (useful when output looks hallucinated)
+    # print(f"\n--- REPORT TEXT SENT TO CLAUDE ({len(report_text)} chars) ---")
+    # print(report_text[:3000])
+    # print("--- END REPORT TEXT ---\n")
     report = call_claude_report(report_text, context_text, today.isoformat())
 
     if primary_url:
