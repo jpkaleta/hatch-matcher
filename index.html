@@ -84,8 +84,6 @@
   .rivers-row strong{color:var(--text2);}
   .tip-row{margin-top:10px;padding:8px 10px;background:var(--bg2);border-radius:4px;font-size:11px;color:var(--text2);line-height:1.6;border-left:2px solid var(--border2);}
   .tip-row strong{color:var(--green2);}
-  .dso-note{margin-top:8px;padding:7px 10px;background:var(--warnbg);border-radius:4px;font-size:11px;color:var(--amber2);line-height:1.5;border-left:2px solid var(--amber);}
-  .dso-note strong{color:var(--amber2);}
   .peak-row{font-size:11px;color:var(--text2);margin-bottom:10px;}
   .peak-row strong{color:var(--text3);}
   #placeholder{text-align:center;padding:32px 16px;color:var(--text3);font-size:13px;font-style:italic;}
@@ -330,7 +328,6 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['low','normal','high'],temp:['cool','warm']},
     condNote:'Most adaptable hatch in WNC — multiple species across the full season. April dark caddis: mid-morning localized hatches, best on wild water not Delayed Harvest. May–June mottled brown/gray: all day. High water: swing a soft hackle. Low clear water: size down, go 5–6X tippet, use a dry dropper instead of an indicator.',
     tip:'When egg-laying females are dipping to the surface, fish often go airborne. A skating or twitched dry fly triggers explosive takes.',
-    dsoNote:'DSO (May 2026): transitioning out of caddis into Sulphur and Yellow Sally season. Low water conditions — size down your dry, use 5–6X tippet, dry dropper rig over a big indicator.',
     recNote:'High water: swing the Soft Hackle Wet. Normal: dead-drift caddis larva or X-Caddis. Evening: skate the EHC. April: go dark/black in the morning.'
   },
   // ── HENDRICKSON ────────────────────────────────────────────────────────────
@@ -422,7 +419,6 @@ const bugs=[
     condMatch:{clarity:['clear'],flow:['low','normal'],temp:['cool','warm']},
     condNote:'Evening hatch — kicks off as light fades. Clear water, fine tippet (6X). Spinner falls at dusk are often the best fishing of the day. Low water in May demands a dry dropper rig over any indicator.',
     tip:'Start with the emerger early, transition to the dun, finish with a spent spinner after the sun leaves the water.',
-    dsoNote:'DSO (May 2026): entering Sulphur season. Low water — use 5–6X tippet, size down your dry, dry dropper rig recommended. Watauga River DH and wild stretches both producing.',
     recNote:'Evening only. Sulphur Emerger first, then Parachute Dun, finish with Rusty Spinner at dusk. 6X tippet minimum.'
   },
   // ── LIGHT CAHILL ───────────────────────────────────────────────────────────
@@ -527,7 +523,6 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cool','warm']},
     condNote:'Often overlooked when fish have seen every caddis pattern in the box. A yellow dry can wake up a pool that seemed dead. Low water: go smaller, 5–6X tippet.',
     tip:'Yellow Sallies crawl out of the water on rocks to hatch. Fish riffles and pool tails in late afternoon.',
-    dsoNote:'DSO (May/June 2026): entering Yellow Sally season alongside Sulphurs. DSO calls this the "yellow bug" transition. Dry dropper with a Yellow Stimulator as the dry is their preferred rig.',
     recNote:'Late afternoon riffles and pool tails. Yellow Stimulator on a dry dropper rig per DSO. Often overlooked — to your advantage.'
   },
   // ── GOLDEN STONEFLY ────────────────────────────────────────────────────────
@@ -708,7 +703,6 @@ function renderDetail(){
       </div>
     </div>`;
   }).join('');
-  const dsoHtml=bug.dsoNote?`<div class="dso-note"><strong>&#9679; DSO Local Intel:</strong> ${bug.dsoNote}</div>`:'';
   document.getElementById('detail-panel').innerHTML=`
     <div class="detail">
       <h2>${bug.name}</h2>
@@ -719,7 +713,6 @@ function renderDetail(){
       <div class="cond-note ${condCls}">${condPrefix}${bug.condNote}</div>
       <div class="stage-row">${stageBtns}</div>
       <div>${flyHtml}</div>
-      ${dsoHtml}
       <div class="rivers-row"><strong>Your waters:</strong><br>${bug.rivers.join(' &middot; ')}</div>
       <div class="tip-row"><strong>Tip:</strong> ${bug.tip}</div>
     </div>`;
