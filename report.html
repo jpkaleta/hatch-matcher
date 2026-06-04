@@ -51,6 +51,7 @@
   .stocking-alert strong{color:var(--amber2);}
   .loading{text-align:center;padding:40px;color:var(--text3);font-style:italic;font-size:13px;}
   .error{text-align:center;padding:40px;color:var(--text3);font-size:13px;}
+  .ai-disclaimer{margin-top:28px;padding:10px 12px;font-size:10px;color:var(--text3);line-height:1.6;border-top:1px solid var(--border);text-align:center;letter-spacing:.02em;}
 </style>
 </head>
 <body>
@@ -143,7 +144,14 @@ async function loadReport(){
         <div class="water-list">${waters}</div>
       </div>
 
-      ${elevHtml}`;
+      ${elevHtml}
+
+      <div class="ai-disclaimer">
+        This report is AI-synthesized from Due South Outfitters, Fly Life Outdoors, and FlyFishingNC.
+        Conditions change fast — always verify locally before heading out.
+        <br>For the most current intel, call DSO directly at (828) 355-9109 or visit
+        <a href="https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/" target="_blank" style="color:var(--green2)">duesouthoutfitters.com</a>.
+      </div>`;
 
   } catch(e){
     el.innerHTML=`<div class="error">No report available right now. Check back after the next DSO update.<br><br><a href="https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/" style="color:var(--green2)">Read the latest DSO report directly →</a></div>`;
