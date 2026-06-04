@@ -164,41 +164,39 @@ def call_claude_report(report_text: str, context_text: str, today: str) -> dict:
         "stocking_note": ""
     }
 
-    prompt = f"""You are synthesizing a weekly fly fishing report for Watauga, Ashe, and Avery Counties,
-NC High Country (~3,300-4,000 ft elevation).
+    prompt = f"""Extract fly fishing intel from the reports below and return it as a single JSON object.
 
-Triangulate across all sources and return the single best recommendation set for a local angler.
-Where sources agree = high confidence. Favor DSO when sources conflict — it is the most WNC-specific.
+You are building a weekly report for anglers in Watauga, Ashe, and Avery Counties, NC (~3,300-4,000 ft elevation).
+DSO (Due South Outfitters) is the primary source — their fly recommendations and conditions notes take priority.
 
-YOU MUST RETURN ONLY A VALID JSON OBJECT. No explanation, no markdown fences, no preamble.
-Start your response with {{ and end with }}. Nothing else.
+Return ONLY the JSON object. No markdown fences, no explanation, no preamble.
+Your entire response must be valid JSON starting with {{ and ending with }}.
 
-Use this exact schema:
+Populate this schema exactly:
 {json.dumps(schema, indent=2)}
 
-Rules:
-- flow: only "low", "normal", or "high"
-- clarity: only "clear", "stained", or "turbid"
-- temp: only "cold", "cool", or "warm"
-- top_flies: ONLY flies explicitly named in the source reports — do not invent patterns. 5-8 max.
-- img: always leave as "" — a second AI call will fill these in from your actual image library
-- tactics: ONLY tactics stated or directly implied by the reports — do not invent generic advice
-- waters: ONLY waters explicitly named in the reports — do not add from general knowledge
-- stocking_alert: true only if stocking is mentioned as current or imminent in the reports
+Field instructions:
+- conditions.overall: 1-2 sentences summarizing current conditions from the reports
+- conditions.flow: exactly "low", "normal", or "high"
+- conditions.clarity: exactly "clear", "stained", or "turbid"
+- conditions.temp: exactly "cold", "cool", or "warm"
+- top_flies: all fly patterns mentioned in the reports with their hook sizes. 5-8 flies. Leave img as "".
+- tactics: the specific pro tips and fishing advice from the reports. 4-7 bullets.
+- waters: each stream or water body mentioned, with its specific conditions or tip.
+- stocking_alert: true if any stocking event is mentioned as recent, current, or coming soon.
+- elevation_note: note that High Country streams near Boone (3,300-4,000 ft) run 1-2 weeks behind lower WNC.
 - updated: {today}
-- If source material is thin, produce a minimal honest report rather than padded generic output
-- If a field has no data from sources: use "" or [] — never fill gaps with general knowledge
-- Never omit a key from the schema
+- If a field has no data, use "" or [] — never omit a key from the schema.
 
-━━━ LIVE REPORT SOURCES (primary intel) ━━━
+━━━ REPORTS ━━━
 {report_text}
 
-━━━ BACKGROUND CONTEXT (stocking numbers, stream types, regulations) ━━━
+━━━ BACKGROUND CONTEXT ━━━
 {context_text}"""
 
     response = client.messages.create(
         model="claude-haiku-4-5-20251001",
-        max_tokens=1800,
+        max_tokens=2500,
         messages=[{"role": "user", "content": prompt}]
     )
 
