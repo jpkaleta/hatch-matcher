@@ -1,2 +1,17 @@
 {
+  "updated": "2026-06-04",
+  "source": "Due South Outfitters + Fly Life Outdoors",
+  "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-may/",
+  "conditions": {
+    "overall": "Source data unreadable; unable to synthesize current conditions from provided reports.",
+    "flow": "",
+    "clarity": "",
+    "temp": ""
+  },
+  "top_flies": [],
+  "tactics": [],
+  "waters": [],
+  "elevation_note": "High Country streams (Boone, 3300-4000ft) run 1-2 weeks behind lower-elevation WNC",
+  "stocking_alert": false,
+  "stocking_note": ""
 }
