@@ -205,11 +205,9 @@ Rules:
     raw = response.content[0].text.strip()
     print(f"  Report response ({len(raw)} chars): {raw[:150]}...")
 
-    if raw.startswith("```"):
-        parts = raw.split("```")
-        raw = parts[1] if len(parts) > 1 else raw
-        if raw.startswith("json"):
-            raw = raw[4:]
+    # strip markdown fences robustly — handles ```json ... ``` and ``` ... ```
+    raw = re.sub(r"^```[a-z]*\n?", "", raw, flags=re.IGNORECASE)
+    raw = re.sub(r"\n?```$", "", raw)
     raw = raw.strip()
 
     if not raw:
@@ -261,11 +259,9 @@ No explanation, no markdown, just the raw JSON array starting with [ and ending 
     raw = response.content[0].text.strip()
     print(f"  Image match response: {raw}")
 
-    if raw.startswith("```"):
-        parts = raw.split("```")
-        raw = parts[1] if len(parts) > 1 else raw
-        if raw.startswith("json"):
-            raw = raw[4:]
+    # strip markdown fences robustly
+    raw = re.sub(r"^```[a-z]*\n?", "", raw, flags=re.IGNORECASE)
+    raw = re.sub(r"\n?```$", "", raw)
     raw = raw.strip()
 
     matches = json.loads(raw)
