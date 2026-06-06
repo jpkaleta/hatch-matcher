@@ -139,7 +139,8 @@ def save_hashes(hashes: dict) -> None:
 
 def call_claude_report(report_text: str, context_text: str, today: str) -> dict:
     """
-    Call 1 of 2: synthesize fishing report sources into structured JSON.
+    Call 1 of 2: extract fishing report sources into structured JSON.
+    Strict extraction-only — no inference or generalization permitted.
     Image fields are left empty — call_claude_images() fills them in.
     """
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
@@ -164,35 +165,66 @@ def call_claude_report(report_text: str, context_text: str, today: str) -> dict:
         "stocking_note": ""
     }
 
-    prompt = f"""Extract fly fishing intel from the reports below and return it as a single JSON object.
+    prompt = f"""You are a structured data extraction engine. Your only job is to pull
+information directly out of the source reports provided below and format it as JSON.
 
-You are building a weekly report for anglers in Watauga, Ashe, and Avery Counties, NC (~3,300-4,000 ft elevation).
-DSO (Due South Outfitters) is the primary source — their fly recommendations and conditions notes take priority.
+STRICT RULE: You are NOT an advisor. You are NOT a fly fishing expert. You do NOT
+add information based on seasonal knowledge, general fly fishing best practices, or
+what you think "should" be working. If something is not explicitly stated in a source
+report below, it does not go in the output. Period.
 
 Return ONLY the JSON object. No markdown fences, no explanation, no preamble.
-Your entire response must be valid JSON starting with {{ and ending with }}.
+Your entire response must be valid JSON starting with {{{{ and ending with }}}}.
 
 Populate this schema exactly:
 {json.dumps(schema, indent=2)}
 
-Field instructions:
-- conditions.overall: 1-2 sentences summarizing current conditions from the reports
-- conditions.flow: exactly "low", "normal", or "high"
-- conditions.clarity: exactly "clear", "stained", or "turbid"
-- conditions.temp: exactly "cold", "cool", or "warm"
-- top_flies: all fly patterns mentioned in the reports with their hook sizes. 5-8 flies. Leave img as "".
-- tactics: the specific pro tips and fishing advice from the reports. 4-7 bullets.
-- waters: each stream or water body mentioned, with its specific conditions or tip.
-- stocking_alert: true if any stocking event is mentioned as recent, current, or coming soon.
-- elevation_note: note that High Country streams near Boone (3,300-4,000 ft) run 1-2 weeks behind lower WNC.
-- updated: {today}
-- If a field has no data, use "" or [] — never omit a key from the schema.
+━━━ FIELD INSTRUCTIONS ━━━
 
-━━━ REPORTS ━━━
+conditions.overall: 1-2 sentences summarizing current conditions, drawn only from the reports.
+conditions.flow: exactly "low", "normal", or "high" — infer from report language if not stated explicitly.
+conditions.clarity: exactly "clear", "stained", or "turbid" — infer from report language if not stated explicitly.
+conditions.temp: exactly "cold", "cool", or "warm" — infer from report language if not stated explicitly.
+
+top_flies:
+  - ONLY include flies that are explicitly named in the DSO report or other source reports below.
+  - The DSO fly list is the authoritative fly list. Extract it exactly as written.
+  - If DSO names 9 flies, list 9 flies. If they name 3, list 3. Match the source exactly.
+  - Do NOT add flies from your own knowledge of fly fishing, seasonal reasoning,
+    or because an image for that fly exists somewhere. Do NOT pad the list.
+  - Other sources (FLO, FFNC) may supplement the fly list only if DSO has no fly list this week.
+  - For each fly, extract the hook size from the report. If no size is given, use "".
+  - Leave img as "" — it will be filled in separately.
+  - The note field should quote or closely paraphrase the report's own language about
+    when/where/how to fish that fly. Do not write generic advice.
+
+tactics:
+  - Extract the specific pro tips and fishing advice stated in the reports. 4-7 bullets.
+  - Use the report's own language and specifics. Do not write generic advice.
+  - Do NOT add tactics from your general fly fishing knowledge.
+
+waters:
+  - List each stream or water body explicitly mentioned in the reports.
+  - The note for each water should reflect what the report actually says about it.
+  - Do NOT add streams not mentioned in the reports.
+
+stocking_alert: true only if a stocking event is explicitly mentioned as recent, current, or coming soon.
+stocking_note: quote or closely paraphrase the stocking information from the reports.
+elevation_note: always include — High Country streams near Boone (3,300–4,000 ft) run 1–2 weeks behind lower WNC.
+updated: {today}
+
+If a field has no data from the sources, use "" or [] — never omit a key from the schema.
+
+━━━ DSO REPORT (PRIMARY — authoritative fly list) ━━━
 {report_text}
 
-━━━ BACKGROUND CONTEXT ━━━
+━━━ BACKGROUND CONTEXT (stream info only — do not use for fly recommendations) ━━━
 {context_text}"""
+
+    # DEBUG: uncomment to see raw scraped text sent to Claude (useful when output looks hallucinated)
+    print(f"\n--- REPORT TEXT SENT TO CLAUDE ({len(report_text)} chars) ---")
+    print(report_text[:3000])
+    print("--- END REPORT TEXT ---\n")
 
     response = client.messages.create(
         model="claude-sonnet-4-6",
@@ -212,7 +244,6 @@ Field instructions:
         raise ValueError("Claude returned an empty response for the report")
 
     return json.loads(raw)
-
 
 def call_claude_images(flies: list[dict], filenames: list[str]) -> list[dict]:
     """
