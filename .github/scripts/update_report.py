@@ -146,7 +146,7 @@ def call_claude_report(report_text: str, context_text: str, today: str) -> dict:
 
     schema = {
         "updated": today,
-        "source": "Due South Outfitters + Fly Life Outdoors",
+        "source": "High Country Fly Fishing Experts like Due South Outfitters",
         "source_url": "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/",
         "conditions": {
             "overall": "1-2 sentence summary of current conditions",
