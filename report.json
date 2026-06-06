@@ -1,103 +1,109 @@
 {
-  "updated": "2026-06-04",
+  "updated": "2026-06-06",
   "source": "Due South Outfitters + Fly Life Outdoors",
-  "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-may/",
+  "source_url": "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/",
   "conditions": {
-    "overall": "Water levels are low across both wild and delayed harvest streams in Western North Carolina, with abundant bug life transitioning from caddis to sulphur and yellow sally hatches around Boone. Tailwaters on the Watauga and South Holston are fishing very well around scheduled generation pulses.",
-    "flow": "low",
+    "overall": "High Country streams in Watauga, Ashe, and Avery Counties are running at typical early-June levels with cold, clear water at elevations of 3,300\u20134,000 ft. Delayed Harvest regulations on key streams lift June 6, 2026, opening harvest season on heavily stocked waters.",
+    "flow": "normal",
     "clarity": "clear",
-    "temp": "cool"
+    "temp": "cold"
   },
   "top_flies": [
     {
-      "name": "Yellow Sally",
+      "name": "Elk Hair Caddis",
       "size": "#14-16",
-      "img": "Stimulator-Yellow.png",
-      "note": "Key dry fly as yellow sally hatches ramp up on wild High Country streams through May; fish during hatch windows"
+      "img": "EHC-Olive.png",
+      "note": "Reliable dry fly for hatchery-supported and wild trout on High Country streams in early summer"
     },
     {
-      "name": "Yellow Rubber Leg Stimulator",
-      "size": "#14-16",
-      "img": "Stimulator-Yellow.png",
-      "note": "Excellent attractor pattern for wild water during yellow sally season; rides high and visible in low, clear flows"
+      "name": "Pheasant Tail Nymph",
+      "size": "#14-18",
+      "img": "BH-Pheasant-Tail.png",
+      "note": "Standard subsurface pattern for stocked and wild trout in pool-riffle-run sequences"
     },
     {
-      "name": "Sulphur Dry",
-      "size": "#16-18",
-      "img": "Sulphur-Dun.png",
-      "note": "Productive on both wild streams and tailwaters as sulphur hatches begin; fish evening rises on the Watauga tailwater"
+      "name": "Hare's Ear Nymph",
+      "size": "#12-16",
+      "img": "BH-Hares-Ear-Olive.png",
+      "note": "Versatile nymph; effective on freshly stocked fish and in faster pocket water"
     },
     {
-      "name": "Sulphur Nymph",
-      "size": "#16-20",
-      "img": "Sulphur-Nymph.png",
-      "note": "Effective subsurface pattern on tailwaters and wild water; fish as dropper below dry or under indicator on Watauga and South Holston"
-    },
-    {
-      "name": "Frenchie",
-      "size": "#16-20",
-      "img": "Frenchie.png",
-      "note": "Versatile nymph working well across delayed harvest, wild water, and tailwaters; size down to #18-20 on tailwaters"
+      "name": "San Juan Worm",
+      "size": "#10-14",
+      "img": "San-Juan-Worm-Red.png",
+      "note": "High producer on stocked fish and in hatchery-supported sections after stocking events"
     },
     {
       "name": "Zebra Midge",
-      "size": "#18-20",
+      "size": "#18-22",
       "img": "Zebra-Midge-Black.png",
-      "note": "Top producer on tailwaters (Watauga, South Holston) and delayed harvest streams; fish in tandem rigs"
+      "note": "Effective on clear, low water when fish are selective; fish as a dropper below a dry"
     },
     {
-      "name": "Chubby Chernobyl",
-      "size": "#12-14",
-      "img": "Chubby-Chernobyl-Golden-Stone.png",
-      "note": "Ideal dry dropper indicator for delayed harvest and wild water; visible in low flows but size down if fish are spooky"
+      "name": "Woolly Bugger",
+      "size": "#8-12",
+      "img": "",
+      "note": "Streamer option for larger browns and stocked fish; swing through pools and deeper runs"
     },
     {
-      "name": "Soft Hackle",
-      "size": "#16-18",
-      "img": "Soft-Hackle-PT-Bead.png",
-      "note": "Swing through runs on tailwaters and wild streams, especially effective around sulphur and caddis hatches"
+      "name": "Adams Parachute",
+      "size": "#14-18",
+      "img": "Parachute-Adams.png",
+      "note": "All-purpose dry fly well suited to High Country freestone streams throughout early summer"
     }
   ],
   "tactics": [
-    "Fish a dry-dropper setup on delayed harvest and wild streams; avoid large, heavy bobbers that splash loudly on low, clear water.",
-    "On tailwaters (Watauga, South Holston), time your session to start after a generation pulse \u2014 the slightly swollen, falling water has been fishing exceptionally well.",
-    "Drop to 5-6X tippet on wild water as levels fall; lighter, longer leaders reduce drag and spook fewer fish in clear, low conditions.",
-    "Size down your dry fly on wild streams to reduce surface commotion on the cast \u2014 smaller profiles are producing more bites in low water.",
-    "Check TVA generation schedules before fishing the Watauga or South Holston tailwaters \u2014 flows can change without notice and the best windows are around the one-hour pulses.",
-    "As you transition into yellow bug season near Boone, shift your dry fly selection from caddis patterns toward Yellow Sallies and Sulphur dries to match the emerging hatches.",
-    "On delayed harvest streams, egg patterns and Squirmy Worms fished as droppers remain productive on recently stocked fish."
+    "June 6 marks the end of Delayed Harvest catch-and-release restrictions on the Watauga River, Helton Creek, Big Horse Creek, and other DH waters \u2014 you may now harvest fish; switch tactics accordingly.",
+    "High Country streams near Boone (3,300\u20134,000 ft) run 1\u20132 weeks behind lower-elevation WNC waters \u2014 adjust hatch timing and fly selection to account for cooler water temps.",
+    "Fish the Valle Crucis section of the Watauga River early in the day to avoid crowds; it sees lower pressure than the Boone access points and offers classic pool-riffle-run sequences.",
+    "On stocked hatchery-supported waters, dead-drift nymphs like the Pheasant Tail or Hare's Ear through the head and tail of pools where fish stack after stocking.",
+    "Use barbless hooks or pinch barbs before fishing \u2014 especially on Delayed Harvest and wild trout waters \u2014 to reduce handling stress and protect the fishery.",
+    "Keep fish in the water as much as possible; wet your hands before handling, use a rubber-mesh net, and hold the fish facing current until it swims off under its own power.",
+    "On clear, low flows, downsize tippet and flies (midges #18-22) and approach pools from downstream to avoid spooking fish in gin-clear water."
   ],
   "waters": [
     {
-      "name": "Watauga River (Delayed Harvest)",
-      "note": "Stocked this week as part of the last spring stocking. Fish dry-dropper with egg patterns or Frenchie dropper; water is low so use light tippet and avoid splashy indicators."
+      "name": "Watauga River (Valle Crucis Section)",
+      "note": "1.2-mile Delayed Harvest section upstream of Boone; harvest opens June 6, 2026. Lower pressure than the Boone section. Classic pool-riffle-run water; good early-morning access."
     },
     {
-      "name": "Helton Creek (Delayed Harvest)",
-      "note": "Stocked this week \u2014 one of the last spring stockings. Good reports coming in; fish Chubby Chernobyl dry-dropper with Zebra Midge or Frenchie in low, clear conditions."
+      "name": "Watauga River (Laurel Creek Confluence Section)",
+      "note": "1.0-mile DH section near Boone; harvest opens June 6, 2026. High accessibility but higher angler pressure; fish early or on weekdays."
     },
     {
-      "name": "Big Horse Creek (Delayed Harvest)",
-      "note": "Stocking finishing up next week as the final DH stocking of the spring. Be aware of DH vs. Hatchery Supported boundary \u2014 different regulations apply to each section."
+      "name": "Helton Creek",
+      "note": "Largest DH fishery in Ashe County at 8 miles; 7,500 fish stocked annually. Harvest opens June 6, 2026. VA line to New River. Brook, rainbow, and brown trout available."
     },
     {
-      "name": "South Fork New River (Delayed Harvest)",
-      "note": "Stocking finishing up next week \u2014 last spring stocking before October/November. Next opportunity to fish freshly stocked fish this fall."
+      "name": "Big Horse Creek",
+      "note": "Has both a Delayed Harvest section (SR 1324 Bridge downstream) and a Hatchery Supported section on the same stream \u2014 know the boundary before wading to avoid a regulation violation."
     },
     {
-      "name": "Wild Streams near Boone (High Country)",
-      "note": "Transitioning from caddis to yellow sally and sulphur hatches. Water is low and clear \u2014 fish light (5-6X), size down dries, and expect active feeding despite low flows due to heavy bug activity."
+      "name": "North Fork New River",
+      "note": "20-mile hatchery-supported corridor in Ashe County; part of 22,911-fish county stocking program. Good exploratory water with less pressure than the DH fisheries."
     },
     {
-      "name": "Watauga River Tailwater (East Tennessee)",
-      "note": "Two one-hour generation pulses daily at 7\u20138am and 7\u20138pm. Best fishing occurs as water falls after the morning pulse \u2014 fish are fired up and willing. Always verify TVA schedule before heading out."
+      "name": "North Toe River (Avery County)",
+      "note": "Two separately managed stocked sections; 5,170 fish stocked in March and May. Lower section (SR 1164 to Mitchell County Line) is most productive by fish count at 4,396 fish/year. All tackle, 7-fish creel."
     },
     {
-      "name": "South Holston River Tailwater (East Tennessee)",
-      "note": "Three one-hour generation pulses typically at 2\u20133am, 10\u201311am, and 6\u20137pm. Fishing very well around pulses; schedule sessions to begin after a pulse when water is slightly swollen and falling."
+      "name": "Linville River",
+      "note": "Catawba headwaters in Avery County; high-elevation cold water holds trout well into summer. Part of Avery's 10,709-fish 2026 stocking program."
+    },
+    {
+      "name": "Elk River",
+      "note": "Avery County stream draining toward Tennessee; stocked as part of Avery's three-watershed trout program. Good option for variety and scenery."
+    },
+    {
+      "name": "Davidson River",
+      "note": "Lower-elevation WNC hatchery-supported water; gravel lot fills before first light on opening day. Not in the High Country \u2014 conditions run 1-2 weeks ahead of Watauga/Ashe/Avery streams."
+    },
+    {
+      "name": "Wilson Creek",
+      "note": "Hatchery-supported WNC stream; lower elevation than High Country waters. Mentioned as a key Opening Day destination for early April stocked-fish action."
     }
   ],
-  "elevation_note": "High Country streams near Boone (3,300-4,000 ft) run 1-2 weeks behind lower-elevation WNC \u2014 hatch timing, water temps, and seasonal transitions lag accordingly.",
+  "elevation_note": "High Country streams near Boone (3,300\u20134,000 ft) run 1\u20132 weeks behind lower-elevation WNC waters \u2014 hatches, water temps, and seasonal transitions all lag behind streams in the Pisgah and Nantahala areas.",
   "stocking_alert": true,
-  "stocking_note": "Watauga River DH and Helton Creek were stocked the week of May 9, 2026. Big Horse Creek and South Fork New River DH sections finishing up stocking the following week. This is the final spring stocking \u2014 next stockings scheduled for October and November 2026."
+  "stocking_note": "Avery County's North Toe River, Linville River, and other hatchery-supported waters were stocked in March and May 2026. Watauga County's 14 hatchery streams received 11,606 fish in 2026. Ashe County's 15 waters received 22,911 fish in 2026. Delayed Harvest waters across all three counties were heavily stocked during the Oct 2025\u2013June 2026 C&R season; harvest opens June 6, 2026."
 }
