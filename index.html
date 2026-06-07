@@ -91,6 +91,20 @@
   .peak-row{font-size:11px;color:var(--text2);margin-bottom:10px;}
   .peak-row strong{color:var(--text3);}
   #placeholder{text-align:center;padding:32px 16px;color:var(--text3);font-size:13px;font-style:italic;}
+
+  /* ── GROUP CARDS ── */
+  .group-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;margin-bottom:16px;}
+  .group-card{padding:10px 8px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:var(--card);transition:all .15s;text-align:center;}
+  .group-card:hover{border-color:var(--border2);}
+  .group-card.active{border-color:var(--green);background:var(--bg3);}
+  .group-card.inactive{opacity:.35;}
+  .group-card .gname{font-size:12px;color:var(--text);letter-spacing:.02em;}
+  .group-card.active .gname{color:var(--green3);}
+  .group-card .glatin{font-size:9px;color:var(--text3);margin-top:2px;font-style:italic;}
+  .group-card .gnow{font-size:9px;color:var(--green2);margin-top:4px;letter-spacing:.06em;}
+  /* ── GROUP DETAIL PANEL ── */
+  .group-hatch-list{margin-top:12px;}
+  .group-hatch-list .divider{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;border-top:1px solid var(--border);padding-top:10px;}
 </style>
 </head>
 <body>
@@ -149,8 +163,9 @@
   <button class="throw-btn" onclick="showRecommendations()">&#9654; What should I throw right now?</button>
   <div id="rec-panel"></div>
   <div class="divider">Or browse by hatch</div>
-  <div class="bug-grid" id="bug-grid"></div>
-  <div id="detail-panel"><div id="placeholder">Tap a hatch above to see fly patterns, life stages, and your local waters.</div></div>
+  <div class="group-row" id="group-row"></div>
+  <div id="group-hatch-panel"></div>
+  <div id="detail-panel"><div id="placeholder">Select an insect group above, then tap a hatch to see fly patterns and local waters.</div></div>
 </div>
 <script>
 const MONTHS=['J','F','M','A','M','J','J','A','S','O','N','D'];
@@ -169,7 +184,7 @@ function timeOfDay(){
 const bugs=[
   // ── MIDGE ──────────────────────────────────────────────────────────────────
   {
-    id:'midge',name:'Midge',latin:'Diptera spp.',
+    id:'midge',group:'midge',name:'Midge',latin:'Diptera spp.',
     months:[0,1,2,3,9,10,11],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
@@ -196,7 +211,7 @@ const bugs=[
   },
   // ── BWO ────────────────────────────────────────────────────────────────────
   {
-    id:'bwo',name:'Blue-Winged Olive',latin:'Baetis spp.',
+    id:'bwo',group:'mayfly',name:'Blue-Winged Olive',latin:'Baetis spp.',
     months:[1,2,3,4,8,9,10],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
@@ -228,7 +243,7 @@ const bugs=[
   },
   // ── EARLY BLACK STONE ──────────────────────────────────────────────────────
   {
-    id:'ebs',name:'Early Black Stone',latin:'Capnia/Allocapnia spp.',
+    id:'ebs',group:'stonefly',name:'Early Black Stone',latin:'Capnia/Allocapnia spp.',
     months:[0,1,2],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
@@ -247,7 +262,7 @@ const bugs=[
   },
   // ── LITTLE BROWN STONE ─────────────────────────────────────────────────────
   {
-    id:'lbs',name:'Little Brown Stone',latin:'Strophopteryx fasciata',
+    id:'lbs',group:'stonefly',name:'Little Brown Stone',latin:'Strophopteryx fasciata',
     months:[1,2],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
@@ -267,7 +282,7 @@ const bugs=[
   },
   // ── BLUE QUILL ─────────────────────────────────────────────────────────────
   {
-    id:'bq',name:'Blue Quill',latin:'Paraleptophlebia adoptiva',
+    id:'bq',group:'mayfly',name:'Blue Quill',latin:'Paraleptophlebia adoptiva',
     months:[1,2,3],timeOfDay:['morning','midday'],
     stages:{
       Nymph:[
@@ -290,7 +305,7 @@ const bugs=[
   },
   // ── QUILL GORDON ───────────────────────────────────────────────────────────
   {
-    id:'qg',name:'Quill Gordon',latin:'Epeorus pleuralis',
+    id:'qg',group:'mayfly',name:'Quill Gordon',latin:'Epeorus pleuralis',
     months:[2,3],timeOfDay:['midday'],
     stages:{
       Nymph:[
@@ -311,7 +326,7 @@ const bugs=[
   },
   // ── CADDIS ─────────────────────────────────────────────────────────────────
   {
-    id:'caddis',name:'Caddis',latin:'Trichoptera spp.',
+    id:'caddis',group:'caddis',name:'Caddis',latin:'Trichoptera spp.',
     months:[3,4,5,6,7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Larva:[
@@ -341,7 +356,7 @@ const bugs=[
   },
   // ── HENDRICKSON ────────────────────────────────────────────────────────────
   {
-    id:'hendrickson',name:'Hendrickson',latin:'Ephemerella subvaria',
+    id:'hendrickson',group:'mayfly',name:'Hendrickson',latin:'Ephemerella subvaria',
     months:[4],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
@@ -363,7 +378,7 @@ const bugs=[
   },
   // ── MARCH BROWN ────────────────────────────────────────────────────────────
   {
-    id:'marchbrown',name:'March Brown',latin:'Stenonema vicarium',
+    id:'marchbrown',group:'mayfly',name:'March Brown',latin:'Stenonema vicarium',
     months:[3,4],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
@@ -383,7 +398,7 @@ const bugs=[
   },
   // ── GRAY FOX ───────────────────────────────────────────────────────────────
   {
-    id:'grayfox',name:'Gray Fox',latin:'Stenonema fuscum',
+    id:'grayfox',group:'mayfly',name:'Gray Fox',latin:'Stenonema fuscum',
     months:[4],timeOfDay:['midday','evening'],
     stages:{
       Nymph:[
@@ -404,7 +419,7 @@ const bugs=[
   },
   // ── SULPHUR ────────────────────────────────────────────────────────────────
   {
-    id:'sulphur',name:'Sulphur',latin:'Ephemerella dorothea',
+    id:'sulphur',group:'mayfly',name:'Sulphur',latin:'Ephemerella dorothea',
     months:[4,5],timeOfDay:['evening'],
     stages:{
       Nymph:[
@@ -433,7 +448,7 @@ const bugs=[
   },
   // ── LIGHT CAHILL ───────────────────────────────────────────────────────────
   {
-    id:'lightcahill',name:'Light Cahill',latin:'Stenonema ithaca',
+    id:'lightcahill',group:'mayfly',name:'Light Cahill',latin:'Stenonema ithaca',
     months:[4,5,6,7,8],timeOfDay:['evening'],
     stages:{
       Nymph:[
@@ -455,7 +470,7 @@ const bugs=[
   },
   // ── GREEN DRAKE ────────────────────────────────────────────────────────────
   {
-    id:'greendrakec',name:'Green Drake',latin:'Ephemera guttulata',
+    id:'greendrakec',group:'mayfly',name:'Green Drake',latin:'Ephemera guttulata',
     months:[4],timeOfDay:['evening'],
     stages:{
       Nymph:[
@@ -475,7 +490,7 @@ const bugs=[
   },
   // ── GIANT STONEFLY ─────────────────────────────────────────────────────────
   {
-    id:'giantstonefly',name:'Giant Stonefly',latin:'Pteronarcys spp.',
+    id:'giantstonefly',group:'stonefly',name:'Giant Stonefly',latin:'Pteronarcys spp.',
     months:[3,4,5],timeOfDay:['morning'],
     stages:{
       Nymph:[
@@ -495,7 +510,7 @@ const bugs=[
   },
   // ── ISONYCHIA ──────────────────────────────────────────────────────────────
   {
-    id:'isonychia',name:'Isonychia',latin:'Isonychia bicolor',
+    id:'isonychia',group:'mayfly',name:'Isonychia',latin:'Isonychia bicolor',
     months:[5,6,7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Nymph:[
@@ -517,7 +532,7 @@ const bugs=[
   },
   // ── YELLOW SALLY ───────────────────────────────────────────────────────────
   {
-    id:'yellowsally',name:'Yellow Sally',latin:'Isoperla spp.',
+    id:'yellowsally',group:'stonefly',name:'Yellow Sally',latin:'Isoperla spp.',
     months:[5,6,7],timeOfDay:['evening'],
     stages:{
       Nymph:[
@@ -534,11 +549,11 @@ const bugs=[
     condMatch:{clarity:['clear','stained'],flow:['low','normal'],temp:['cool','warm']},
     condNote:'Often overlooked when fish have seen every caddis pattern in the box. A yellow dry can wake up a pool that seemed dead. Low water: go smaller, 5–6X tippet.',
     tip:'Yellow Sallies crawl out of the water on rocks to hatch. Fish riffles and pool tails in late afternoon.',
-    recNote:'Late afternoon riffles and pool tails. Yellow Stimulator on a dry dropper rig per DSO. Often overlooked — to your advantage.'
+    recNote:'Late afternoon riffles and pool tails. Yellow Stimulator on a dry dropper rig. Often overlooked — to your advantage.'
   },
   // ── GOLDEN STONEFLY ────────────────────────────────────────────────────────
   {
-    id:'goldenstone',name:'Golden Stonefly',latin:'Acroneuria spp.',
+    id:'goldenstone',group:'stonefly',name:'Golden Stonefly',latin:'Acroneuria spp.',
     months:[6,7,8],timeOfDay:['morning','evening'],
     stages:{
       Nymph:[
@@ -557,7 +572,7 @@ const bugs=[
   },
   // ── TERRESTRIALS ───────────────────────────────────────────────────────────
   {
-    id:'terrestrial',name:'Terrestrials',latin:'Ants, beetles, hoppers, inchworms',
+    id:'terrestrial',group:'terrestrial',name:'Terrestrials',latin:'Ants, beetles, hoppers, inchworms',
     months:[5,6,7,8,9],timeOfDay:['morning','midday','evening'],
     stages:{
       Adult:[
@@ -577,7 +592,7 @@ const bugs=[
   },
   // ── FLYING ANT ─────────────────────────────────────────────────────────────
   {
-    id:'flyingant',name:'Flying Ant',latin:'Formicidae (winged)',
+    id:'flyingant',group:'terrestrial',name:'Flying Ant',latin:'Formicidae (winged)',
     months:[7,8],timeOfDay:['morning','midday','evening'],
     stages:{
       Adult:[
@@ -607,7 +622,8 @@ function toggleCond(type,val){
   const lowClear=conds.flow==='low'&&conds.clarity==='clear';
   document.getElementById('dd-tip').style.display=lowClear?'block':'none';
   document.getElementById('stocking-banner').style.display=(conds.clarity||conds.flow||conds.temp)?'block':'none';
-  renderGrid();
+  renderGroupRow();
+  if(selectedGroup)renderHatchPanel();
   if(selectedBug)renderDetail();
   document.getElementById('rec-panel').innerHTML='';
 }
@@ -648,7 +664,7 @@ function showRecommendations(){
       const imgEl=bestFly
         ?`<img class="rec-img" src="${IMG}${bestFly.img}" alt="${bestFly.name}" onerror="this.outerHTML='<div class=\\'rec-img-ph\\'>no image</div>'">`
         :`<div class="rec-img-ph">no image</div>`;
-      html+=`<div class="rec-item">
+      html+=`<div class="rec-item" onclick="selectBug('${bug.id}')" style="cursor:pointer" title="Tap to see full hatch detail">
         ${imgEl}
         <div class="rec-info">
           <div class="rec-fly">${bestFly?bestFly.name:'See patterns'} <span style="font-size:11px;color:var(--text3)">${bestFly?bestFly.size:''}</span></div>
@@ -663,28 +679,90 @@ function showRecommendations(){
   document.getElementById('rec-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-function renderGrid(){
+const GROUPS=[
+  {id:'mayfly',   name:'Mayflies',    latin:'Ephemeroptera'},
+  {id:'caddis',   name:'Caddisflies', latin:'Trichoptera'},
+  {id:'stonefly', name:'Stoneflies',  latin:'Plecoptera'},
+  {id:'midge',    name:'Midges',      latin:'Diptera'},
+  {id:'terrestrial',name:'Terrestrials',latin:'Land insects'},
+];
+
+let selectedGroup=null;
+
+function renderGroupRow(){
   const hasConds=conds.clarity||conds.flow||conds.temp;
-  document.getElementById('bug-grid').innerHTML=bugs.map(bug=>{
+  document.getElementById('group-row').innerHTML=GROUPS.map(g=>{
+    const groupBugs=bugs.filter(b=>b.group===g.id);
+    const anyActive=groupBugs.some(b=>b.months.includes(NOW));
+    const anyMatch=groupBugs.some(b=>bugMatches(b));
+    const sel=selectedGroup===g.id;
+    let cls='group-card';
+    if(sel)cls+=' active';
+    if(hasConds&&!anyMatch)cls+=' inactive';
+    return`<div class="${cls}" onclick="selectGroup('${g.id}')">
+      <div class="gname">${g.name}</div>
+      <div class="glatin">${g.latin}</div>
+      ${anyActive?'<div class="gnow">&#9679; hatching now</div>':''}
+    </div>`;
+  }).join('');
+}
+
+function selectGroup(id){
+  if(selectedGroup===id){
+    // toggle off
+    selectedGroup=null;
+    selectedBug=null;
+    selectedStage=null;
+    renderGroupRow();
+    document.getElementById('group-hatch-panel').innerHTML='';
+    document.getElementById('detail-panel').innerHTML='<div id="placeholder">Select an insect group above, then tap a hatch to see fly patterns and local waters.</div>';
+    return;
+  }
+  selectedGroup=id;
+  selectedBug=null;
+  selectedStage=null;
+  renderGroupRow();
+  renderHatchPanel();
+  const groupBugs=bugs.filter(b=>b.group===selectedGroup);
+  if(groupBugs.length===1){
+    selectBug(groupBugs[0].id);
+  } else {
+    document.getElementById('detail-panel').innerHTML='<div id="placeholder">Tap a hatch below to see fly patterns, life stages, and your local waters.</div>';
+  }
+}
+
+function renderHatchPanel(){
+  const hasConds=conds.clarity||conds.flow||conds.temp;
+  const groupBugs=bugs.filter(b=>b.group===selectedGroup);
+  const g=GROUPS.find(g=>g.id===selectedGroup);
+  let html=`<div class="group-hatch-list">
+    <div class="divider">${g.name} — select a hatch</div>
+    <div class="bug-grid">`;
+  groupBugs.forEach(bug=>{
     const active=bug.months.includes(NOW);
     const matches=bugMatches(bug);
     const sel=selectedBug&&selectedBug.id===bug.id;
     let cls='bug-card';
     if(sel)cls+=' selected';
     if(hasConds&&!matches)cls+=' dimmed';
-    return`<div class="${cls}" onclick="selectBug('${bug.id}')">
+    html+=`<div class="${cls}" onclick="selectBug('${bug.id}')">
       <div class="bname">${bug.name}</div>
       <div class="bsub">${bug.latin.split(' ')[0]}</div>
       ${active?'<div class="bnow">&#9679; hatching now</div>':''}
     </div>`;
-  }).join('');
+  });
+  html+=`</div></div>`;
+  document.getElementById('group-hatch-panel').innerHTML=html;
 }
 
 function selectBug(id){
   selectedBug=bugs.find(b=>b.id===id);
   selectedStage=Object.keys(selectedBug.stages)[0];
-  renderGrid();
+  if(!selectedGroup)selectedGroup=selectedBug.group;
+  renderGroupRow();
+  renderHatchPanel();
   renderDetail();
+  document.getElementById('detail-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function selectStage(s){selectedStage=s;renderDetail();}
@@ -729,7 +807,7 @@ function renderDetail(){
     </div>`;
 }
 
-renderGrid();
+renderGroupRow();
 
 function toggleMenu(){
   document.getElementById('nav-dropdown').classList.toggle('open');
