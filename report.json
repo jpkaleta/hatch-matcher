@@ -1,10 +1,10 @@
 {
-  "updated": "2026-06-11",
+  "updated": "2026-07-09",
   "source": "High Country Fly Fishing Guides and Locals",
   "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-june/",
   "conditions": {
-    "overall": "Wild streams have been fishing well after recent rain, with water levels dropping but fish still active and eating well. Tailwaters on both the Watauga and South Holston are seeing all-day generation with high water flows.",
-    "flow": "normal",
+    "overall": "Wild streams have been fishing well after recent rain, with a brief sweet spot as water cleared but hadn't fully dropped. Water levels have since fallen but fish are still active and feeding.",
+    "flow": "low",
     "clarity": "clear",
     "temp": "cool"
   },
@@ -13,121 +13,84 @@
       "name": "Yellow Sally",
       "size": "#12-14",
       "img": "Stimulator-Yellow.png",
-      "note": "Wild water dry fly recommendation for WNC streams."
+      "note": "Recommended for wild streams as part of the dry dropper setup."
     },
     {
       "name": "Sulphur",
       "size": "#14-16",
-      "img": "Sulphur-Dun.png",
-      "note": "Wild water dry fly recommendation for WNC streams. Sulphur hatches have been occurring in droves on the Watauga in the evening."
+      "img": "Sparkle-Dun-Sulphur.png",
+      "note": "Recommended for wild streams as part of the dry dropper setup."
     },
     {
       "name": "Yellow Rubber Leg Stimulator",
       "size": "#12-14",
       "img": "Stimulator-Leg-Yellow.png",
-      "note": "Wild water dry fly recommendation for WNC streams."
+      "note": "Recommended for wild streams as part of the dry dropper setup."
     },
     {
       "name": "Yellow Humpy",
       "size": "#12-14",
       "img": "Humpy-Yellow.png",
-      "note": "Wild water dry fly recommendation for WNC streams."
+      "note": "Recommended for wild streams as part of the dry dropper setup."
     },
     {
       "name": "Yellow Chernobyl",
       "size": "#14",
       "img": "Chubby-Chernobyl-Golden-Stone.png",
-      "note": "Wild water dry fly recommendation for WNC streams."
+      "note": "Recommended for wild streams as part of the dry dropper setup."
     },
     {
       "name": "Frenchie",
       "size": "#18",
       "img": "Frenchie.png",
-      "note": "Wild water nymph recommendation for WNC streams."
+      "note": "Nymph recommended for wild streams, use smaller flies to avoid commotion on the surface."
     },
     {
       "name": "Perdigons",
       "size": "#18-20",
       "img": "Perdigon-Black.png",
-      "note": "Wild water nymph recommendation for WNC streams."
+      "note": "Nymph recommended for wild streams, use smaller flies to avoid commotion on the surface."
     },
     {
       "name": "Sulphur Nymph",
       "size": "#18",
       "img": "Sulphur-Nymph.png",
-      "note": "Wild water nymph recommendation for WNC streams. Also recommended on tailwaters at #16-18."
+      "note": "Nymph recommended for wild streams, use smaller flies to avoid commotion on the surface."
     },
     {
       "name": "Blowtorch",
       "size": "#18",
       "img": "Duracell.png",
-      "note": "Wild water nymph recommendation for WNC streams."
-    },
-    {
-      "name": "Sulphur Dries",
-      "size": "#14-18",
-      "img": "Sulphur-Dun.png",
-      "note": "Tailwater recommendation; sulphur hatches have been occurring in droves on the Watauga in the evening. High water on the Holston should jump start the sulphur hatch."
-    },
-    {
-      "name": "Chernobyl",
-      "size": "#12",
-      "img": "Chubby-Chernobyl-Golden-Stone.png",
-      "note": "Tailwater recommendation for the Watauga and South Holston."
-    },
-    {
-      "name": "Frenchie",
-      "size": "#18-20",
-      "img": "Frenchie.png",
-      "note": "Tailwater nymph recommendation for the Watauga and South Holston."
-    },
-    {
-      "name": "Zebra Midges",
-      "size": "#18-22",
-      "img": "Zebra-Midge-Black.png",
-      "note": "Tailwater nymph recommendation for the Watauga and South Holston."
-    },
-    {
-      "name": "Soft Hackle",
-      "size": "#16-18",
-      "img": "Soft-Hackle-PT-Bead.png",
-      "note": "Tailwater recommendation for the Watauga and South Holston."
-    },
-    {
-      "name": "Baetis Nymph",
-      "size": "#18-20",
-      "img": "BH-Pheasant-Tail.png",
-      "note": "Tailwater nymph recommendation for the Watauga and South Holston."
+      "note": "Nymph recommended for wild streams, use smaller flies to avoid commotion on the surface."
     }
   ],
   "tactics": [
-    "The best fishing on wild streams was after the water cleared up but hadn't fallen out completely \u2014 this 'sweet spot' lasted for a couple of days.",
+    "The best fishing on wild streams came after the water cleared up but hadn't fallen out completely \u2014 capitalize on that sweet spot after rain events.",
     "As water levels drop, stay back from the hole you're fishing as much as possible to avoid spooking fish.",
-    "Use smaller dry flies and nymphs to avoid causing a ton of commotion on the surface as water levels drop.",
-    "Dry dropper fishing is recommended for wild creeks.",
-    "On tailwaters, follow the TVA generation schedule \u2014 when rivers return to low flow, the first day of low water can be spectacular for wade fishing.",
-    "Sulphur hatches have been occurring in droves on the Watauga in the evening \u2014 time your fishing accordingly.",
-    "Always check current dam release schedules from TVA before heading out \u2014 flows can change without notice."
+    "Use smaller dry flies and nymphs to avoid causing too much commotion on the surface \u2014 this will pay dividends in low water.",
+    "Dry dropper fishing is the recommended approach for the wild creeks.",
+    "Delayed Harvest season ends June 6 \u2014 once catch-and-keep opens on NC delayed harvest streams, fishing drops off quickly; seek other stream options for a better shot at catching fish.",
+    "For wade fishermen on the Watauga and South Holston tailwaters, follow the TVA generation schedule closely when targeting fish on foot."
   ],
   "waters": [
     {
       "name": "Wild Streams (Western North Carolina)",
-      "note": "Fishing well after recent rain; fish are still happy and eating well even as water levels have dropped back down."
+      "note": "Fishing well after recent rain. Best action came while water was clearing but still slightly elevated. Fish are still happy and eating well even as levels have dropped further."
     },
     {
-      "name": "Delayed Harvest Streams (Western North Carolina)",
-      "note": "Delayed Harvest season ends June 6, opening to catch-and-keep. Once harvest is allowed, fishing drops off quickly. DSO recommends seeking other stream options. Next stocking will occur in October and November."
+      "name": "NC Delayed Harvest Streams",
+      "note": "Delayed Harvest season ends June 6, 2026. Once catch-and-keep opens, fishing drops off quickly. DSO recommends seeking other stream options. Next stocking will occur in October and November."
     },
     {
-      "name": "Watauga River",
-      "note": "Seeing all-day generation; fishing great on high water. Sulphur hatches occurring in droves in the evening. Better conditions for drift boat anglers than wade fishermen at current flows."
+      "name": "Watauga River (Tailwater, East Tennessee)",
+      "note": "After months of low water, all-day generation is now occurring. Fishing great on high water for drift boat anglers. Wade fishermen should follow the generation schedule."
     },
     {
-      "name": "South Holston River",
-      "note": "Seeing all-day generation after months of low water. Reports haven't been as good as the Watauga but folks are still catching fish. High water should jump start the sulphur hatch."
+      "name": "South Holston River (Tailwater, East Tennessee)",
+      "note": "All-day generation now occurring after months of low flows. Reports haven't been as good as the Watauga, but folks are still catching fish. Wade fishermen should follow the generation schedule."
     }
   ],
   "elevation_note": "High Country streams (Boone, 3300-4000ft) run 1-2 weeks behind lower-elevation WNC",
-  "stocking_alert": true,
-  "stocking_note": "Delayed Harvest streams open to catch-and-keep on June 6. The next stocking of NC Delayed Harvest streams will occur in October and November."
+  "stocking_alert": false,
+  "stocking_note": "NC Delayed Harvest streams will not be stocked again until October and November, following the end of the Delayed Harvest season on June 6, 2026."
 }
