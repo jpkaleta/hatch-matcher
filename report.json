@@ -1,120 +1,17 @@
 {
-  "updated": "2026-08-27",
+  "updated": "2026-09-17",
   "source": "High Country Fly Fishing Guides and Locals",
-  "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-august/",
+  "source_url": "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/",
   "conditions": {
-    "overall": "The Watauga River has been fishing excellently with feeder streams adding extra water and fish feeding well. The South Holston is running high with consistent 24/7 dam releases and sulphur hatches occurring during generations.",
-    "flow": "high",
-    "clarity": "clear",
-    "temp": "cool"
+    "overall": "",
+    "flow": "",
+    "clarity": "",
+    "temp": ""
   },
-  "top_flies": [
-    {
-      "name": "Chernobyl",
-      "size": "#12-14",
-      "img": "Chubby-Chernobyl-Golden-Stone.png",
-      "note": "Watauga River recommendation."
-    },
-    {
-      "name": "Caddis Dry",
-      "size": "#16-18",
-      "img": "X-Caddis-Tan.png",
-      "note": "Watauga River \u2014 below the Doe there is a lot of caddis activity."
-    },
-    {
-      "name": "Zebra Midge",
-      "size": "#20-22",
-      "img": "Zebra-Midge-Black.png",
-      "note": "Watauga River recommendation; above the Doe normal summer bugs including midges."
-    },
-    {
-      "name": "Baetis Nymph",
-      "size": "#18-22",
-      "img": "BH-Hares-Ear-Olive.png",
-      "note": "Watauga River \u2014 above the Doe it's normal summer bugs including baetis."
-    },
-    {
-      "name": "Frenchie",
-      "size": "#18-20",
-      "img": "Frenchie.png",
-      "note": "Watauga River recommendation."
-    },
-    {
-      "name": "Caddis Nymph",
-      "size": "#16-20",
-      "img": "BH-Caddis-Pupa-Olive.png",
-      "note": "Watauga River recommendation \u2014 caddis activity noted below the Doe."
-    },
-    {
-      "name": "Pat's Rubber Leg",
-      "size": "#12-14",
-      "img": "Stimulator-Leg-Yellow.png",
-      "note": "Watauga River recommendation."
-    },
-    {
-      "name": "Chubby Chernobyl",
-      "size": "#12-14",
-      "img": "Chubby-Chernobyl-Golden-Stone.png",
-      "note": "South Holston recommendation."
-    },
-    {
-      "name": "Sulphur Dry",
-      "size": "#14-18",
-      "img": "Sulphur-Dun.png",
-      "note": "South Holston \u2014 sulphur hatches occurring during generations."
-    },
-    {
-      "name": "Sulphur Nymph",
-      "size": "#16-18",
-      "img": "Sulphur-Nymph.png",
-      "note": "South Holston recommendation during sulphur hatch conditions."
-    },
-    {
-      "name": "Zebra Midge",
-      "size": "#18-22",
-      "img": "Zebra-Midge-Black.png",
-      "note": "South Holston recommendation."
-    },
-    {
-      "name": "Sow Bug",
-      "size": "#16-18",
-      "img": "Flashback-PT.png",
-      "note": "South Holston recommendation."
-    },
-    {
-      "name": "Scud",
-      "size": "#16-18",
-      "img": "BH-Caddis-Pupa-Olive.png",
-      "note": "South Holston recommendation; scuds also noted as normal summer bugs above the Doe on the Watauga."
-    }
-  ],
-  "tactics": [
-    "On the Watauga, the dam does an hour pulse in the AM, normally from 6\u20137 AM, followed by normal rec flow beginning at 1 PM \u2014 time your fishing accordingly.",
-    "Above the Doe on the Watauga, focus on normal summer bugs: small midges, baetis, and scuds.",
-    "Below the Doe on the Watauga, target the heavy caddis activity with caddis dries and caddis nymphs.",
-    "On the South Holston, watch for sulphur hatches occurring during generation periods.",
-    "The South Holston dam is running 24/7 for the foreseeable future \u2014 always check current TVA release schedules before heading out, as flows can change without notice.",
-    "No stocking will occur in any delayed harvest streams in WNC until October \u2014 fish only wild streams in the area for now."
-  ],
-  "waters": [
-    {
-      "name": "Watauga River (East Tennessee)",
-      "note": "Fishing has been excellent. Feeder streams Doe and Stoney Creek have been pumping in extra water for at least a month, keeping fish happy and feeding well. Dam does an hour pulse AM from 6\u20137 AM, then normal rec flow from 1 PM."
-    },
-    {
-      "name": "Doe Creek",
-      "note": "Feeder stream to the Watauga \u2014 has been pumping in extra water for at least a month."
-    },
-    {
-      "name": "Stoney Creek",
-      "note": "Feeder stream to the Watauga \u2014 has been pumping in extra water for at least a month."
-    },
-    {
-      "name": "South Holston (East Tennessee)",
-      "note": "With Holston Lake nearing full pool, more generations have started. Sulphur hatches occurring during generations. Dam is running 24/7 for the foreseeable future. High water conditions after a long stretch without consistent releases."
-    }
-  ],
+  "top_flies": [],
+  "tactics": [],
+  "waters": [],
   "elevation_note": "High Country streams (Boone, 3300-4000ft) run 1-2 weeks behind lower-elevation WNC",
   "stocking_alert": false,
-  "stocking_note": "No stocking will occur in any delayed harvest streams in WNC until October."
+  "stocking_note": ""
 }
