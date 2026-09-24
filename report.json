@@ -1,17 +1,155 @@
 {
-  "updated": "2026-09-17",
+  "updated": "2026-09-24",
   "source": "High Country Fly Fishing Guides and Locals",
-  "source_url": "https://duesouthoutfitters.com/due-south-outfitters-fly-fishing-report/",
+  "source_url": "https://duesouthoutfitters.com/western-north-carolina-east-tennessee-fly-fishing-report-september/",
   "conditions": {
-    "overall": "",
-    "flow": "",
-    "clarity": "",
-    "temp": ""
+    "overall": "Wild water levels are low and larger streams have seen heavy pressure this summer, with some larger rivers on the cusp of being too warm on certain days. More success is being found on smaller, cooler streams at higher elevation.",
+    "flow": "low",
+    "clarity": "clear",
+    "temp": "warm"
   },
-  "top_flies": [],
-  "tactics": [],
-  "waters": [],
+  "top_flies": [
+    {
+      "name": "Chubby Chernobyl",
+      "size": "#14-16",
+      "img": "Chubby-Chernobyl-Golden-Stone.png",
+      "note": "Listed for wild water as part of a light and small dry dropper setup."
+    },
+    {
+      "name": "Elk Hair Caddis",
+      "size": "#12-14",
+      "img": "EHC-Olive.png",
+      "note": "Listed for wild water dry dropper fishing."
+    },
+    {
+      "name": "Rubber Leg Stimulator",
+      "size": "#12-14",
+      "img": "Stimulator-Leg-Yellow.png",
+      "note": "Listed for wild water dry dropper fishing."
+    },
+    {
+      "name": "Beetle",
+      "size": "#12-14",
+      "img": "Foam-Beetle.png",
+      "note": "Listed for wild water fishing."
+    },
+    {
+      "name": "Frenchie",
+      "size": "#18-20",
+      "img": "Frenchie.png",
+      "note": "Listed as a dropper for wild water; also listed for delayed harvest (#16-18), Watauga River (#18-20), and South Holston (#18-20)."
+    },
+    {
+      "name": "Perdigon",
+      "size": "#18-20",
+      "img": "Perdigon-Black.png",
+      "note": "Listed for wild water, Watauga River, and South Holston fishing."
+    },
+    {
+      "name": "Blowtorch",
+      "size": "#18",
+      "img": "Duracell.png",
+      "note": "Listed for wild water fishing."
+    },
+    {
+      "name": "Zebra Midge",
+      "size": "#18-20",
+      "img": "Zebra-Midge-Black.png",
+      "note": "Listed for wild water (#18-20), delayed harvest (#16-20), Watauga River (#18-24), and South Holston (#16-22)."
+    },
+    {
+      "name": "Egg Pattern",
+      "size": "",
+      "img": "San-Juan-Worm-Red.png",
+      "note": "Listed for delayed harvest streams."
+    },
+    {
+      "name": "Squirmy Worm",
+      "size": "",
+      "img": "Squirmy-Worm.png",
+      "note": "Listed for delayed harvest streams and South Holston."
+    },
+    {
+      "name": "Mop Fly",
+      "size": "",
+      "img": "Griffiths-Gnat.png",
+      "note": "Listed for delayed harvest streams."
+    },
+    {
+      "name": "Pat's Rubber Leg",
+      "size": "",
+      "img": "Stimulator-Leg-Olive.png",
+      "note": "Listed for delayed harvest streams."
+    },
+    {
+      "name": "Wooly Bugger",
+      "size": "",
+      "img": "Woolly-Bugger-Black.png",
+      "note": "Listed for delayed harvest streams."
+    },
+    {
+      "name": "Midge Dries",
+      "size": "#18-22",
+      "img": "CDC-RS2.png",
+      "note": "Listed for the Watauga River."
+    },
+    {
+      "name": "Sulphur Dry",
+      "size": "#14-18",
+      "img": "Sulphur-Dun.png",
+      "note": "Reports of sulphur hatches in the afternoon on the South Holston once the water comes on."
+    },
+    {
+      "name": "Scud / Sow Bug Patterns",
+      "size": "#16-18",
+      "img": "BH-Pheasant-Tail.png",
+      "note": "Listed for South Holston fishing."
+    }
+  ],
+  "tactics": [
+    "Focus on smaller, cooler streams at higher elevation that are off the beaten path \u2014 larger wild streams have seen heavy summer pressure and can be too warm some days.",
+    "Light and small dry droppers has been the name of the game on wild water.",
+    "On the Watauga River, the morning pulse (6\u20137 AM release) makes the fishing better \u2014 that burst of cold water cools everything down and gets the bugs moving. On days without a morning release, fishing has been tougher.",
+    "On the South Holston, wade fishermen have opportunities in the morning before the afternoon release; drift boat anglers have water in the afternoon.",
+    "Watch for sulphur hatches on the South Holston in the afternoon once the water comes on.",
+    "Always check current dam release schedules from TVA before heading out \u2014 flows can change without notice.",
+    "For delayed harvest streams, use the NC daily stocking report tool to confirm when a stream was stocked before making the trip, as stocking dates are more spread out this year across October and November."
+  ],
+  "waters": [
+    {
+      "name": "Wild Creeks (Western North Carolina)",
+      "note": "Smaller, cooler wild creeks off the beaten path are producing the most success. Larger wild streams have seen heavy pressure and can be too warm some days."
+    },
+    {
+      "name": "Watauga River (East Tennessee)",
+      "note": "Morning pulse release (6\u20137 AM) improves fishing by cooling the water and getting bugs moving. Fishing is tougher on days without a morning release. Expected to improve as temperatures drop closer to October."
+    },
+    {
+      "name": "South Holston (East Tennessee)",
+      "note": "Releasing water in the afternoon daily. Wade fishermen have morning opportunities; drift boats fish in the afternoon. Sulphur hatches reported in the afternoon when water comes on."
+    },
+    {
+      "name": "Watauga River \u2014 Valle Crucis & Lower DH section",
+      "note": "Delayed harvest stocking scheduled for October 12\u201316."
+    },
+    {
+      "name": "Helton Creek",
+      "note": "Delayed harvest stocking scheduled for September 28\u2013October 2."
+    },
+    {
+      "name": "Big Horse Creek",
+      "note": "Delayed harvest stocking scheduled for October 5\u20139."
+    },
+    {
+      "name": "New River (Todd Island Park)",
+      "note": "Delayed harvest stocking scheduled for October 12\u201316."
+    },
+    {
+      "name": "Wilson Creek",
+      "note": "Delayed harvest stocking scheduled for October 12\u201316."
+    }
+  ],
   "elevation_note": "High Country streams (Boone, 3300-4000ft) run 1-2 weeks behind lower-elevation WNC",
-  "stocking_alert": false,
-  "stocking_note": ""
+  "stocking_alert": true,
+  "stocking_note": "Delayed harvest stocking begins in approximately two weeks. This year stockings are more spread out across October and November rather than concentrated at the start of the month. Stocking schedule: Helton Creek (Sept 28\u2013Oct 2), Big Horse Creek (Oct 5\u20139), Watauga River/Valle Crucis & Lower DH (Oct 12\u201316), New River/Todd Island Park (Oct 12\u201316), Wilson Creek (Oct 12\u201316). Use the NC daily stocking report tool to confirm before fishing."
 }
